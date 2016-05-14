@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+/*
+desc: tests of C# generics
+link: http://www.tutorialspoint.com/csharp/csharp_generics.htm
+*/
 namespace UnitTestProject1.Generics
 {
     [TestClass]
