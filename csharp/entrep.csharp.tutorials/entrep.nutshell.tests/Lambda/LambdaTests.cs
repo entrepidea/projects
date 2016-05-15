@@ -3,6 +3,12 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+
+/*
+desc: anonymous function in C# is called lambda. Anonymous functions have different uses such as sorting, closure, currying and more complex ones
+such as map, filter and fold.
+link: https://en.wikipedia.org/wiki/Anonymous_function
+*/
 namespace entrep.nutshell.tests.Lambda
 {
     /// <summary>
@@ -13,9 +19,6 @@ namespace entrep.nutshell.tests.Lambda
     {
         public LambdaTests()
         {
-            //
-            // TODO: Add constructor logic here
-            //
         }
 
         private TestContext testContextInstance;
