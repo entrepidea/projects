@@ -1,2 +1,3 @@
 # projects
-projects for algorithm, data structure, c++ and others
+tutorials for algorithm, data structure, c++ , c#, java, android and others.
+
