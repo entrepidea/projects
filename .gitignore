@@ -285,6 +285,7 @@ paket-files/
 *.war
 *.ear
 *.class
+*.log*
 
 # eclipse specific git ignore
 *.pydevproject
