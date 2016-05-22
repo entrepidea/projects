@@ -51,7 +51,7 @@ public class SerializableTests {
 	}
 	@Test
 	public void writeTest() throws IOException {
-		FileOutputStream fos = new FileOutputStream(new File("resources/data/Foo.ser"));
+		FileOutputStream fos = new FileOutputStream(new File("foo.ser"));
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		oos.writeObject(new Foo(1, "john"));
 		oos.close();
@@ -59,7 +59,7 @@ public class SerializableTests {
 	}
 	@Test
 	public void readTest() throws ClassNotFoundException, IOException{
-		FileInputStream fis = new FileInputStream(new File("resources/data/foo.ser"));
+		FileInputStream fis = new FileInputStream(new File("foo.ser"));
 		ObjectInputStream ois = new ObjectInputStream(fis);
 		Foo foo = (Foo)ois.readObject();
 		Assert.assertEquals(1, foo.getId());
