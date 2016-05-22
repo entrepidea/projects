@@ -6,6 +6,19 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 
+ * @desc:
+ * boxed primitives is a performance nightmare when it's used in substitutes to its primitive counterpart. 
+ * the boxing and unboxing are very expensive, as shown below, when we use Long  to replace long 
+ * in a time-consuming iterations, the performance deteriorates
+ *(the boxing version takes 39 sec to complete the summary while the primitive one takes only 7 seconds.
+ *
+ *
+ * @source Effective Java, 2nd Edition, Item 49, Prefer primitive types to boxed primitives, p223
+ *
+ */
+
 public class BoxingTests {
 
 	private static Logger log = LoggerFactory.getLogger(BoxingTests.class);
