@@ -68,5 +68,18 @@ namespace entrep.nutshell.tests.Lambda
             Console.WriteLine(foo(5));
             Assert.AreEqual(25, foo(5));
         }
+
+        [TestMethod]
+        public void PredicateTest() {
+            List<int> l = new List<int>();
+            for(int i = 0; i < 10; i++)
+            {
+                l.Add(i + 1);
+            }
+
+            int n = l.FindLast(x => x < 10);
+            Console.WriteLine("The largest number less than 10 is: {0}", n);
+            Assert.AreEqual(9, n);
+        }
     }
 }
