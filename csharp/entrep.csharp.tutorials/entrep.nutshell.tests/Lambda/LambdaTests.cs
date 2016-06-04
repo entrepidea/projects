@@ -81,5 +81,18 @@ namespace entrep.nutshell.tests.Lambda
             Console.WriteLine("The largest number less than 10 is: {0}", n);
             Assert.AreEqual(9, n);
         }
+
+        private String Foo(Func<String, int, String> func)
+        {
+            String str = "Hello";
+            int n = 3;
+            return func(str, n);
+        }
+
+        [TestMethod]
+        public void FuncTest() {
+            String s = Foo((str, n) => str.Substring(0, n));
+            Assert.AreEqual("Hel", s);
+        }
     }
 }
