@@ -28,34 +28,39 @@ import junit.framework.Assert;
  * @link: ...
  * 
  * */
+
+
+class Foo implements Serializable {
+	private static final long serialVersionUID = -2910515220268212971L;
+	private int id;
+	private String name;
+	
+	
+	public Foo(int i, String n){
+		id = i;
+		name = n;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+}
+
+
+
 public class SerializableTests {
 
 	//FOO, a dummy class used for testing serializable and externizable interfaces.
-	public static class Foo implements Serializable {
-		private static final long serialVersionUID = -2910515220268212971L;
-		private int id;
-		private String name;
-		
-		
-		public Foo(int i, String n){
-			id = i;
-			name = n;
-		}
-		
-		public int getId() {
-			return id;
-		}
-		public void setId(int id) {
-			this.id = id;
-		}
-		public String getName() {
-			return name;
-		}
-		public void setName(String name) {
-			this.name = name;
-		}
-		
-	}
 	@Test
 	public void writeTest() throws IOException {
 		FileOutputStream fos = new FileOutputStream(new File("foo.ser"));
@@ -74,6 +79,8 @@ public class SerializableTests {
 		ois.close();
 		fis.close();
 	}
+	
+
 	
 	//Test to persist a link list
 	@Test
@@ -169,5 +176,47 @@ public class SerializableTests {
 		ByteOutputStream bos = new ByteOutputStream();
 		ObjectOutputStream oos = new ObjectOutputStream(bos);
 		oos.writeObject(f3);
+	}
+	
+	
+	
+	
+	//Test - test the version compatibility of serializable objects.
+	//refer to
+	//1. http://stackoverflow.com/questions/38188027/experiment-with-incompatibility-of-java-serilization
+	//2. ensure proper version control for serialized object
+	//http://www.javaworld.com/article/2071731/core-java/ensure-proper-version-control-for-serialized-objects.html
+	public static class Incompatible implements Serializable {
+		private static final long serialVersionUID = 1L;
+		private int i;
+		public Incompatible(int i){
+			this.i = i;
+		}
+		public int getI(){
+			return i;
+		}
+	}
+	
+	public static class IncompFoo extends Incompatible {
+		private static final long serialVersionUID = 3L;
+		public IncompFoo(int i){
+			super(i);
+		}
+	}
+	
+	@Test
+	public void incompatibleTest() throws IOException, ClassNotFoundException{
+		/*FileOutputStream fos = new FileOutputStream(new File("foo.ser"));
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(new IncompFoo(10));
+		oos.close();
+		*/
+		
+		FileInputStream fis = new FileInputStream(new File("foo.ser"));
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		IncompFoo foo = (IncompFoo)ois.readObject();
+		ois.close();
+		Assert.assertEquals(10, foo.getI());
+		
 	}
 }
