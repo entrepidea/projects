@@ -10,7 +10,7 @@ public class SpringBootStrapper1 {
     public static void main(String[] args){
         //pay attention to see how directory is located in relation to the project.
         //use prefix "file:" if you want to use absolution path to the config xml file.
-        //multiple config files can be loaded using wildcard *, as shown below.
+        //multiple config files can be loaded using wildcard * too.
         FileSystemXmlApplicationContext ac = new FileSystemXmlApplicationContext
         		("/src/main/resources/config/META-INF/spring/spring-bootstrap.xml");
         ac.registerShutdownHook();

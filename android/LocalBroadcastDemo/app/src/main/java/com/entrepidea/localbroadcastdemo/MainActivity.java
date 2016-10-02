@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    //this receiver didn't pick up - why?
     private BroadcastReceiver handler2 = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {

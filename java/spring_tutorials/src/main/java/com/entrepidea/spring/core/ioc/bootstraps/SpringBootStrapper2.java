@@ -6,12 +6,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 public class SpringBootStrapper2 {
-
     private static final Logger log = LoggerFactory.getLogger(SpringBootStrapper2.class);
     public static void main(String[] args){
-        //pay attention to see how directory is located in relation to the project.
-        //use prefix "file:" if you want to use absolution path to the config xml file.
-        //multiple config files can be loaded using wildcard *, as shown below.
         ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext
         		("classpath:/config/META-INF/spring/spring-bootstrap.xml");
         ac.registerShutdownHook();
@@ -20,5 +16,4 @@ public class SpringBootStrapper2 {
         log.info("user name:={}",ds.getUsername());
         ac.close();
     }
-
 }
