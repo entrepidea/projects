@@ -1,13 +1,13 @@
 package com.entrepidea.java.ui.swing;
 
-import javax.swing.SwingUtilities;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
-import junit.framework.TestCase;
+import javax.swing.SwingUtilities;
 
-public class InvokeAndWaitTest extends TestCase {
+
+
+public class InvokeAndWaitTest {
 	class SayHelloWorld implements Runnable{
 		@Override
 		public void run(){

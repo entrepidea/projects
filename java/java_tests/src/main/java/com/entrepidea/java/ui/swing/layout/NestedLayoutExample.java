@@ -1,4 +1,4 @@
-package com.entrepidea.java.ui.swing.PragamOfInterest.layout;
+package com.entrepidea.java.ui.swing.layout;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
