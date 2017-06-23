@@ -1,19 +1,17 @@
 package com.entrepidea.java.collection.tests;
 /**
- * @author Hai YI
+ * @author J.E.Y
  *
  * @description this is to demo the usage of the Interface BlockingQueue, using the P-C model. The BlockingQueue
- * stops receiving more elements when it's blocked. Familiar yourselves with its implementations:ArrayBlockingQueue, 
+ * stops receiving more elements when it's full. Familiarilize yourselves with its implementations:ArrayBlockingQueue,
  * DelayQueue, LinkedBlockingQueue, PriorityBlockingQueue, SynchronousQueue
- * 
- * @see also an old fasion implementation of P-C model at com.entrepidea.java.concurrent.P_C.PCTest;
+ *
  */
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Random;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.*;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -89,6 +87,158 @@ public class QueueTests {
 		service.execute(new Producer(queue));
 		service.execute(new Consumer(queue));
 	}
+
+
+	/**
+	 * Simple Queue tests
+	 * Create a simple implementation of a queue class.
+	 * and add blocking feature
+	 * */
+	interface Queue<T>{
+		 T take();
+		 void put(T t);
+	}
+
+	//below is an implementation of a simple queue structure
+	//the code is from here: https://codereview.stackexchange.com/questions/64258/array-implementation-of-queue
+	//refer to this link: http://stackoverflow.com/questions/2536692/a-simple-scenario-using-wait-and-notify-in-java
+	// to learn how to add blocking feature to the queue so that it can be safely used by multiple threads
+	class SimpleQueue<T> implements Queue<T>{
+
+		private int front;
+		private int rear;
+		int size;
+		T[] queue;
+
+		public SimpleQueue(int inSize) {
+			size = inSize;
+			queue = (T[]) new Object[size];
+			front = -1;
+			rear = -1;
+		}
+
+		public boolean isempty() {
+			return (front == -1 && rear == -1);
+		}
+
+		@Override
+		public synchronized void  put(T value) {
+			while ((rear+1)%size==front) { //the queue is full
+				//throw new IllegalStateException("Queue is full");
+				try {
+					wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+
+			if (isempty()) {
+				front++;
+				rear++;
+				queue[rear] = value;
+
+			} else {
+				rear=(rear+1)%size;
+				queue[rear] = value;
+
+			}
+
+			notifyAll();
+
+		}
+
+		@Override
+		public synchronized T take() {
+			T value = null;
+			while (isempty()) {
+				//throw new IllegalStateException("Queue is empty, cant dequeue");
+				try {
+					wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			if (front == rear) {
+				value = queue[front];
+				front = -1;
+				rear = -1;
+
+			} else {
+				value = queue[front];
+				front=(front+1)%size;
+
+			}
+
+			notifyAll();
+			return value;
+
+		}
+
+		@Override
+		public String toString() {
+			return "Queue [front=" + front + ", rear=" + rear + ", size=" + size
+					+ ", queue=" + Arrays.toString(queue) + "]";
+		}
+	}
+
+	class PrimitiveProducer implements Runnable{
+
+		Queue<Integer> queue;
+		PrimitiveProducer(Queue<Integer> q){
+			queue = q;
+		}
+		@Override
+		public void run() {
+			Random rn = new Random();
+			while(true){
+				int i = rn.nextInt()%100;
+				System.out.println("putting "+i);
+				queue.put(i);
+				//wait for 5 sec
+				try {
+					TimeUnit.SECONDS.sleep(5);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	class PrimitiveConsumer implements Runnable{
+
+		Queue<Integer> queue;
+
+		PrimitiveConsumer(Queue<Integer> q){
+			queue = q;
+		}
+		@Override
+		public void run() {
+			while(true){
+				int i = queue.take();
+				try {
+					TimeUnit.SECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				System.out.println("taking "+i);
+			}
+		}
+	}
+
+	@Test
+	public void testSimpleQueue(){
+		Queue<Integer> newQueue = new SimpleQueue<>(5);
+		PrimitiveProducer p = new PrimitiveProducer(newQueue);
+		PrimitiveConsumer c = new PrimitiveConsumer(newQueue);
+		ExecutorService exe = Executors.newCachedThreadPool();
+		exe.submit(p);
+		exe.submit(c);
+
+		while(true){}
+
+	}
+
+
+
 
 
     /**

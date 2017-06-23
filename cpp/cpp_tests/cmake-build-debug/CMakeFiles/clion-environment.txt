@@ -1,0 +1,2 @@
+ToolSet: 3.22@C:\Users\jonat\opt\minGW
+CMake: 3.6.3@C:\Users\jonat\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\163.13906.4\bin\cmake\bin\cmake.exe

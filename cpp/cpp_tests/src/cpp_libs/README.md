@@ -1,0 +1,1 @@
+This folder is roughly in line with those in the traditional STL library such as algorithm, container, func, etc.

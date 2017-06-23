@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/jonat/projects/github/cpp/cpp_tests/src/cpp_libs/containers.cpp
+containers.h
+C:/Users/jonat/projects/github/cpp/cpp_tests/src/cpp_libs/containers.h
+
+C:/Users/jonat/projects/github/cpp/cpp_tests/src/cpp_libs/containers.h
+vector
+-
+cstddef
+-
+string
+-
+list
+-
+
+C:/Users/jonat/projects/github/cpp/cpp_tests/src/main.cpp
+iostream
+-
+cpp_libs/containers.h
+C:/Users/jonat/projects/github/cpp/cpp_tests/src/cpp_libs/containers.h
+

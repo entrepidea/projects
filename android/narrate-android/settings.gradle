@@ -1,2 +1,0 @@
-include ':app', ':bypass', ':PhotoView', ':ViewPagerIndicatorLibrary'
-include ':materialdatetimepicker'

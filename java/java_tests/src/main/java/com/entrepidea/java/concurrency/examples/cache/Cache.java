@@ -1,6 +1,8 @@
 package com.entrepidea.java.concurrency.examples.cache;
 
 import com.entrepidea.java.concurrency.examples.cache.support.NewsPost;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import retrofit2.Call;
 import retrofit2.GsonConverterFactory;
 import retrofit2.Response;
@@ -32,6 +34,7 @@ interface NewsPostsService {
 * */
 public abstract class Cache<K,V extends Object> implements Computable<K,V> {
 
+    protected static Logger log = LoggerFactory.getLogger(Cache.class);
 
 
     private Map<K,V> buffer;
@@ -71,12 +74,6 @@ public abstract class Cache<K,V extends Object> implements Computable<K,V> {
     * Use the cache in an innocent cache - w/o thread-protection.
     * */
     public abstract NewsPost getNewsPosts();
-
-
-
-    //more thread-safe techniques and tools, TODO ...
-
-
 
     public void invalidate(){
         if(buffer!=null){

@@ -8,7 +8,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
 @ImportResource("classpath:config/META-INF/spring/spring-bootstrap.xml")
-@PropertySource("classpath:config/application.properties")
+@PropertySource("classpath:/config/application.properties")
 public class SpringConfig {
 
 	@Bean

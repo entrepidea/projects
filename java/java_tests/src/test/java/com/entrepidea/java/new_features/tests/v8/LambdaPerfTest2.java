@@ -8,7 +8,7 @@ import java.util.List;
 /*
  * Lamda replaces anonymous inner class hence improves the readability; 
  * and the retrofitted collections for lambda use internal iteration rather than using external
- * iteration. these are the two good things I can perceived.
+ * iteration. these are the two good things I can think of.
  * As of performance, there is no evidence that lambda is better than non-lambda version.
  * 
  * https://www.reddit.com/r/java/comments/2suvir/java_8_lambda_performance_is_not_great/  
@@ -32,6 +32,6 @@ public class LambdaPerfTest2 {
 		for(Double d : list){
 			if(d<min){min = d;}
 		}
-		System.out.println("take : "+(System.nanoTime()-start) + " ns to complete the regular way.");
+		System.out.println("take : "+(System.nanoTime()-start) + " ns to complete the regular way. The min is: "+min);
 	}
 }

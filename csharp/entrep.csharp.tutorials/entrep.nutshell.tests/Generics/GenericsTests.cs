@@ -12,6 +12,25 @@ link: http://www.tutorialspoint.com/csharp/csharp_generics.htm
 */
 namespace UnitTestProject1.Generics
 {
+    class MyGenericArray<T>
+    {
+        private T[] array;
+        public MyGenericArray(int size)
+        {
+            array = new T[size + 1];
+        }
+
+        public T getItem(int index)
+        {
+            return array[index];
+        }
+
+        public void setItem(int index, T value)
+        {
+            array[index] = value;
+        }
+    }
+
     [TestClass]
     public class GenericsTests
     {
