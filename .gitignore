@@ -377,3 +377,6 @@ captures/
 
 # Keystore files
 *.jks
+
+#python
+*.pyc
