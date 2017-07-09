@@ -7,12 +7,10 @@ import com.entrepidea.imgurdnloadr.base.BaseView;
  * Created by jonat on 6/29/2017.
  */
 
-public class DownloadContract {
+public interface DownloadContract {
     interface View extends BaseView<Presenter> {
-
     }
 
     interface Presenter extends BasePresenter {
-
     }
 }

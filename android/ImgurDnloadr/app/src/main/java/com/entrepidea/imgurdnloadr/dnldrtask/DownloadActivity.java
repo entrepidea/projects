@@ -26,9 +26,7 @@ public class DownloadActivity extends AppCompatActivity {
             transaction.commit();
         }
         //crate a presenter
-        downloadPresenter = new DownloadPresenter(downloadFragment); //presenter needs a reference of the view (fragment)
-
-
-
+        downloadPresenter = new DownloadPresenter(downloadFragment); //pass the view reference to the presenter
+        downloadFragment.setPresenter(downloadPresenter); //pass the presenter reference to the view
     }
 }

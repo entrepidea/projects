@@ -8,6 +8,7 @@ import com.annimon.stream.Stream;
 import com.entrepidea.imgurdnloadr.dnldrtask.model.Datum;
 import com.entrepidea.imgurdnloadr.dnldrtask.model.Image;
 import com.entrepidea.imgurdnloadr.dnldrtask.model.ImageRepo;
+import com.entrepidea.imgurdnloadr.dnldrtask.model.ImgurService;
 
 import java.util.List;
 
@@ -26,7 +27,6 @@ public class DownloadPresenter implements DownloadContract.Presenter{
 
     public DownloadPresenter(DownloadContract.View view){
         mDownloadView = view;
-        mDownloadView.setPresenter(this); //the view needs a reference of the presenter.
     }
 
     @Override

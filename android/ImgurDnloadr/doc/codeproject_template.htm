@@ -1,0 +1,230 @@
+﻿<!DOCTYPE HTML>
+<!--------------------------------------------------------------------------->  
+<!--                           INTRODUCTION                                
+
+ The CodeProject article submission template (HTML version)
+
+Using this template will help us post your article sooner. To use, just 
+follow the 3 easy steps below:
+ 
+     1. Fill in the article description details
+     2. Add links to your images and downloads
+     3. Include the main article text
+
+That's all there is to it! All formatting will be done by our submission
+scripts and style sheets. 
+
+-->  
+<!--------------------------------------------------------------------------->  
+<!--                        IGNORE THIS SECTION                            -->
+<html>
+<head>
+<title>CodeProject</title>
+<Style>
+BODY, P, TD { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10pt }
+H2,H3,H4,H5 { color: #ff9900; font-weight: bold; }
+H2 { font-size: 13pt; }
+H3 { font-size: 12pt; }
+H4 { font-size: 10pt; color: black; }
+PRE { BACKGROUND-COLOR: #FBEDBB; FONT-FAMILY: "Courier New", Courier, mono; WHITE-SPACE: pre; }
+CODE { COLOR: #990000; FONT-FAMILY: "Courier New", Courier, mono; }
+</style>
+<link type="text/css" rel="stylesheet" 
+      href="https://codeproject.global.ssl.fastly.net/App_Themes/CodeProject/Css/Main.min.css">
+</head>
+<body bgcolor="#FFFFFF" color=#000000>
+<!--------------------------------------------------------------------------->  
+
+
+<!-------------------------------     STEP 1      --------------------------->
+<!--  Fill in the details (CodeProject will reformat this section for you) -->
+
+<pre>
+Title:       A simple image fetching Android app using MVP pattern
+Author:      Jonathan E. Yee
+Email:       jonathan.eahy.yee@gmail.com
+Language:    Android
+Platform:    Android
+Technology:  Android
+Level:       Beginner
+Description: A simple image fetching app using MVP pattern
+Section      Android
+SubSection   Android
+License:     <a href="https://www.codeproject.com/info/cpol10.aspx">CPOL</a>
+</pre>
+
+<!-------------------------------     STEP 2      --------------------------->
+<!--  Include download and sample image information.                       --> 
+
+<ul class=download>
+<li><a href="imgurdnloadr.apk">Download demo project - 1834 Kb </a></li>
+<li><a href="ImgurDnloadr_src.zip">Download source - 142 Kb</a></li>
+</ul>
+
+<p><img src="Screenshot.png" alt="Sample Image - maximum width is 600 pixels" 
+        style="width:300; height:533px"></p>
+
+<!-------------------------------     STEP 3      --------------------------->
+
+<!--  Add the article text. Please use simple formatting (<h2>, <p> etc)   -->
+
+<h2>Introduction</h2>
+
+<p><strong>ImgurDner</strong> is an experimental Android app that downloaded hot images from <a href="http://imgur.com">imgur.com</a>. It was architected with the popular MVP, or Model View & Presenter pattern. </p>
+
+<h2>Background</h2>
+
+<p>While employing design patterns is not a prerequisite to developing a mobile app, architectural patterns such as MVC or MVP help achieve a separation of concerns of the code: distinguishing modules responsible for views from modules for business logic; establishing effective communication channels between GUI and backend data. In addition, unit tests become easier and the code’s readability and maintenance are noticeably enhanced.  </p>
+
+<h2>Using the code</h2>
+
+<p>
+For the sake of a to-the-point demonstration, the author keeps the code simple enough so that readers can focus on the architectural aspect of the code to grasp an understanding about the use of MVP pattern in Android programming.<br/>
+
+In MVP pattern, the Presenter acts as a “middle-man” between the View and the Model. It establishes a two way communication with a View module: taking inputs from the View as requested by the Model; at the same time, retrieving results from the Model and directly updating the GUI via the View's methods (this is a distinctive feature of MVP from MVC pattern).
+<br/>
+
+The project consists of five major java files:
+<ul>
+<li><strong>DownloadActivity</strong> and <strong>DownloadFragment</strong>, these two files are the View modules (though it's mostly Fragment's job. Android recommends to use fragment over activity for UI purpose);</li>
+<li><strong>DownloadContract</strong>, an interface that hosts View sub interface and Presenter interface;</li>
+<li><strong>DownloadPresenter</strong>, the presenter interface's implementation, acting as an liaison between View and Model</li>
+<li><strong>ImgurService</strong>, an Inteface class in compliance with the <a href="http://square.github.io/retrofit/">Retrofit HTTP client framework</a> protocol for easy and asynchronous web service access.</li>
+</ul>
+</p>
+
+<p><strong>DownloadActivity.java</strong> is responsible for creating a Presenter's instance and passing the reference to the fragment component; the activity class is also responsible for passing the fragment, which is a View implementation, to the Presenter.  By completing these two steps, the view and the presenter now have a two-way communication. Be noted that one difference between MVP and MVC patterns is that in MVP presenter can manipulate UI rendering via the view reference.</p>
+
+<pre>
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
+		...
+        //retrieve the reference to the fragment
+        DownloadFragment downloadFragment = (DownloadFragment)getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+        if(downloadFragment == null){
+            downloadFragment = DownloadFragment.newInstance();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.add(R.id.contentFrame, downloadFragment);
+            transaction.commit();
+        }
+        //crate a presenter
+        downloadPresenter = new DownloadPresenter(downloadFragment); //pass the view reference to the presenter
+        downloadFragment.setPresenter(downloadPresenter); //pass the presenter reference to the view
+    }
+...</pre>
+
+<p>It's a common practice to use a Contract interface in MVP pattern, which is consisted of two sub interfaces. </p>
+<ul>
+<li><strong>View interface</strong>. Normal Android Fragment classes would implement this interface.</li>
+<li><strong>Presenter interface</strong>, which includes basic presenter's functionalities. Any concrete Presenter classes would at least implement this interface.</li>
+</ul>
+<pre>
+public interface DownloadContract {
+    interface View extends BaseView<Presenter> {
+    }
+
+    interface Presenter extends BasePresenter {
+    }
+}
+
+public interface BasePresenter {
+    void start();
+}
+
+public interface BaseView<T> {
+    void setPresenter(T presenter);
+}
+</pre>
+The concrete Presenter class does the heavy lift of fetching data from a web service. In this case, we use <a href="http://api.imgur.com">imgur.com's API</a> to access its rich image repository. 
+<br/>
+In order to access imgur's webservice we use <a href="http://square.github.io/retrofit/">Retrofit HTTP client framework</a>. Brief steps are shown below:<br/>
+First we define an interface with the web service's URL
+<pre>
+public interface ImgurService {
+
+    String URL = "https://api.imgur.com/3/gallery/hot/viral/0.json";
+
+    @Headers({
+            "Authorization: Client-ID XXXXXXXXX",
+            "User-Agent: XXXXXXXXXXXXXXXXXXXXXXXXX"
+    })
+    @GET("/")
+    void getAllImages(Callback<Image> cb);
+}
+</pre>
+
+Then we retrieve the data by following Retrofit's coding convention, once succeeded, the presenter calls View's method to update the UI:
+<pre>
+ImgurService restInterface =  new RestAdapter.Builder().setEndpoint(ImgurService.URL).build().create(ImgurService.class);
+            restInterface.getAllImages(new retrofit.Callback<Image>() {
+                @Override
+                public void success(Image model, retrofit.client.Response response) {
+                    List<Datum> images = model.getData();
+                    for(Datum img : images){
+                        Log.d(TAG, img.getLink());
+                    }
+                    List<Datum> jpgImgs = Stream.of(images).filter(p -> p.getLink().contains(".jpg")||p.getLink().contains(".gif")).collect(Collectors.toList());
+                    ImageRepo.newInstance().setImages(jpgImgs);
+                    ((DownloadFragment)mDownloadView).updateUI();
+                    ((DownloadFragment)mDownloadView).stopSpin();
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    Log.e(TAG, error.getMessage());
+                }
+            });
+</pre>
+<strong>Be noted</strong>: the classes such as <strong>Datum</strong> or <strong>Image</strong> are Java classes transformed from JSON stream (the data format used by imgur's web service). Handling java objects are much comfortable than parsing raw JSON streams for developers. This JSON<->Java objects transformation is known as Marshalling/Unmarshalling and can be achieved via technologies such as <a href="https://github.com/FasterXML/jackson-docs">Jackson</a>.<br/>
+<br/>
+
+<strong>Wait a minute, here I have a better idea though</strong>, follow these two simple steps:
+<ul>
+<li>Use a HTTP client utility, my favorite is <a href="https://www.getpostman.com/">postman</a> to fetch the data in JSON</li>
+<br/><br/>
+<img src="postman.png"/>
+<br/>
+<br/>
+<li>Take one unit of the data from the above result and paste it into this <a href="http://www.jsonschema2pojo.org/">online utility</a> so that its schema can be read out to generate a bunch of Java classes, only one click away.</li>
+<br/>
+<br/>
+<img src="jsonschema2pojo.png"/>
+</ul>
+ 
+
+
+
+<h2>Points of Interest</h2>
+
+<p>
+<ul>
+	<li>MVP pattern is used for separation of concerns;</li>
+	<li>The app fetch the image data from <a href="https://api.imgur.com/">imgur's webservice</a>;</li>
+	<li><a href="http://square.github.io/retrofit/">Retrofit HTTP client framework</a> is used for data fetching purpose;</li>
+	<li><a href="http://square.github.io/picasso/">Picasso image library</a> is used for image rendering.</li>
+</ul>
+</p>
+
+<h2>How to use the code</h2>
+
+<p>It's easy. Start Android Studio, load the downloaded source and click "Run" </p>
+<table border="0">
+<tr>
+<td><img src="as.png"/><td/><td><img src="android_simulator.png"/><td/>
+</tr>
+</table>
+<h2>Reference</h2>
+<ul>
+<li><a href="https://github.com/googlesamples/android-architecture">https://github.com/googlesamples/android-architecture</a></li>
+</ul>
+<h2>History</h2>
+<ul>
+<li>07/07/2017, initial version</li>
+<li><strong>For latest code and document update, please visit my blog at <a href="http://entrepidea.com/blogs/tech/index.php/2017/07/02/an-image-download-android-app-showcasing-mvp-pattern/">http://www.entrepidea.com/blogs/tech</a>, any questions, drop a line at <a mailto="support@entrepidea.com">support@entrepidea.com</a></strong></li>
+</ul>
+
+<!-------------------------------    That's it!   --------------------------->
+</body>
+
+</html>
+

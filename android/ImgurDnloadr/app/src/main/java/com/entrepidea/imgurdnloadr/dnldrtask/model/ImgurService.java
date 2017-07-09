@@ -1,4 +1,4 @@
-package com.entrepidea.imgurdnloadr.dnldrtask;
+package com.entrepidea.imgurdnloadr.dnldrtask.model;
 
 import com.entrepidea.imgurdnloadr.dnldrtask.model.Image;
 
