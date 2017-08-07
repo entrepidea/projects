@@ -1,5 +1,23 @@
 //: Playground - noun: a place where people can play
 
+
+
+//README first:
+
+//This playground is used to practice the swift language guide (https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309)
+//each chapter is so indicated on the comments, useful notes are made from within the relevant code snippets.
+
+//for example:
+/**
+ Control Flow
+ **/
+//useful notes w.r.t Control glow
+
+
+//please NOTE that the above rules are not enforced till the section control flow. 
+//Hence any code snippets before control flow are to be retrofitted.
+
+
 import Cocoa
 
 
@@ -191,4 +209,122 @@ let hourInterval = 3
 for tickMark in stride(from: 3, through:hour, by:hourInterval ){
     print(tickMark, terminator:"\t")
 }
+
+
+//array: interesting methods taking closure 
+//filter
+let bigNums: [Int] = [1,45,300,5,200].filter({$0>20})
+print (bigNums)
+//map
+let strArr: [String] = [1,2,3].map({String($0)})
+print(strArr)
+//reduce
+let sum = [1,2,3].reduce(0, +)
+let minus = [1,2,3].reduce(10, -)
+
+//String
+let hello: String = "Hello"
+var greet: String = hello + " there"
+if let firstSpace = greet.characters.index(of: " "){
+    greet.insert(contentsOf: " you".characters, at: firstSpace)
+}
+
+
+/**
+ control flow
+ **/
+
+let newnames = ["Anna","Alex", "Brian", "Jack"]
+for name in newnames {
+    print("hello, \(name)!")
+}
+
+let numoflegs = ["spider":8, "ant":6, "cat":4]
+for (animalName, legCount) in numoflegs{
+    print("\(animalName) has \(legCount) legs!")
+}
+
+for index in 1...5 {
+    print ("\(index) times 5 is \(index*5)")
+}
+
+let base1 = 3
+let power1 = 10
+var answer1 = 1
+for _ in 1...power1 {
+    answer1 *= base1
+}
+print ("\(base1) to the power of \(power1) is \(answer1)")
+
+var temperature = 30
+if temperature <= 32 {
+    print("cold, consider wearing scarf")
+}
+
+let anotherChar : Character = "A"
+
+
+//please be very careful that the switch statement in Swift is quite different from that in other languages in that
+// NO fall through to next case in the abscent of "break" keyword.
+switch anotherChar {
+    case "a", "A":
+    print("the letter is A")
+default:
+    print("The letter is not A")
+}
+
+//switch can use interval or tuple as well, this is a powerful feature not found in other languages
+let somePnt = (1,1)
+switch somePnt {
+case (_,0):
+    print("\(somePnt) is at x-axis")
+case (0,0):
+    print("\(somePnt) is at origin")
+case (0, _):
+    print("\(somePnt) is at y-axis")
+case(-1...1,-1...1):
+    print("\(somePnt) is inside the area")
+default:
+    print("\(somePnt) is outside the area")
+}
+
+//fall through
+var intToDesc = 5
+var desc = "The number \(intToDesc) is"
+
+switch intToDesc {
+case 2,3,5,7,11:
+    desc += " primary number and also"
+    fallthrough
+default:
+    desc += " an integer"
+}
+print (desc)
+
+//guard
+func greet (Person : [String: String]){
+    guard let name = Person["name"] else{
+        return
+    }
+    
+    print ("hello, \(name)")
+        
+    guard let location  = Person["location"] else{
+        print ("I hope the weather is nice near you")
+        return
+    }
+    print ("I hope the weather is nice in \(location)")
+    return
+}
+
+greet(Person: ["name": "John"])
+
+greet(Person: ["name":"Emily", "location": "Jersey City"])
+
+
+/**
+ Functions
+ **/
+
+
 
