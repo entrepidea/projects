@@ -325,6 +325,104 @@ greet(Person: ["name":"Emily", "location": "Jersey City"])
 /**
  Functions
  **/
+func greet(Person:String) -> String{
+    let ret = "Hello " + Person + "!"
+    return ret
+}
 
+print(greet(Person: "Anna"))
+print(greet(Person: "Brian"))
+
+func printAndCount(str: String) -> Int {
+    print(str)
+    return str.characters.count
+}
+
+func printWithoutCount(str:String){
+    let _ = printAndCount(str: str)
+}
+
+printAndCount(str: "Hello world!")
+printWithoutCount(str: "Hello, world!")
+
+//function return multiple values - use tuple
+func minMax(array : [Int]) -> (min : Int, max : Int) {
+    var curMin = array[0]
+    var curMax = array[0]
+    //todo
+    for val in array {
+        if val < curMin {
+            curMin = val
+        }
+        else if val > curMax{
+            curMax = val
+        }
+    }
+    return (curMin, curMax)
+}
+
+let bounds = minMax(array: [1,2,3,4,5])
+print ("min is \(bounds.min), and max is \(bounds.max). ")
+
+func greet2(person personName : String, from town : String) -> String {
+    return "Hello, \(personName) from \(town) !"
+}
+
+print (greet2(person: "Bill", from: "Cupertino"))
+
+func add(operand : Int, operand2 : Int) -> Int {
+    return operand + operand2
+}
+print (add(operand: 2, operand2: 3))
+
+//variadic
+func arithmeticMean(_ numbers:Double...) -> Double {
+    var total:Double = 0
+    for number in numbers {
+        total += number
+    }
+    return total / Double(numbers.count)
+    
+}
+
+print (arithmeticMean(1,2,3,4,5,6))
+
+
+//inout parameters
+func swap(_ a : inout Int, _ b : inout Int){
+    let temp = a
+    a = b
+    b = temp
+}
+
+var a1 : Int = 3
+var b1 : Int = 4
+swap(&a1,&b1)
+print ("\(a1), \(b1)")
+
+
+//function type
+func addTwoInt(_ a : Int, _ b : Int ) -> Int {
+    return a + b
+}
+func multipleTwoInt(_ a : Int, _ b: Int) -> Int {
+    return a * b
+}
+
+var mathFunc : (Int, Int) -> Int  = addTwoInt
+
+print (mathFunc(2,3))
+
+mathFunc = multipleTwoInt
+
+print (mathFunc(2,3))
+
+//function type as parameters
+func printMathFuncs(_ mathFunc : (Int, Int ) -> Int, _ a : Int, _ b : Int){
+    print(mathFunc(a,b))
+}
+
+printMathFuncs(addTwoInt, 2, 3)
+printMathFuncs(multipleTwoInt, 2, 3)
 
 
