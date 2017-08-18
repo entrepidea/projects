@@ -1,14 +1,15 @@
-package com.entrepidea.java.new_features.tests.v8;
+package com.entrepidea.java.new_features.tests.v8.lamda.support;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
-import org.junit.Test;
+/**
+ * Created by jonat on 8/18/2017.
+ */
+public class Person {
 
-enum Gender { MALE, FEMALE }
-class Person {
+    public enum Gender { MALE, FEMALE }
+
     private String givenName;
     private String surName;
     private int age;
@@ -217,96 +218,4 @@ class Person {
         return people;
     }
 
-}
-class RoboContactLambda {
-	public void phoneContacts(List<Person> pl, Predicate<Person> pred){
-		for(Person p:pl){
-			if (pred.test(p)){
-				roboCall(p);
-			}
-		}
-	}
-
-	public void emailContacts(List<Person> pl, Predicate<Person> pred){
-		for(Person p:pl){
-			if (pred.test(p)){
-				roboEmail(p);
-			}
-		}
-	}
-
-	public void mailContacts(List<Person> pl, Predicate<Person> pred){
-		for(Person p:pl){
-			if (pred.test(p)){
-				roboMail(p);
-			}
-		}
-	}
-
-	public void roboCall(Person p){
-		System.out.println("Calling " + p.getGivenName() + " " + p.getSurName() + " age " + p.getAge() + " at " + p.getPhone());
-	}
-
-	public void roboEmail(Person p){
-		System.out.println("EMailing " + p.getGivenName() + " " + p.getSurName() + " age " + p.getAge() + " at " + p.getEmail());
-	}
-
-	public void roboMail(Person p){
-		System.out.println("Mailing " + p.getGivenName() + " " + p.getSurName() + " age " + p.getAge() + " at " + p.getAddress());
-	}
-
-}
-
-
-public class LambdaTests {
-
-	@Test
-	public void PredicateTest() {
-		List<Person> pl = Person.createShortList();
-		RoboContactLambda robo = new RoboContactLambda();
-	    
-		//
-	    // 	Predicate is a function interface, others include
-		//	Consumer, Supplier, Function, UnaryOperator, BinaryOperator
-		//	see this link:
-		//	http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html
-		//
-	    Predicate<Person> allDrivers = p -> p.getAge() >= 16;
-	    Predicate<Person> allDraftees = p -> p.getAge() >= 18 && p.getAge() <= 25 && p.getGender() == Gender.MALE;
-	    Predicate<Person> allPilots = p -> p.getAge() >= 23 && p.getAge() <= 65;
-	    
-	    System.out.println("\n==== Test 04 ====");
-	    System.out.println("\n=== Calling all Drivers ===");
-	    robo.phoneContacts(pl, allDrivers);
-	    
-	    System.out.println("\n=== Emailing all Draftees ===");
-	    robo.emailContacts(pl, allDraftees);
-	    
-	    System.out.println("\n=== Mail all Pilots ===");
-	    robo.mailContacts(pl, allPilots);
-	    
-	    // Mix and match becomes easy
-	    System.out.println("\n=== Mail all Draftees ===");
-	    robo.mailContacts(pl, allDraftees);  
-	    
-	    System.out.println("\n=== Call all Pilots ===");
-	    robo.phoneContacts(pl, allPilots);    
-	    
-	}
-	
-	@Test
-	public void StreamTest(){
-		List<Person> people = Person.createShortList();
-		people.stream().filter(p->p.getAge()>=45&&p.getGender()==Gender.MALE).forEach(System.out::println);
-	}
-	
-	
-	//stream is discharged after being used. To keep a mutable list, we will create a list copy
-	//this is what collect is used for
-	@Test
-	public void CollectTest(){
-		List<Person> people = Person.createShortList();
-		List<Person> newGroup = people.stream().filter(p->p.getAge()<45).collect(Collectors.toList());
-		newGroup.forEach(System.out::println); //method reference
-	}
 }
