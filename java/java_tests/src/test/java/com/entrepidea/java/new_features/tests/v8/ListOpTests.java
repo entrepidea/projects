@@ -1,12 +1,16 @@
 package com.entrepidea.java.new_features.tests.v8;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class ListOpTests {
 
-	public static void main(String[] args) {
+	//this shows the right way to convert an array to a list
+	@Test
+	public void testProperConvert() {
 		// TODO Auto-generated method stub
 		String[] weekDays = new String[]{"Sunday", "Monday", "Tuesday", "Wednsday", "Thursday", "Friday","Satuaday"};
 		
