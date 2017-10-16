@@ -14,8 +14,8 @@
 //useful notes w.r.t Control glow
 
 
-//please NOTE that the above rules are not enforced till the section control flow. 
-//Hence any code snippets before control flow are to be retrofitted.
+//please NOTE that the above rules are not enforced till the section "control flow".
+//Hence any code snippets before "control flow" are to be refactored.
 
 
 import Cocoa
@@ -62,7 +62,7 @@ let 你好 = "你好世界"
 print(你好)
 
 var str2 = String("Hello world!")
-print(str2!)
+print(str2)
 var stra = "hello world"
 stra += "-------readers------"
 print(stra)
@@ -424,5 +424,155 @@ func printMathFuncs(_ mathFunc : (Int, Int ) -> Int, _ a : Int, _ b : Int){
 
 printMathFuncs(addTwoInt, 2, 3)
 printMathFuncs(multipleTwoInt, 2, 3)
+
+
+/**
+ closure
+ 
+ Closures in Swift are similar to blocks in C and Objective-C and to lambdas in other programming languages.
+ 
+ **/
+let arr = ["Alex","Bennie", "Zac","Jess", "John", "Jason", "Charley", "Zoe", "David"]
+
+func backward(_ s1 : String, _ s2 : String) -> Bool {
+    return s1 < s2
+}
+
+var reverseNames = arr.sorted(by: backward)
+
+print (reverseNames)
+
+reverseNames = arr.sorted(by:  {(s1, s2) -> Bool in return s1 < s2})
+print (reverseNames)
+
+
+reverseNames = arr.sorted(by: {s1,s2 in s1 < s2})
+print(reverseNames)
+
+reverseNames = arr.sorted(by: {$0 < $1})
+print ( reverseNames)
+
+reverseNames = arr.sorted(by: <)
+print(reverseNames)
+
+
+//trailing closure: the closure is used as function's parameter but its body is outside the parensis ()
+reverseNames = arr.sorted(){$0>$1}
+print(reverseNames)
+
+let digitNames = [
+    0: "Zero", 1: "One", 2: "Two",   3: "Three", 4: "Four",
+    5: "Five", 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine"
+]
+let numbers = [16, 58, 510]
+
+let transformed = numbers.map() {(number)->String in
+    var output = ""
+    var number = number
+    repeat {
+    output = digitNames[number % 10]! + output
+    number /= 10
+    }while number > 0
+    return output
+}
+print(transformed)
+
+
+//nested function
+func makeIncrement(forIncrement amount : Int) -> () -> Int{
+    var total = 0
+    func increment() -> Int {
+        total += amount
+        return total
+    }
+    return increment
+}
+
+let incrementByTen = makeIncrement(forIncrement: 10)
+print (incrementByTen())
+
+let incrementBySeven  = makeIncrement(forIncrement: 7)
+print (incrementBySeven())
+
+//escaping closure: 
+//A closure is said to escape a function when the closure is passed as an argument to the function, but is called after the function returns.
+func withNoEscapr(closure : () -> Void){closure()}
+
+var completeHandlers : [()->Void] = []
+func withEscapr(handler : @escaping ()-> Void){
+    completeHandlers.append(handler)
+}
+
+class Something{
+    var x = 10
+    func doSomething(){
+        withNoEscapr {
+            x = 200
+        }
+        withEscapr {
+            self.x = 100
+        }
+    }
+}
+
+let instance = Something()
+instance.doSomething()
+
+print(instance.x)
+
+completeHandlers.first?()
+print(instance.x)
+
+
+//auto closure
+var customerInLine = ["Chris", "Ewa", "Daniella", "Barry"]
+
+print (customerInLine.count)
+
+//auto closure wraps the expression
+let removeFirst = {customerInLine.remove(at: 0)}
+
+//auto closure not called yet, still print 4
+print (customerInLine.count)
+
+print ("now serving \(removeFirst())")
+print (customerInLine.count)
+
+
+
+/**
+ Enumeration
+ */
+
+//an enum's associated value can be of different types
+enum Barcode {
+    case upc(Int, Int, Int, Int)
+    case qrCode(String)
+}
+
+var productBarcode = Barcode.upc(8, 85909, 51226, 3)
+productBarcode = .qrCode("ABCDEFGHIJKLMNOP")
+switch productBarcode {
+case .upc(let numberSystem, let manufacturer, let product, let check):
+    print("UPC: \(numberSystem), \(manufacturer), \(product), \(check).")
+case .qrCode(let productCode):
+    print("QR code: \(productCode).")
+}
+
+//when enum's value is of String type, it's default value is the text of the variable itself.
+enum compassPoint : String{
+    case north, south, west, east
+}
+
+let sunsetDir = compassPoint.west.rawValue
+print (sunsetDir)
+
+
+/**
+ 
+ Classes and structures
+ */
+
+
 
 
