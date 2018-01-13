@@ -47,13 +47,11 @@ public class TimerTest {
 		}
 		@Override
 		public void run() {
-			// TODO Auto-generated method stub
 			download();
 		}
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Timer timer =  new Timer();
 		TimerTask task = new TimerTest().new GrabQuotes("SUNW");
 		long delay = 10000;

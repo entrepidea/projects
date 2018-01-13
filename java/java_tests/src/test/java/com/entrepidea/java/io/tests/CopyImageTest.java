@@ -52,7 +52,6 @@ public class CopyImageTest {
 				long end = System.nanoTime();
 				System.out.println("bulk copying: "+(end-start));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

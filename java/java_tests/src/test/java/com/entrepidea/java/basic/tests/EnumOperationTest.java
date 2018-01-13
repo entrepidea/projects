@@ -38,7 +38,7 @@ public class EnumOperationTest {
 				return x/y;
 			}			
 		};
-	
+
 	abstract public double apply(double x, double y);
 	}
 	

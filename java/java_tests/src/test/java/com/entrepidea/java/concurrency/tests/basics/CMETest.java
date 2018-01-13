@@ -6,6 +6,8 @@ package com.entrepidea.java.concurrency.tests.basics;
  * 
  * https://forums.oracle.com/forums/thread.jspa?threadID=1140657&tstart=150
  * */
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -34,8 +36,9 @@ public class CMETest implements Runnable {
 			}
 		}
 	}
-	
-	public static void main(String[] args){
+
+	@Test
+	public void test(){
 		Thread t = new Thread(new CMETest());
 		t.start();
 	}

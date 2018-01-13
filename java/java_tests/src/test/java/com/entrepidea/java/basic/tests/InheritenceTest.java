@@ -1,5 +1,6 @@
 package com.entrepidea.java.basic.tests;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,8 +32,8 @@ public class InheritenceTest {
     @Test
     public void test(){
         Base  obj = new Derive();
-        obj.print();
-        obj.foo();
+        obj.print();//should be "derive"
+        obj.foo(); //should be "derive" too.
 
     }
 }

@@ -40,7 +40,6 @@ class ResponseHandler implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
 		if(arg instanceof String ){
 			System.out.println("response: "+arg);
 		}
@@ -52,7 +51,6 @@ class AntiResponseHandler implements Observer{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
 		if(arg instanceof String){
 			System.out.println("anti reponse: not "+arg);
 		}
@@ -65,7 +63,6 @@ public class ObserverDemo {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		EventSource source = new EventSource();
 		//the observable, source, maintains a list of two observers
 		source.addObserver(new ResponseHandler());

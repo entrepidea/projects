@@ -12,14 +12,10 @@ package com.entrepidea.java.generic.tests;
  * */
 import java.util.HashMap;
 import java.util.Map;
-
 import org.junit.Test;
+import org.junit.Assert;
 
-import junit.framework.Assert;
-import junit.framework.TestCase;
-
-
-public class HeterogenousContainerTest extends TestCase {
+public class HeterogenousContainerTest {
 	
 	
 	class Favorites{

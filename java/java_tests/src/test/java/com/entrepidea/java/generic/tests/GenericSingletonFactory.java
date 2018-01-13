@@ -3,11 +3,8 @@ package com.entrepidea.java.generic.tests;
 import org.junit.Test;
 
 /**
- * 
- * @author Hai Yi
- * @description this is to demo generic singleton factory pattern. 
- * Effective Java 2nd edition, Item 27 is to be consulted for more details.	
- *
+ * @description this is to demo generic singleton factory pattern.
+ * Effective Java 2nd edition, Item 27.
  */
 public class GenericSingletonFactory {
 	

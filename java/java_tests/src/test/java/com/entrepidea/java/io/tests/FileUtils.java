@@ -146,10 +146,8 @@ public final class FileUtils {
 
 		//javaFont = java.awt.Font.createFont(java.awt.Font.TRUETYPE_FONT, fu.getClass().getResourceAsStream(font));
 	} catch (FontFormatException e1) {
-		// TODO Auto-generated catch block
 		e1.printStackTrace();
 	} catch (IOException e1) {
-		// TODO Auto-generated catch block
 		e1.printStackTrace();
 	}
   }
