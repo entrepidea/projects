@@ -1,11 +1,6 @@
 package com.entrepidea.spring.apps.WeatherReport;
 
 import com.entrepidea.spring.apps.WeatherReport.ui.MainFrame;
-import com.entrepidea.spring.apps.WeatherReport.ui.MainPanel;
-import com.entrepidea.spring.core.ioc.bootstraps.supports.Client;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.swing.*;

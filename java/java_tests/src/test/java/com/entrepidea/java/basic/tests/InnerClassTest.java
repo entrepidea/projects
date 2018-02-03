@@ -7,6 +7,7 @@ import org.junit.Test;
  * @author Hai Yi
  * @description this is an interview question in Barclays Capital. Question: if there is an inner class defined in a method, is it doable to access the variables
  * defined in that method? (as shown in the testMethod below ), the answer should be: only when those variables are final.
+ * updated on 01/14/2018: it doesn't seem to be the right answer - removing final doesn't appear to cause any problems. Try for yourself.
  *
  * Think more: 
  * 1.when the inner class is defined outside the method but inside the parent class (like InnerClass2 below), such restriction is removed; 

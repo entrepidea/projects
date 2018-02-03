@@ -1,6 +1,5 @@
 package com.entrepidea.java.basic.tests;
 
-import jdk.internal.org.objectweb.asm.commons.Method;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -51,7 +50,7 @@ public class ObjectTests {
 		Assert.assertEquals(i,Integer.class);
 	}
 
-	//When passing a reference as an argument list, it's a copy of the value of the reference being used inside the method body
+	//When passing a reference as an argument list, it's a copy of the value of the reference that is used inside the method
 	class Stud {
 		public String name;
 	}
