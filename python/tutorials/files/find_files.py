@@ -13,7 +13,7 @@ def find_ext(folder):
     return matches
 
 matches = find_ext('C:\\Users\\jonat\\.m2\\repository')
-print 'Total jar files number is ' + len(matches).__str__()
+print('Total jar files number is ' + len(matches).__str__())
 
 #copy files to another directory
 #if i use shutil it will complain permission denied.
@@ -21,6 +21,6 @@ print 'Total jar files number is ' + len(matches).__str__()
 #http://stackoverflow.com/questions/10575750/python-ioerror-errno-13-permission-denied
 dst = 'C:\\Users\\jonat\\projects\\temp\\jars'
 for file in matches:
-    print  (file)
+    print(file)
     copy(file, dst)
 

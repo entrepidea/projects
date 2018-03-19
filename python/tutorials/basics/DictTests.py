@@ -8,9 +8,9 @@ dict[2] = 'this is two'
 
 tinyDict = {'name':'john', 'code':4536, 'dept':'sale'}
 
-print dict['one']
+print (dict['one'])
 
-print dict[2]
+print (dict[2])
 
 print tinyDict
 
