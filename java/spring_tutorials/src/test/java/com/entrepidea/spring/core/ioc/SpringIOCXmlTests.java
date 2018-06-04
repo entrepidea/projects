@@ -11,8 +11,8 @@ import java.util.Set;
 
 import javax.sql.DataSource;
 
-import com.entrepidea.spring.core.ioc.supports.CommandManager;
-import com.entrepidea.spring.core.ioc.supports.Foo;
+import com.entrepidea.spring.core.ioc.supports.*;
+import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -20,6 +20,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -27,10 +28,7 @@ import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import com.entrepidea.spring.core.ioc.supports.ClientService;
-import com.entrepidea.spring.core.ioc.supports.ComplexObject;
-
+import org.springframework.scripting.groovy.*;
 
 /**
  * The tests under this package uses Spring XML style configuration
@@ -135,6 +133,14 @@ public class SpringIOCXmlTests {
 	}
 
 
+	//two most common scopes attributes of a bean are singleton and prototype. singleton is the default
+	//below will return true. The singleton in Spring is one per id per container, since Spring use a quasi key-value to cache singleton
+	// see explanation from: https://dzone.com/articles/an-interview-question-on-spring-singletons
+	@Test
+	public void testBeanScope(){
+		Assert.assertNotEquals(ac.getBean("clientService"), ac.getBean("clientService2"));
+	}
+
 	//Spring's environment abstraction covers system.getproperty and system.getenv
 	@Test
 	public void testPropertySource(){
@@ -145,48 +151,78 @@ public class SpringIOCXmlTests {
 	}
 
 
-	//<!-- this is supposed to be used for a MessageResource test -->
-	//Spring ApplicationContext's additional functionalities. MessageSource for I18N
-	//failed to work on 05/24/15 - fix it!
+	//Testing Spring bean's lifecycle interface: InitializingBean
 	@Test
-	@Ignore
-	public void testMessageSource(){
-		MessageSource msgSrc = new ClassPathXmlApplicationContext("/META-INF/spring/messageresource.xml");
-		String msg = msgSrc.getMessage("message", null, "Default", null);
-		LOGGER.info("message is {}",msg);
-		
-		Assert.assertEquals("Alligators rock!", msg);
-	}	
-	
-	@Autowired
-	private DataSource dataSource;
-	@Test
-	public void testH2InMemDataBase() throws SQLException, InterruptedException{
-		Connection conn = dataSource.getConnection();
-		conn.setAutoCommit(false);
-		PreparedStatement ps = conn.prepareStatement("Insert into TEST(FIELD1,FIELD2,FIELD3) values(?,?,?)");
-		ps.setString(1, "test1");
-		ps.setString(2, "test2");
-		ps.setString(3, "test3");
-		ps.addBatch();		
-		
-		ps.setString(1, "test11");
-		ps.setString(2, "test22");
-		ps.setString(3, "test33");
-		ps.addBatch();
-		
-		ps.setString(1, "test111");
-		ps.setString(2, "test222");
-		ps.setString(3, "test3333");
-		ps.addBatch();
-		
-		int[] batchSize = ps.executeBatch();
-		conn.commit();
-		System.out.println(batchSize);
-		
-
-		Thread.sleep(6000*10);
-		
-		
+	public void testBeanLifecycle1(){
+		ac.getBean("lifecycleBean1");
 	}
+	// test bean's lifecycle callbacks can be annotated, @PostConstructor and @PreDestroy as seen in LifecycleBean2's definition.
+	@Test
+	public void testBeanLifecycle2(){
+		ac.getBean("lifecycleBean2");
+	}
+
+	//test autowire on property
+	//when @Autowired is applied on a class's property, no <property> is required from xml configuration, thus no setter is required from the code.
+	//Spring will look up the autowired property and find the proper bean that was registered with xml config (based on  its name or type) and inject it into the property.
+	@Test
+	public void testAutowiredOnProp(){
+		Student s = (Student) ac.getBean("student");
+		Assert.assertEquals("John", s.getName());
+	}
+
+
+	//test propertyPlaceholderConfigurer
+	@Test
+	public void testPropertyPlaceHolderConfigurer(){
+
+		BasicDataSource db = (BasicDataSource) ac.getBean("basicDataSource");
+		Assert.assertEquals("org.hsqldb.jdbcDriver",db.getDriverClassName());
+	}
+
+	//10/08/14 phone interview with BNP Paribas, GWT UI developer position, Jersey City
+	//TODO 6. By default, Spring bean is singlton, what's the other type?
+	//TODO 7. What's autowired?
+
+	//BNP Paribas onsite, Jersey City, GWT UI programmer position, 10/14/2014
+	//TODO 2. How do you create a bean for a singleton class?
+	/*
+	* TODO 3. What's the difference b/w the Spring bean whose scope is "singleton" and a real singleton instance in Java?
+			We have:
+			<Bean id="id1" class="MyClass"/>
+			<Bean id="id2" class="MyClass"/>
+			Code like below, what is the result?
+			ApplicationContext ac = ...
+			MyClass b1 = ac.getBean("id1");
+			MyClass b2 = ac.getBean("id1");
+			MyClass b3 = ac.getBean("id2");
+
+			b1==b2  //return true or false?
+			b1==b3 //return true or false?
+
+			and Explain your answers.
+	* */
+
+	/*
+	* TODO 4. Setter injection and contructor injection? Whats the difference?
+
+			<Bean id="xyz" class="Xyzclass">
+			<property name="..." value="..."/>
+			<property name="..." value="..."/>
+			<property name="..." value="..."/>
+			</Bean>
+
+			What's sequence of instantiating the Xyzclass? Will its constructor be called? How exactly does it mean by "setter injection" v.s "constructor injection"?
+	* */
+
+	/*
+	* TODO 5. Will the below code throw an exception? if so, is it a compile error or a runtime exception? If not, will the spring resolve the issue?
+			Spring bean service1 has dependency on service2;
+			service2 has dependency on service 3;
+			service 3 has dependency on service 1;
+	*
+	* */
+
+	//TODO 7. Whats Spring's class to process property files? Say I have a DataSource bean in spring xml, it has properties such as url. The URL are in different property files per environment. How Spring uses properties files? Which class is to be used.
+
 }

@@ -11,10 +11,10 @@ I put code snippet under "test" so they serve as unit tests for certain knowledg
 
 An important side note:
 =======================
-annotation and java style configuration are now the mainstream of Spring programming.
+*annotation and java style configuration are now the mainstream of Spring programming.
 
-XML based configuration is discouraged to a point that you won't find them in the "main" programs.
+*XML based configuration is discouraged so that you won't find them in the "main" programs.
 
-That they are there under "test" simply serve the purpose of awareness and help gain a certain familiarity of legacy code.
+That XML metadata files are there under "test" simply serves a purpose of awareness of the basis from historical viewpoint and help gain a familiarity of legacy code when needed.
 
 

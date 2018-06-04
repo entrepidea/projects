@@ -112,5 +112,22 @@ public class VolatileTests {
         log.info("The final number is: {}",atomicInteger.get());
     }
 
+    //TODO 10. Explain JMM and happen-before model. (10/15/14, Markit on site)
+
+    /*
+    *
+    *   Morgan Stanley phone interview, 05/14/18
+        TODO 13.
+            int a=100;
+            volatile int x;
+            if(x==1){
+                print a;
+            }
+
+        In a single thread and multi-threading env, what would be result (or results) be? what if x is volatile and not volatile, what are the result(s)?
+
+    * */
+
+
 
 }

@@ -71,4 +71,28 @@ public class ThreadLocalTest {
 		es.awaitTermination(1, TimeUnit.MINUTES); //block until all threads complete their tasks. 1 min should be long enough
 	}
 
+
+	/*
+	* 12. Can thread has its own local members? Where are they saved?
+
+13. Explain ThreadLocal. How is it used in real project?
+
+14. Difference b/w process and thread.
+
+15. How do processes communicate with each other?
+
+16. If I have a primary process running on a node, two other processes running on two other nodes as standby. How do you implement the fail-over?
+
+
+TODO: 10/15/14, Markit on site
+	*
+	* **/
+
+	//TODO How to make a variable visible only to the current thread? (Blackrock, phone interview with Kenny Ma, 08/18/14)
+
+
+    //BNP Paribas onsite, Jersey City, GWT UI programmer position, 10/14/2014
+    //TODO 9. ThreadLocal, how do you use it? How is it used with a session?
+
+
 }

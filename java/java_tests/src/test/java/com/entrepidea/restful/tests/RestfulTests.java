@@ -1,12 +1,15 @@
 package com.entrepidea.restful.tests;
 
-import com.entrepidea.restful.tests.support.Country;
-import com.entrepidea.restful.tests.support.RestResponse;
-import com.entrepidea.restful.tests.support.Result;
+import com.entrepidea.restful.tests.support.*;
 import com.entrepidea.restful.tests.support.posts.NewsPost;
 import com.entrepidea.restful.tests.support.posts.Post;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import junit.framework.Assert;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.Test;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertEquals;
@@ -26,6 +29,7 @@ import retrofit2.http.Query;
 
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -33,7 +37,7 @@ import java.util.List;
  *the code is to test Restful ws APIs such as Spring's RestTemplate, GSON, Jackson, etc.
  *GSON and Jackson are used for data binding between JSON and Java POJO. A good tool to automatically construct a POJO based on JSON string is http://www.jsonschema2pojo.org/
  *
- * source: https://futurestud.io/tutorials/gson-getting-started-with-java-json-serialization-deserialization
+ * @source: https://futurestud.io/tutorials/gson-getting-started-with-java-json-serialization-deserialization
  *
  * */
 public class RestfulTests {
@@ -113,5 +117,46 @@ public class RestfulTests {
             e.printStackTrace();
         }
 
+    }
+
+    /*
+    * This is test that uses OkHttp3 API
+    * */
+    @Test
+    public void okHttpTest() throws IOException {
+        {
+            String url = "https://www.cryptocompare.com/api/data/coinlist/";
+            Request request = RequestGenerator.get(url);
+            Assert.assertNotNull(request);
+            RequestHandler requestHandler = new RequestHandler(new OkHttpClient());
+            String response = requestHandler.request(request);
+            Assert.assertNotNull(response);
+            JSONObject jsonObjs = new JSONObject(response);
+            org.junit.Assert.assertNotNull(!jsonObjs.isNull("Data"));
+            JSONObject data = (JSONObject)jsonObjs.get("Data");
+
+            Iterator<?> keys = data.keys();
+            while(keys.hasNext()){
+                String key = (String)keys.next();
+                Object val = data.get(key);
+                if ( val instanceof JSONObject ) {
+                    JSONObject value = (JSONObject)val;
+                    String coinUrl = (String)value.get("Url");
+                    System.out.println("Key="+key+", url="+coinUrl);
+                }
+            }
+
+            System.out.println("total coins counts: "+data.length());
+            //JSONArray results = jsonObjs.getJSONArray("Data");
+            //org.junit.Assert.assertNotNull(results);
+        }
+    }
+
+    //test of String <-> JSONObject conversion
+    @Test
+    public void testJSONObject(){
+        String str = "{ 'subs': ['5~CCCAGG~BTC~USD'] }";
+        JSONObject jsonObject = new JSONObject(str);
+        System.out.println(jsonObject.get("subs"));
     }
 }

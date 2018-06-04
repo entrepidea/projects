@@ -1,0 +1,71 @@
+c++/algo/SQL IV questions - BAML, 10/11/17, courtesy of Tanbin
+	
+	Question S1: given two tables
+	StudentName    {studentId, nonEmpty_fullName} and
+	StudentAddress{studentId, nonEmpty_address}
+	
+	print all students with missing name or missing address. StudentId is
+	
+	the primary key and a possible join column if you want to.
+
+
+Morgan Stanley Interview 05/17/17
+
+	How to diagnose a slow SQL? Explain plan
+	Plain SQL and Stored Proc, which is better? Why?
+	
+	What's primary key? What's unique key? Can we have nullable primary key?
+	primary key is a unique key but it can't be nullable. Both PK and UK is a column or a combine of columns that uniqiely identify a row. They are conceptually the same.
+	
+	What's difference b/w union and union all?
+	
+	What's left outer join? 
+	
+	Table A 
+	x, y
+	1,2
+	2,3
+	Table B
+	a, b
+	1,1
+	2,3
+	A left join B on A.x = B.a and A.y = B.b
+	what's the output?
+
+
+Blackrock, phone interview with Kenny Ma, 08/18/14	
+
+	Have  you done anything like data modeling from database side?
+	
+
+10/15/14, Markit on site	
+
+	20. primary key v.s. Unique key
+	21. cluster index v,s regular index
+	
+	22. 
+	There is a table with two columns:
+	name, value
+	A          1
+	A          2
+	A          3
+	B          1
+	B          2
+	B          3 
+	Write a query to list all groups with their 2nd largest value, so the output should be:
+	A          2
+	B          2
+	
+	(I used  a query on  a sub query to get the result, he agreed it worked, but say I did two iterations of the table, that's low efficient and since this is Oracle, he suggested looking into 
+	Analytic query).
+	
+	
+	23. I have a million records to be inserted to the database, what's the best approach to achieve it?	
+
+
+10/08/14 phone interview with BNP Paribas, GWT UI developer position, Jersey City
+	11. Whats table partition?
+	12. How do you do to improve performance for data retrival/saving?
+	13. What's composite primary key?	
+	
+	

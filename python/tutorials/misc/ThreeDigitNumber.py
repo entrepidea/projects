@@ -66,4 +66,4 @@ for i in range(123,329):
     else:
         s.add(z2)
 
-    print x0,x1,x2,',\t',y0,y1,y2,',\t',z0,z1,z2
+    print (x0,x1,x2,',\t',y0,y1,y2,',\t',z0,z1,z2)

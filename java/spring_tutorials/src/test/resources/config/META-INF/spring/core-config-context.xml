@@ -38,6 +38,8 @@
     </bean>
 
     <bean id="clientService" class="com.entrepidea.spring.core.ioc.supports.ClientService" init-method="createInstance"/>
+    <bean id="clientService2" class="com.entrepidea.spring.core.ioc.supports.ClientService" init-method="createInstance"/>
+
 
     <bean id="p_namespace" class="com.entrepidea.spring.core.ioc.supports.ClientService" init-method="createInstance" p:email="support@FakeCompany.com"/>
 
@@ -74,22 +76,33 @@
     	<property name="name" value="son"/>
     </bean>
     
-    
-    
-    
+    <!-- bean lifecycle tests -->
+    <!-- this is to test the InitializingBean and disposableBean interface -->
+    <bean id="lifecycleBean1" class="com.entrepidea.spring.core.ioc.supports.LifecycleBean1"/>
+    <bean id="lifecycleBean2" class="com.entrepidea.spring.core.ioc.supports.LifecycleBean2"/>
+
+    <bean id="student" class="com.entrepidea.spring.core.ioc.supports.Student"/>
+    <bean id="name" class="java.lang.String">
+        <constructor-arg value="John"/>
+    </bean>
+
+
+
+    <!-- Test PropertyPlaceHolderConfigurer -->
+    <!-- see official doc: 1.8.2 Customizing configuration metadata with a BeanFactoryPostProcessor -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath:database/jdbc.properties"/>
+    </bean>
+
+    <bean id="basicDataSource" destroy-method="close"
+          class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
     <!-- SpEL testing beans  -->
     <bean id="spelParser" class="com.entrepidea.spring.core.spel.supports.HelloWorldParser"/>
-    
-    
-    
-<!--  	<jdbc:embedded-database id="dataSource" type="H2"/>
-	<tx:annotation-driven transaction-manager="transactionManager" />
-	<context:component-scan base-package="com.entrepidea.spring" /> 
- -->  
- 
-  <!--  example of testing the life cycle of a bean, using the class to test -->
-<!--     <bean id="lc1" class="com.entrepidea.spring.core.lifecycle.LifecycleBean1"/>
-    <bean id="lc2" class="com.entrepidea.spring.core.lifecycle.LifecycleBean2"/> -->
-    
-          
- </beans>  
+
+ </beans>

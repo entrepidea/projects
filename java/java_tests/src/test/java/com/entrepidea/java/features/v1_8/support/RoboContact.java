@@ -1,4 +1,4 @@
-package com.entrepidea.java.lamda.support;
+package com.entrepidea.java.features.v1_8.support;
 
 import java.util.List;
 import java.util.function.Predicate;

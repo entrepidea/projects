@@ -16,7 +16,7 @@ def check(number1, myset):
     if other_number_failed(myset, number2): return
     number3 = 3 * number1
     if other_number_failed(myset, number3): return
-    print number1, number2, number3, myset
+    print (number1, number2, number3, myset)
     winners.append([number1, number2, number3])
 
 
@@ -32,4 +32,4 @@ for digit1 in (1, 2, 3):
             number1 = digit1 * 100 + digit2 * 10 + digit3
             if number1 > 329: break
             check(number1, {digit1, digit2, digit3})
-print "-- lucky winners --", winners
+print ("-- lucky winners --", winners)

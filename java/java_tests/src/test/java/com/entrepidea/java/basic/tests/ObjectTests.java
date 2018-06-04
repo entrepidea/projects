@@ -5,6 +5,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -43,11 +47,14 @@ public class ObjectTests {
 
 
 	 //getClass() an instance method that returns a runtime class type that the reference points to.
-	 //TODO: check out more basing on this link: https://stackoverflow.com/questions/13367173/getclass-vs-class
+	 //TODO: check out more from this link: https://stackoverflow.com/questions/13367173/getclass-vs-class
 	@Test
 	public void testGetClass() throws ClassNotFoundException {
 		Class i = new Integer(0).getClass();
 		Assert.assertEquals(i,Integer.class);
+
+		Number n = new Integer(1);
+		Assert.assertEquals(n.getClass(), Integer.class); //Integer.class is called Class Literal Notation.
 	}
 
 	//When passing a reference as an argument list, it's a copy of the value of the reference that is used inside the method
@@ -88,4 +95,115 @@ public class ObjectTests {
 	public void testVoidClass() throws NoSuchMethodException {
 		Assert.assertTrue(getClass().getMethod("foo").getReturnType()== Void.TYPE);
 	}
+
+	/**
+	 * Mogan stanley and HSBC interviews (by tan bin) 07/18/17
+	 * */
+
+	//MS
+/*
+1. TODO
+
+	class Base{
+		print(){
+			"base"
+		}
+	}
+	class Derive extends Base{
+		print(){
+			"derive"
+		}
+	}
+
+	Base o = new Derive();
+	o.print -> ?
+	*/
+
+	class Base{
+		public String print(){
+			return ("base");
+		}
+	}
+	class Derive extends Base{
+		@Override
+		public String print(){
+			return ("derive");
+		}
+	}
+
+	@Test
+	public void test(){
+		Base o = new Derive();
+		Assert.assertEquals(o.print(), "derive");
+	}
+
+/*
+2. TODO
+	class Base{
+		print(){"base"}
+		foo(){print}
+	}
+
+	class Derive extend Base{
+		print(){"derive"}
+		foo(){print}
+	}
+
+	Base o = new Derive();
+	o.print -> ?
+*/
+
+
+
+
+	//TODO: Explain final and finally, and usage in real life scenarios	(Morgan Stanley Interview 05/17/17)
+	//TODO: 9. Explain final keyword. (10/15/14, Markit on site)
+
+	/**
+	 * TODO:(10/15/14, Markit on site)
+	 * There is a class like below:
+
+	 class Person{
+	 Integer id;
+	 String name;
+	 Date dob;
+
+	 //constructor
+	 public Person(id, name, date) ...
+	 //getter
+	 }
+
+	 There is a Map<Person, String> map;
+	 map.put(new Person(1,"abc",t), "value");
+
+	 How to make this class absolutely immutable so that mistake like: p.getDate().setTime(0) won't happen?
+
+	 * */
+
+	//TODO 9. Explain final keyword. (10/15/14, Markit on site)
+
+	//phone Interview with Ted from BNP Paribas, 09/26/14
+	//TODO 1. Tell me 3 advantages of final key word of a member variable; how is it processed by compiler,
+	// if you are a compiler writer, why do you define/design a final variable?
+
+
+	//phone Interview with Ted from BNP Paribas, 09/26/14
+	//TODO 2. classical features of OO, and which one of them is the most important to you?
+
+
+	//phone Interview with Ted from BNP Paribas, 09/26/14
+	//TODO 6. How do you explain to a first time Java learner about hashCode/equals?
+
+	// 10/08/14 phone interview with BNP Paribas, GWT UI developer position, Jersey City
+	//TODO 2. what's interface?
+
+	// 10/08/14 phone interview with BNP Paribas, GWT UI developer position, Jersey City
+	//TODO 4. hashing in Java, explain.
+
+	//Morgan Stanley phone interview, 05/14/18
+	//TODO 2. Explain anonymous class.
+	//TODO 6. Different b/w int and Integer. Tell me more about Integer class. For example, is it inmutable
+	//TODO 7. Is String immutable? what's the benefit of immutable class? Why is String immutable?
+	//TODO 9. What's happened when the statement Object o = new Object(); is executed.
+
 }

@@ -84,4 +84,12 @@ public class InterThreadCommTest {
         t2.start();
         t1.start();
     }
+
+
+    //TODO: What's thread starvation? (Blackrock, phone interview with Kenny Ma, 08/18/14)
+
+
+    //TODO: What's the wait() condition? (Blackrock, phone interview with Kenny Ma, 08/18/14)
+
+    //TODO: How to wake up a sleeping thread?(Blackrock, phone interview with Kenny Ma, 08/18/14)
 }

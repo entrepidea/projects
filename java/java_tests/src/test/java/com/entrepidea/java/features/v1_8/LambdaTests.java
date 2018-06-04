@@ -1,7 +1,7 @@
-package com.entrepidea.java.lamda;
+package com.entrepidea.java.features.v1_8;
 
-import com.entrepidea.java.lamda.support.Person;
-import com.entrepidea.java.lamda.support.RoboContact;
+import com.entrepidea.java.features.v1_8.support.Person;
+import com.entrepidea.java.features.v1_8.support.RoboContact;
 import org.junit.Test;
 
 import java.util.ArrayList;

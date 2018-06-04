@@ -20,7 +20,7 @@ public class InnerClassTest {
 	
 	private String str1 = "str1";
 	
-	public void testMethod(){
+	public void testMethod(){ 
 		
 		final String str2 = "str2";
 
@@ -45,5 +45,11 @@ public class InnerClassTest {
 	public void test() {
 	    new InnerClassTest().testMethod();
 	}
+
+
+	//TODO 5. What're the disadvantage of using anonymous inner class?
+	//phone Interview with Ted from BNP Paribas, 09/26/14
+
+
 
 }

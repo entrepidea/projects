@@ -50,4 +50,7 @@ public class AtomicClassesTests {
         log.info("The final number is {}", ai.get());
     }
 
+
+    //TODO i++, is this statement thread safe, why? And how to fix it? (10/15/14, Markit on site)
+
 }

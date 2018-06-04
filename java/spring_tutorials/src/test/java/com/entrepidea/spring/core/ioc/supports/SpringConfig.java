@@ -23,7 +23,7 @@ import org.springframework.context.annotation.PropertySource;
  */
 
 @Configuration
-@ComponentScan("com.entrepidea.spring.core.support")
+@ComponentScan("com.entrepidea.spring.core")
 @PropertySource("classpath:/config/application.properties")
 public class SpringConfig {
 
@@ -42,11 +42,11 @@ public class SpringConfig {
     @Bean
     StudentRecord getStudentRecord(){ return new StudentRecord();}
 
-    @Bean(name="John")
+/*    @Bean(name="John")
     Student createJohn(){return new Student("John");}
 
     @Bean(name="Mary")
-    Student createMary(){return new Student("Mary");}
+    Student createMary(){return new Student("Mary");}*/
 
     /**
      *
