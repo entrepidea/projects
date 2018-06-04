@@ -6,9 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/jonat/projects/github/cpp/cpp_tests/src/cpp_libs/containers.cpp
-containers.h
-C:/Users/jonat/projects/github/cpp/cpp_tests/src/cpp_libs/containers.h
+C:/Users/jonat/projects/github/cpp/cpp_tests/src/cpp_libs/basics.h
 
 C:/Users/jonat/projects/github/cpp/cpp_tests/src/cpp_libs/containers.h
 vector
@@ -25,4 +23,6 @@ iostream
 -
 cpp_libs/containers.h
 C:/Users/jonat/projects/github/cpp/cpp_tests/src/cpp_libs/containers.h
+cpp_libs/basics.h
+C:/Users/jonat/projects/github/cpp/cpp_tests/src/cpp_libs/basics.h
 

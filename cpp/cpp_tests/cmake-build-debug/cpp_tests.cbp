@@ -82,7 +82,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/jonat/projects/github/cpp/cpp_tests/src/cpp_libs/containers.cpp">
+		<Unit filename="C:/Users/jonat/projects/github/cpp/cpp_tests/src/cpp_libs/basics.h">
 			<Option target="cpp_tests"/>
 		</Unit>
 		<Unit filename="C:/Users/jonat/projects/github/cpp/cpp_tests/src/cpp_libs/containers.h">

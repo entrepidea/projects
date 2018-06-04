@@ -122,33 +122,6 @@ cpp_tests/fast:
 	$(MAKE) -f CMakeFiles\cpp_tests.dir\build.make CMakeFiles/cpp_tests.dir/build
 .PHONY : cpp_tests/fast
 
-src/cpp_libs/containers.obj: src/cpp_libs/containers.cpp.obj
-
-.PHONY : src/cpp_libs/containers.obj
-
-# target to build an object file
-src/cpp_libs/containers.cpp.obj:
-	$(MAKE) -f CMakeFiles\cpp_tests.dir\build.make CMakeFiles/cpp_tests.dir/src/cpp_libs/containers.cpp.obj
-.PHONY : src/cpp_libs/containers.cpp.obj
-
-src/cpp_libs/containers.i: src/cpp_libs/containers.cpp.i
-
-.PHONY : src/cpp_libs/containers.i
-
-# target to preprocess a source file
-src/cpp_libs/containers.cpp.i:
-	$(MAKE) -f CMakeFiles\cpp_tests.dir\build.make CMakeFiles/cpp_tests.dir/src/cpp_libs/containers.cpp.i
-.PHONY : src/cpp_libs/containers.cpp.i
-
-src/cpp_libs/containers.s: src/cpp_libs/containers.cpp.s
-
-.PHONY : src/cpp_libs/containers.s
-
-# target to generate assembly for a file
-src/cpp_libs/containers.cpp.s:
-	$(MAKE) -f CMakeFiles\cpp_tests.dir\build.make CMakeFiles/cpp_tests.dir/src/cpp_libs/containers.cpp.s
-.PHONY : src/cpp_libs/containers.cpp.s
-
 src/main.obj: src/main.cpp.obj
 
 .PHONY : src/main.obj
@@ -185,9 +158,6 @@ help:
 	@echo ... edit_cache
 	@echo ... cpp_tests
 	@echo ... rebuild_cache
-	@echo ... src/cpp_libs/containers.obj
-	@echo ... src/cpp_libs/containers.i
-	@echo ... src/cpp_libs/containers.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
