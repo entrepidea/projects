@@ -129,5 +129,7 @@ public class VolatileTests {
     * */
 
 
+    //10/01/14, 5:30PM, BofA phone interview with Wilson
+    //TODO 11. Explain volatile and transient
 
 }

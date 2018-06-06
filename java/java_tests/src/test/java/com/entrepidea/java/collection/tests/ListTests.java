@@ -24,6 +24,7 @@ public class ListTests {
 
 	//TODO What's the difference b/w ArrayList and LinkedList? (Blackrock, phone interview with Kenny Ma, 08/18/14)
 
-	
+	//10/01/14, 5:30PM, BofA phone interview with Wilson
 	//TODO 4. Can you remove an element during iteration? How do you do it properly?
+	//TODO 5. Can you update elements in an arrayList if its reference is defined as "final". If so, what do you do to prevent it?
 }

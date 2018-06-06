@@ -27,7 +27,7 @@ import org.junit.Test;
  * 
  * @reference: http://www.blogjava.net/fidodido/archive/2005/10/11/15269.html
  */
-public class PCTest extends TestCase {
+public class ProdConsTests extends TestCase {
 
 	static class Product {
 		private int id;
@@ -146,5 +146,8 @@ public class PCTest extends TestCase {
 		new Consumer(products).start();
 
 	}
+
+	//10/01/14, 5:30PM, BofA phone interview with Wilson
+	//TODO 9. How do you implement Producer-consumer pattern?
 
 }

@@ -1,4 +1,4 @@
-package com.entrepidea.java.basic.tests;
+package com.entrepidea.java.features.v1_8;
 
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ import java.time.Month;
  * Since JDK 8
  * 
  * */
-public class TimeTest {
+public class TimeTests {
 
 	@Test
 	public void test() {

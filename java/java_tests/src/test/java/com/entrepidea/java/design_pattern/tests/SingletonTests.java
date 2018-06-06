@@ -14,5 +14,6 @@ package com.entrepidea.java.design_pattern.tests;
 public class SingletonTests {
     //TODO double-lock-check idiom
 
-
+    //10/01/14, 5:30PM, BofA phone interview with Wilson
+    //TODO 8. What design patterns can you name? What's singleton?
 }

@@ -3,7 +3,7 @@ package com.entrepidea.java.basic.tests;
 /*
 * This class include unit tests of knowledge points that don't fit into any categories
 * */
-public class OtherTests {
+public class MiscTests {
     //TODO Have you done Unit tests? Are you familiar with Mockito? (Blackrock, phone interview with Kenny Ma, 08/18/14)
 
     //TODO 3. What's the skill is the most important for a developer? (phone Interview with Ted from BNP Paribas, 09/26/14)

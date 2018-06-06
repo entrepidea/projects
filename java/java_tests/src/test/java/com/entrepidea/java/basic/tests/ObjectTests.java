@@ -206,4 +206,8 @@ public class ObjectTests {
 	//TODO 7. Is String immutable? what's the benefit of immutable class? Why is String immutable?
 	//TODO 9. What's happened when the statement Object o = new Object(); is executed.
 
+	//10/01/14, 5:30PM, BofA phone interview with Wilson
+	//TODO 7. Difference b/w StringBuffer and StringBuilder; and their difference with String?
+
+
 }
