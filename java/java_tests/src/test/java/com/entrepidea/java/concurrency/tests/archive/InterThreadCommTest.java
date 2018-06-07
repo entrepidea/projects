@@ -92,4 +92,7 @@ public class InterThreadCommTest {
     //TODO: What's the wait() condition? (Blackrock, phone interview with Kenny Ma, 08/18/14)
 
     //TODO: How to wake up a sleeping thread?(Blackrock, phone interview with Kenny Ma, 08/18/14)
+
+    //Instinet corp, phone interview
+    //TODO Whats the difference b/w wait and sleep?
 }

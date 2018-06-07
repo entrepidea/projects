@@ -100,4 +100,14 @@ public class MiscTests {
     //TODO what's multicast?
     //TODO how to create a round button in Java?
     //TODO how to make sure that the button only responds to the click inside the circle, but ignore the click outside the circle but inside the rectangle area?
+
+
+    //Renaissance Technologies, 05/08/14, 3PM
+    //TODO Write a Integer class mimic that one in JDK?
+    //TODO What’s the size of an object of that self-designed Integer class inside the memory?
+    //TODO ArrayList and LinkedList? Pro and con? Whats the size of the reference in LinkedList's node? JVM 64 bit v.s 32 bit.
+
+
+
+
 }

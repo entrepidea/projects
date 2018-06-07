@@ -155,4 +155,11 @@ public class HashMapTests {
 	//10/01/14, 5:30PM, BofA phone interview with Wilson
 	//TODO 1. Explain how HashMap works
 	//TODO 2. Compare HashTable and ConcurrentHashMap. Explain how CHM handle concurrency.
+
+	//10/01/14, 4:30 PM, BofA phone interview
+	//TODO ConcurrentHashMap: two threads read/write a segment, how is it handled?
+
+	//Instinet corp, phone interview,
+	//TODO ConcurrentHashMap, how does it achieve concurrency?
+	//TODO How does HashMap differentiate a key from another? Can two keys have same hashcode?
 }

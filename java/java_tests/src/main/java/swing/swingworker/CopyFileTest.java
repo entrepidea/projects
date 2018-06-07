@@ -152,4 +152,8 @@ public class CopyFileTest extends JPanel {
 			}
 		});
 	}
+
+	//Instinet corp, phone interview, 06/16/14, Sanjiv, Hiring manager
+	//TODO What's the advantage of Swingworker?
+	//TODO How does a Swing application's frontend communicate with backend?
 }

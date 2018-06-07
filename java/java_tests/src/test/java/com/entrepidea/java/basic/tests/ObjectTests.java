@@ -209,5 +209,13 @@ public class ObjectTests {
 	//10/01/14, 5:30PM, BofA phone interview with Wilson
 	//TODO 7. Difference b/w StringBuffer and StringBuilder; and their difference with String?
 
+	//TD ameritrade phone interview 08/12/14
+	//TODO > What’s the difference b/w static and final
+	//TODO > How to avoid persisting certain fields in POJO?
+
+	//Renaissance Technologies, 05/08/14, 3PM
+	//TODO How the public constructor, equals and hashCode are implemented.
+
+
 
 }

@@ -17,4 +17,16 @@ public class MiscTests {
     *
     * **/
 
+    //10/01/14, 4:30 PM, BofA phone interview
+    //TODO Deadlock in database - what's the cause? when it happens, how is it being handled?
+    //TODO Left join, explain.
+
+    //Alliance Bernstein, 08/14/14, phone interview
+    //TODO If there is a store proc running slow after a while, what's the cause and how to tackle it?
+
+
+    //Phone Interview with BofA, 07/11/14
+    //TODO Transaction levels.
+    //TODO Cluster index.
+
 }
