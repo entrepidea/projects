@@ -573,6 +573,61 @@ print (sunsetDir)
  Classes and structures
  */
 
+struct Resolution{
+    var width = 0
+    var height = 0
+}
+
+class VideoMode{
+    var resolution = Resolution()
+    var interlace = false
+    var frameRate = 30
+    var name : String?
+}
+
+var videoMode = VideoMode()
+print("the video mode's frame rate is: \(videoMode.frameRate)")
+
+//structure and enumeration are value types
+var hd = Resolution(width: 1290, height: 1080)
+var cinema = hd
+cinema.width = 2900
+print ("the cinema resolution width \(cinema.width), the hd width remain; \(hd.width)")
+
+//same go with enumeration
+var currentPosition = compassPoint.east
+let rememberPosition = currentPosition
+print("remembered position is\(rememberPosition)")
+currentPosition = .west
+print ("current position is \(currentPosition), remembered postion remains: \(rememberPosition)")
+
+
+//on the other hand, a class is reference type
+let tenEighty = VideoMode()
+tenEighty.resolution = hd
+tenEighty.interlace = true
+tenEighty.name = "1080i"
+tenEighty.frameRate = 25
+
+let alsoTenEighty = tenEighty
+print ("also ten eighty = \(alsoTenEighty.name)")
+alsoTenEighty.frameRate = 30
+print ("ten eighty's frame rate is:\(tenEighty.frameRate)")
+
+
+
+/**
+ Properties
+   
+ */
+
+struct FixedLengthRange{
+    var firstVal : Int
+    let length : Int
+}
+
+var firstThreeItems = FixedLengthRange(firstVal: 0,length:3)
+print("the length of first three items is: \(firstThreeItems.length)")
 
 
 
