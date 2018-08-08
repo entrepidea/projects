@@ -21,17 +21,19 @@ def words_search(words, file):
 
 
 
-if len(argv) == 2:
-    script, PATH = argv
-else:
-    PATH = 'c:\\users\\jonat\\opt'
+def main():
+    if len(argv) == 2:
+        script, PATH = argv
+    else:
+        PATH = 'c:\\users\\jonat\\opt'
 
-words=["Table", "Contents"]
-files = [file for file in glob.glob(PATH+'/**/*.txt', recursive=True)]
-found_files = []
-for file in files:
-    words_search(words,file)
+    words = ["Solution"]
+    files = [file for file in glob.glob(PATH + '/**/*.java', recursive=True)]
+    found_files = []
+    for file in files:
+        words_search(words, file)
 
-for f in found_files:
-    print(f)
+    for f in found_files:
+        print(f)
 
+main()
