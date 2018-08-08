@@ -9,5 +9,10 @@ public class MiscTests {
     //TODO String str = “123”, how does JVM work on that statement?
     //TODO What’s java command line options did you use? Xms Xmx –permGenSize How about client/server (jvm options)
 
+    //Morgan Stanley phone interview, 05/14/18
+    //TODO 9. What's happened when the statement Object o = new Object(); is executed.
+
+
+
 
 }

@@ -29,4 +29,7 @@ public class MiscTests {
     //TODO Transaction levels.
     //TODO Cluster index.
 
+    //3 rounds of Interview with Neuberger Berman
+    //TODO 3. deisgn a table with performance in mind,  what would be your approach ?  it's millions and millinos records and index won't help
+
 }

@@ -1,5 +1,6 @@
 package com.entrepidea.java.basic.tests;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -14,5 +15,11 @@ public class MathTests {
     public void testDecimalPlace(){
         int yourScale = 12;
         System.out.println(BigDecimal.valueOf(0.42344534534553453453-0.42324534524553453453).setScale(yourScale, BigDecimal.ROUND_HALF_UP));
+    }
+
+    @Test
+    public void testBigDecimal(){
+        BigDecimal bd = BigDecimal.valueOf(12.3456);
+        Assert.assertEquals(6, bd.precision());
     }
 }

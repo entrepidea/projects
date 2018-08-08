@@ -27,4 +27,12 @@ public class ListTests {
 	//10/01/14, 5:30PM, BofA phone interview with Wilson
 	//TODO 4. Can you remove an element during iteration? How do you do it properly?
 	//TODO 5. Can you update elements in an arrayList if its reference is defined as "final". If so, what do you do to prevent it?
+
+	//HSBC 12/17/13 interview (2nd round, video conf with London)
+	//TODO Why do you choose array over arrayList and vice versa?
+	//TODO Name the methods in ArrayList and HashSet. In term of the contains() method of both data structures, which one has better performance? Why?
+
+
 }
+
+

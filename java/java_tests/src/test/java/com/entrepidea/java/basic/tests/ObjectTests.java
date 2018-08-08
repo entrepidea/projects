@@ -27,7 +27,6 @@ public class ObjectTests {
 		log.debug("{}","abc".hashCode());
 		Assert.assertTrue(str.hashCode()=="abc".hashCode());
 	}
-
 	 // This is to identify the default hashcode even if we override the hashCode method.
 	 // You can see from the below snippet that the default hashcode of an object is its memory address.
 	@Test
@@ -39,7 +38,7 @@ public class ObjectTests {
 		log.debug("{}", obj);
 	}
 
-	//Hashcode for an Integer object is the value that the object represents.
+	//Hashcode for an Integer object is the value that the object represents. if you look into Integer's source code, it's coded as such.
 	@Test
 	public void testIntegerHashCode(){
 		Assert.assertEquals(4, new Integer(4).hashCode());
@@ -98,25 +97,22 @@ public class ObjectTests {
 
 	/**
 	 * Mogan stanley and HSBC interviews (by tan bin) 07/18/17
-	 * */
 
-	//MS
-/*
-1. TODO
+		1. TODO
 
-	class Base{
-		print(){
-			"base"
-		}
-	}
-	class Derive extends Base{
-		print(){
-			"derive"
-		}
-	}
+			class Base{
+				print(){
+					"base"
+				}
+			}
+			class Derive extends Base{
+				print(){
+					"derive"
+				}
+			}
 
-	Base o = new Derive();
-	o.print -> ?
+			Base o = new Derive();
+			o.print -> ?
 	*/
 
 	class Base{
@@ -156,8 +152,6 @@ public class ObjectTests {
 
 
 
-	//TODO: Explain final and finally, and usage in real life scenarios	(Morgan Stanley Interview 05/17/17)
-	//TODO: 9. Explain final keyword. (10/15/14, Markit on site)
 
 	/**
 	 * TODO:(10/15/14, Markit on site)
@@ -180,18 +174,8 @@ public class ObjectTests {
 
 	 * */
 
-	//TODO 9. Explain final keyword. (10/15/14, Markit on site)
-
-	//phone Interview with Ted from BNP Paribas, 09/26/14
-	//TODO 1. Tell me 3 advantages of final key word of a member variable; how is it processed by compiler,
-	// if you are a compiler writer, why do you define/design a final variable?
-
-
 	//phone Interview with Ted from BNP Paribas, 09/26/14
 	//TODO 2. classical features of OO, and which one of them is the most important to you?
-
-
-	//phone Interview with Ted from BNP Paribas, 09/26/14
 	//TODO 6. How do you explain to a first time Java learner about hashCode/equals?
 
 	// 10/08/14 phone interview with BNP Paribas, GWT UI developer position, Jersey City
@@ -202,16 +186,9 @@ public class ObjectTests {
 
 	//Morgan Stanley phone interview, 05/14/18
 	//TODO 2. Explain anonymous class.
-	//TODO 6. Different b/w int and Integer. Tell me more about Integer class. For example, is it inmutable
-	//TODO 7. Is String immutable? what's the benefit of immutable class? Why is String immutable?
-	//TODO 9. What's happened when the statement Object o = new Object(); is executed.
 
-	//10/01/14, 5:30PM, BofA phone interview with Wilson
-	//TODO 7. Difference b/w StringBuffer and StringBuilder; and their difference with String?
 
-	//TD ameritrade phone interview 08/12/14
-	//TODO > What’s the difference b/w static and final
-	//TODO > How to avoid persisting certain fields in POJO?
+
 
 	//Renaissance Technologies, 05/08/14, 3PM
 	//TODO How the public constructor, equals and hashCode are implemented.

@@ -14,4 +14,14 @@ public class MiscTests {
     //Instinet corp, phone interview
     //TODO Have you use the ExecuteService, what does it do?
 
+    //HSBC 12/17/13 interview (2nd round, video conf with London)
+    //TODO How do you scale up your applicaiton? In another word, how do you implement parallelism in your application.
+    //TODO in the newFixedThreadPool, it's initial capacity is 10. Now there are 100 requests (runnable tasks) coming in, analyze what would be the possible consequence? For example, what happens to the queue, what if the queue is full, what'll happen? How to handle it when it takes place?
+
+    //3 rounds of Interview with Neuberger Berman
+    //TODO 24. can you synchnoize consturctor and why ?
+    //my explanation: I think not. synchronizing a method means that "this" was implicitly used as a lock. "this" won't be there before the constructor is fully realized.
+    //need to look up for more.
+
+
 }

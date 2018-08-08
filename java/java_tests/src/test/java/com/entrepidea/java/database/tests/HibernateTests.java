@@ -32,4 +32,13 @@ public class HibernateTests {
 
 
     * **/
+
+
+        //3 rounds of Interview with Neuberger Berman
+        //TODO 15. how would you handle hibernate connection pool failing due to connectivity with database
+
+        //TODO 16. tell me different performance issues you ever had when using Hibernate in your project
+
+        //Credit Suise onsite interview (01/29/14)
+        //TODO have you used JPA? What APIs were used?
 }

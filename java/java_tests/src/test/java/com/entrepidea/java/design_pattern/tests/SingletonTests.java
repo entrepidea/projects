@@ -16,4 +16,14 @@ public class SingletonTests {
 
     //10/01/14, 5:30PM, BofA phone interview with Wilson
     //TODO 8. What design patterns can you name? What's singleton?
+
+    //HSBC 12/17/13 interview (2nd round, video conf with London)
+    //TODO What design pattern did you use in real projects.
+    //TODO Elaborate Singleton in very details. How does DCL idiom work in details.
+
+    //3 rounds of Interview with Neuberger Berman
+    //TODO 10. give example of singleton implmentation in jdk
+    //TODO 11. give examples of deisng patterns of classes in JDK
+
+
 }

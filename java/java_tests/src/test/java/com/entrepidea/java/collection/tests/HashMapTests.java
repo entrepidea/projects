@@ -162,4 +162,9 @@ public class HashMapTests {
 	//Instinet corp, phone interview,
 	//TODO ConcurrentHashMap, how does it achieve concurrency?
 	//TODO How does HashMap differentiate a key from another? Can two keys have same hashcode?
+
+	//HSBC 12/17/13 interview (2nd round, video conf with London)
+	//TODO How does the hash bucket work?
+
+
 }
