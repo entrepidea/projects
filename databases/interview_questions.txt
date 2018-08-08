@@ -68,4 +68,46 @@ Blackrock, phone interview with Kenny Ma, 08/18/14
 	12. How do you do to improve performance for data retrival/saving?
 	13. What's composite primary key?	
 	
+
+
+3 rounds of Interview with Neuberger Berman 	
+18. tell me techniques u use to troubleshoot slowness of database
+3. deisgn a table with performance in mind,  what would be your approach ?  it's millions and millinos records and index won't help 
+9. combine results from 2 tables and final result is uniq (how)
+
+
+
+Credit Suise onsite interview (01/29/14)
+========================================
+DB and PL/SQL (decent)
+in PL/SQL, what's bind? whats that for?
+It's similar to the dynamic in-place value setting, like to substitute the ? in the preparedStatement.
+Whats the benefit of using bind?
+performance, as the store pro is pre-compiled.
+What is more?
+Security? prevent hacking such as SQL injection.
+SQL injection example?
+
+
+
+Design data models. This is corporate loan project, suppose we have the borrowing company, and loan info. The company, for the sake of simplicity, has info name and country; the loan, has amount and date. A company can have multiple loans. Design data models for company and loan.
+
+I first designed the company to have Id, name and country; but he pointed out the id along can't unique identify the entity, so i said composite_id that includes multiple columns. He said that would work but it's better to have the Loan table to have the company_id as FK, not the other way around.
+How about adding a new intermidiate table to include ID columns from both table?
+
+Write SQL to return the company name and sum of the loans belong to respective companies;
+
+Write SQL to list all companies that have more than one loans.
+
+
+
+Asked about normalization. They are OK if you don't know how to do it.
+
+What's dirty read? How to avoid it? Give details about optimistic lock and pessimistic lock, how are they implemented in Oracle?
+
+Difference b/w Function and procedure? 
+
+
+
+
 	
