@@ -19,6 +19,7 @@ public class AtomicClassesTests {
 
     Logger log = LoggerFactory.getLogger(AtomicClassesTests.class);
 
+    //utility method
     private void holdoff(ExecutorService es){
         try {
             es.awaitTermination(1, TimeUnit.MINUTES);
@@ -53,4 +54,7 @@ public class AtomicClassesTests {
 
     //TODO i++, is this statement thread safe, why? And how to fix it? (10/15/14, Markit on site)
 
+    //Morgan Stanley, onsite, 05/09/12
+    //TODO 1.Write a thread safe class, getValue, incr (int val++) (sync on both, what if use volatile, or what if use AtomicInteger);
+    //TODO 2.If AtomicInteger is used, do u know how its method incrementAndSet work? oldVal = value; newVal = value; if(newVal != value)…
 }

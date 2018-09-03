@@ -1,6 +1,9 @@
 package com.entrepidea.algo.tests.sort;
 
+import org.junit.Test;
+
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
 Quick sorting: the idea of quick sorting is to pick up a random element (known as "pivot"), 
@@ -11,6 +14,7 @@ The above steps are repeated against those less and greater respectively (recurs
 **/
 public class QuickSort {
 
+	//non-recursive implementation
 	private int[] concatenate(int[] less, int pivot, int[] greater) {
 		int[] ret = new int[less.length + greater.length + 1];
 		for (int i = 0; i < less.length; i++) {
@@ -61,13 +65,11 @@ public class QuickSort {
 		}
 	}
 
-	public static void main(String[] args) {
-		int len = 20;
-		int[] testArray = new int[len];
-		Random rand = new Random();
-		for (int i = 0; i < len; i++) {
-			testArray[i] = rand.nextInt(100);
-		}
+	@Test
+	public void testSorting() {
+
+		int[] testArray = ThreadLocalRandom.current().ints(0,100).limit(10).toArray();
+
 
 		for (int i : testArray) {
 			System.out.print(i + ",");
@@ -80,5 +82,47 @@ public class QuickSort {
 		}
 		System.out.println();
 	}
+
+
+	//recursive implementation
+	//Lomuto partition scheme to select a pivot
+	//below code follows the psudo code from https://en.wikipedia.org/wiki/Quicksort
+	private int partition(int[] arr, int lo, int hi){
+		int pivot = arr[hi];
+		int i = lo;
+
+		for( int j=lo; j<hi;j++){
+			if (arr[j]<pivot){
+				int temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+				i++;
+			}
+		}
+		int temp = arr[i];
+		arr[i] = arr[hi];
+		arr[hi] = temp;
+		return i;
+	}
+
+	private void sort(int[] arr, int lo, int hi){
+		if(lo<hi){
+			int p = partition(arr, lo, hi);
+			sort(arr, lo, p-1);
+			sort(arr, p+1, hi);
+		}
+	}
+
+	@Test
+	public void testSorting2(){
+		int[] arr = ThreadLocalRandom.current().ints(0,100).limit(20).toArray();
+		sort(arr, 0, arr.length-1);
+		for (int a : arr){
+			System.out.print(a);
+			System.out.print("\t");
+		}
+		System.out.println();
+	}
+
 }
 

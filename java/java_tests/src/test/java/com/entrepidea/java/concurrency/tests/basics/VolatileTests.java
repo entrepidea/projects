@@ -132,4 +132,7 @@ public class VolatileTests {
     //10/01/14, 5:30PM, BofA phone interview with Wilson
     //TODO 11. Explain volatile and transient
 
+
+    //Citi onsite (Jersey City) 08/20/13, from 09AM to 11:30AM.
+    //TODO Volatile in depth. How is the volatile variable updated? Does a thread sync up its local with the "main memory" of a volatile variable? How does volatile differ from a full-brown synchronization?
 }

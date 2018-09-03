@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class CMETests implements Runnable {
+public class CMExceptionTests implements Runnable {
 
 	private List<String> l = new ArrayList<String>();
 	
@@ -39,7 +39,7 @@ public class CMETests implements Runnable {
 
 	@Test
 	public void test(){
-		Thread t = new Thread(new CMETests());
+		Thread t = new Thread(new CMExceptionTests());
 		t.start();
 	}
 

@@ -41,4 +41,7 @@ public class ConstructTests {
     //Credit Suise onsite interview (01/29/14)
     //TODO Have you used annotation in JAVA? Have you designed Annotation yourself?
 
+    //phone interview with Morgan Stanley 08/16/13 3:00 PM (recruiter: IRIS)
+    //TODO marker interface, what is it? how to create one?
+
 }

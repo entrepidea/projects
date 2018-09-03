@@ -9,7 +9,45 @@ import java.util.concurrent.ArrayBlockingQueue;
 import org.junit.Before;
 import org.junit.Test;
 
+//Question:
+//Blackrock, phone interview with Kenny Ma, 08/18/14
+// What's Binary Search Tree in data structure?
+
+//similar:
+//10/01/14, 5:30PM, BofA phone interview with Wilson
+//12. Explain Breath-first traversal and depth-first traversal
+
+//Answer:
+// Binary tree is a non-linear data structure for storage. Each node has none or at most two children.
+// A tree has root; each child has only one parent; no children can point to root node or their siblings.
+//Traversal of binary tree can be depth-first or breadth-first.
+//Depth-first can be further categorized as pre-, in-, post-order traversal, with a order of NLR, LNR and LRN.
+//N: parent node; L: left-child; R: right-child.
+//depth-first traversal can be implemented using Stack, or recursively.
+//Breadth-first traversal goes from top layer, followed by the level beneath it and on and on.
+// Breadth-first can be done using a Queue
+
+//@See also:
+// https://en.wikipedia.org/wiki/Tree_traversal
+//https://en.wikipedia.org/wiki/Binary_search_tree
+
 public class BinaryTreeTests {
+
+	class TreeNode {
+		public int val;
+		public TreeNode lChild;
+		public TreeNode rChild;
+
+		public TreeNode(int val, TreeNode l, TreeNode r){
+			this.val = val;
+			lChild = l;
+			rChild = r;
+		}
+
+		public TreeNode(int val){
+			this(val,null,null);
+		}
+	}
 
 	TreeNode root;
 	@Before
@@ -42,6 +80,7 @@ public class BinaryTreeTests {
 		curr.lChild = new TreeNode(7);
 	}
 
+	//test breadth first search using a queue
 	@Test
 	public void testBreadthFirstSearch() {
 		Queue<TreeNode> q = new ArrayBlockingQueue<TreeNode>(16);
@@ -58,8 +97,13 @@ public class BinaryTreeTests {
 			q.add(n);
 		}
 		System.out.println();
-		
 	}
+
+	//TODO test breadth first search using recursion
+	@Test
+    public void testBreadthFirstSearchRecursively(){
+
+    }
 	
 	/*
 	@Test
@@ -137,5 +181,31 @@ public class BinaryTreeTests {
 		}
 		System.out.println();
 	}
+
+
+
+    //Citi onsite (Jersey City) 08/20/13, from 09AM to 11:30AM.
+    //TODO Performance big O about tree. It seemed he want to sort an array but wanted to transform it to a order B-tree and traverse it. And he likes to know the performance in term of big O.
+
+	//TODO
+	//Morgan Stanley, onsite, 05/09/12
+	/*
+	* 2.       2*3-5, parse the string, the final string form is 23*5-, write a method, the input is a bin-tree like
+
+                     -
+
+                    /\
+
+				*        \
+
+                  /\      \
+
+                 2 3   5
+
+			Do the pre-order traversal, the output will be 23*5-
+
+			This is a RPN (reverse polish notation) question.
+	*
+	* */
 }
 

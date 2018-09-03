@@ -66,3 +66,12 @@ class ListNode {
     ListNode next;
     ListNode(int x) { val = x; }
 }
+
+//MOrgan Stanley Interview 07-30-13, 2:30 with James Lin
+//TODO 1. How to reverse a single linked list, what's its big O notation;
+
+
+//Citi onsite (Jersey City) 08/20/13, from 09AM to 11:30AM.
+//TODO reverse linked list best performance. The recursive way to reverse the linked list wouldn't be more performant, but he suggested break the linklist in the middle before using recursion. I don't know if it's a viable solution, not tried yet.
+
+

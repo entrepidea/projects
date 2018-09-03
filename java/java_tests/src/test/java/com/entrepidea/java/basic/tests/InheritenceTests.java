@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
  *
  */
 public class InheritenceTests {
-    public static Logger log = LoggerFactory.getLogger(InheritenceTest.class);
+    public static Logger log = LoggerFactory.getLogger(InheritenceTests.class);
 
     class Base{
         public void print(){

@@ -8,6 +8,8 @@ public class OtherTests {
     //BNP Paribas onsite, Jersey City, GWT UI programmer position, 10/14/2014
     //TODO 1. What's the disadvantage of using Spring?
 
+    //MOrgan Stanley Interview 07-30-13, 2:30 with James Lin
+    //TODO 3. What's the spring approach of dependency injection
 
 
 }

@@ -33,6 +33,14 @@ public class ListTests {
 	//TODO Name the methods in ArrayList and HashSet. In term of the contains() method of both data structures, which one has better performance? Why?
 
 
+	//TODO
+	//Morgan Stanley, onsite, 05/09/12
+	/*
+	* 1.Write customized list class that will work as general list but with version history info. The signatures are
+			public String get(int index, int verNum)
+			public int set(int index, String val) it will return new version number;
+	* */
+	//TODO  List<String>, break down to a batch of lists, list<list<string>>, the size of inner list is about 10.
 }
 
 

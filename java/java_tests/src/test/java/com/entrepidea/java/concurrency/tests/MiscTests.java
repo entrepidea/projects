@@ -23,5 +23,14 @@ public class MiscTests {
     //my explanation: I think not. synchronizing a method means that "this" was implicitly used as a lock. "this" won't be there before the constructor is fully realized.
     //need to look up for more.
 
+    //MOrgan Stanley Interview 07-30-13, 2:30 with James Lin
+    /*
+    TODO 2. Class Test{
+    Synchronized m1();
+    static synchronized m2();
+    }
 
+    T t = new T();
+    Thread1 uses t.m1(), Thread2 uses t.m2(), what's the implication.
+    */
 }

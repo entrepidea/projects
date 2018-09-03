@@ -166,5 +166,7 @@ public class HashMapTests {
 	//HSBC 12/17/13 interview (2nd round, video conf with London)
 	//TODO How does the hash bucket work?
 
+	//Citi onsite (Jersey City) 08/20/13, from 09AM to 11:30AM.
+	//TODO Concurrent hashmap. What happens to two threads updating the data inside a segment of the underlying array. Thread safety was achieved through CAS
 
 }

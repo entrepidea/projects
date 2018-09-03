@@ -2,7 +2,7 @@ package com.entrepidea.algo.tests.sort;
 
 import java.util.Random;
 
-public class InsertSort{
+public class InsertionSort {
 
 static void printData(int[] data){
 		for(int d : data){

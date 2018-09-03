@@ -1,8 +1,12 @@
 package com.entrepidea.algo.tests.sort;
 
+import org.junit.Test;
+
+import java.util.concurrent.ThreadLocalRandom;
+
 public class BubbleSort {
 
-	public static void bubbleSort(int[] data)
+	public void bubbleSort(int[] data)
 	{
 	   for (int k = 0; k < data.length - 1; k++)
 	   {
@@ -25,14 +29,26 @@ public class BubbleSort {
 	         break;
 	   }
 	}
-	
-	public static void main(String[] args){
-		int[] data = {3,4,1,8,0,-10,11,1000};	
+
+	@Test
+	public void testBubbleSorting(){
+
+		int[] data = randomNum(0,1000, 30);
 		bubbleSort(data);
-		for(int i : data){
+		for (int i : data)
+		{
+
 			System.out.print(i);
-			System.out.print(" ");
+			System.out.print(", ");
 		}
 		System.out.println();
+
 	}
+
+	//advanced way of creating an array of random numbers.
+	//https://stackoverflow.com/questions/25793098/how-to-generate-random-array-of-ints-using-stream-api-java-8
+	private int[] randomNum(int low, int high, int limit){
+		return ThreadLocalRandom.current().ints(low,high).limit(limit).toArray();
+	}
+
 }
