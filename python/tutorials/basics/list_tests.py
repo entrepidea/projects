@@ -1,24 +1,16 @@
 #this is to test the basic type: List
-#the elements in a list can be of different types
+#Notes: the elements in a list can be of different types
 
-list = [ 'abcd', 786 , 2.23, 'john', 70.2,'spam' ]
-tinylist = [123, 'john']
+#test 1): in-place reverse a list
+def reverse_list(src):
+    last = len(src) - 1
+    for x in range(0, int(len(src)/2),1):
+        src[x],src[last-x] = src[last-x],src[x]
 
-print list          # Prints complete list
-print list[0]       # Prints first element of the list
-print list[1:3]     # Prints elements starting from 2nd till 3rd
-print list[2:]      # Prints elements starting from 3rd element
-print tinylist * 2  # Prints list two times
-print list + tinylist # Prints concatenated lists
+    print(src)
 
+def main():
+    reverse_list([1,2,3,4,5,6])
 
-L = ['spam', 'Spam', 'SPAM!']
-print L[2]
-print L[-2]
-print L[1:]
-print L.__len__()
-print len(L)
-print cmp(list, L) #?
-
-print L.sort()
-
+if __name__ == "__main__":
+    main()
