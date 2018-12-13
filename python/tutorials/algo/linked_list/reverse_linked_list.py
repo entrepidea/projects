@@ -1,31 +1,10 @@
 #create a node class
 #https://www.tutorialspoint.com/python/python_linked_lists.htm
-#TODO Not finished yet
-class Node(object):
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-    def get_data(self):
-        return self.data
 
 
-def construct_list():
-    head = Node(1)
-    cur = head
-    for i in range(2,6,1):
-        node = Node(i)
-        cur.next = node
-        cur = cur.next
+from commons import *
 
-    return head
-
-def print_list(head):
-    cur = head
-    while cur.next:
-        print(cur.data)
-        cur = cur.next
-
+#this is a recursive version of reversing a linked list
 def reverse(head):
     if head == None or head.next == None:
         return head
@@ -39,14 +18,35 @@ def reverse(head):
     cur.next = head2
     return cur
 
+def find_tail (head):
+    tail = head
+    while tail.next is not None:
+        tail = tail.next
+    return tail
+
+#write a non recursive version
+def reverse2(head):
+    tail = find_tail(head)
+    cur = head
+    while head.next is not None:
+        while cur.next != None:
+            prev = cur
+            cur = cur.next
+
+        cur.next = prev
+        prev.next = None
+        cur = head
+
+    return tail
 
 
 def main():
-    head = construct_list()
+    head = construct_consecutive_list(10)
+    print("original list:")
     print_list(head)
-    new_head = reverse(head)
+    new_head = reverse2(head)
+    print("reversed list:")
     print_list(new_head)
-
 
 if __name__ == "__main__":
     main()

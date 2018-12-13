@@ -14,8 +14,8 @@ from objdict import ObjDict
 
 from amazon.api import AmazonAPI
 
-AMAZON_ACCESS_KEY="AKIAJJNNR4PHY3WHM2WQ"
-AMAZON_SECRET_KEY="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"
+AMAZON_ACCESS_KEY="AKIAIFAB5GCOBKQQDXIA"
+AMAZON_SECRET_KEY="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"
 AMAZON_ASSOC_TAG="fontsidea-20"
 
 amazon = AmazonAPI(AMAZON_ACCESS_KEY, AMAZON_SECRET_KEY, AMAZON_ASSOC_TAG)
@@ -30,7 +30,7 @@ def item_search_test():
         data.small_image_url = product.small_image_url
         data.detail_page_url = product.detail_page_url
         data.asin = product.asin
-        data.price = "{}: {.2f}".format(product.price_and_currency[1], product.price_and_currency[0])
+        data.price = "{}: {}".format(product.price_and_currency[1], product.price_and_currency[0])
         #price(data, product.asin)
         l.append(data)
     dic = {}
