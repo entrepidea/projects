@@ -1,4 +1,7 @@
-package com.entrepidea.algo.tests.array;//Given an array nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position.
+package com.entrepidea.algo.tests.array;
+
+//Given an array nums, there is a sliding window of size k which is moving from the very left of the array to the very right.
+// You can only see the k numbers in the window. Each time the sliding window moves right by one position.
 //
 //For example,
 //Given nums = [1,3,-1,-3,5,3,6,7], and k = 3.
@@ -21,6 +24,8 @@ package com.entrepidea.algo.tests.array;//Given an array nums, there is a slidin
 //Could you solve it in linear time?
 //
 //Source: https://leetcode.com/problems/sliding-window-maximum/
+
+import org.junit.Test;
 
 import java.util.LinkedList;
 
@@ -112,6 +117,16 @@ public class SlidingWindowMaximum {
         
         //val is smaller than all the elements in lst, add (idx, val) to the end
         lst.add(new Pair(idx, val));
+    }
+
+    @Test
+    public void test(){
+        int[] src = new int[]{1,3,-1,-3,5,3,6,7};
+        int[] ret = maxSlidingWindow(src,3);
+        for(int i=0;i<ret.length;i++){
+            System.out.print(ret[i]+"\t");
+        }
+        System.out.println();
     }
 }
 
