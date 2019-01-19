@@ -77,6 +77,8 @@ public class LinkedListUtils {
         System.out.println();
     }
 
+
+
     public ListNode findLastNode(ListNode head){
         ListNode p = head;
         while(p.next!=null){

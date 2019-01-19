@@ -48,7 +48,7 @@ public class InheritenceTests {
     //HSBC 12/17/13 interview (2nd round, video conf with London)
     //TODO How do you prevent a method in the base class from being overridden?
     //TODO Name a real life example from JDK that is a non extended class.
-    //TODO What's polymophism.
+    //TODO What's polymorphism.
     //TODO What is the difference b/w Overload and Override?
     //TODO Are two methods with same names and same argument lists but different return types overload methods? Can they coexist? What'd happen?
 
