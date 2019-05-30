@@ -24,7 +24,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
+
 
 public class CommandDemo extends JPanel {
 	private static final long serialVersionUID = 1881132526379328734L;
@@ -240,7 +240,7 @@ public class CommandDemo extends JPanel {
 		initialize();
 
 		try {
-			UIManager.setLookAndFeel(new WindowsLookAndFeel());
+			//UIManager.setLookAndFeel(new WindowsLookAndFeel());
 			SwingUtilities.updateComponentTreeUI(CommandDemo.this);
 		} catch (Exception ex) {
 			System.out.println(ex);

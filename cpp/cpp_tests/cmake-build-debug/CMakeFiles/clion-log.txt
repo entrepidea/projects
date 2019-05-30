@@ -1,4 +1,0 @@
-C:\Users\jonat\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\163.13906.4\bin\cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\jonat\projects\github\cpp\cpp_tests
--- Configuring done
--- Generating done
--- Build files have been written to: C:/Users/jonat/projects/github/cpp/cpp_tests/cmake-build-debug

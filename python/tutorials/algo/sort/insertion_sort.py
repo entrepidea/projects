@@ -16,9 +16,22 @@ def insert_sorting(data):
             hold_pos = hold_pos-1
     return data
 
+#another approach, 01/30/19
+def insert_sorting2(data):
+    for i in range(1, len(data),1):
+        for j in range(i, 0, -1):
+            if data[j] < data[j-1]:
+                temp = data[j-1]
+                data[j-1] = data[j]
+                data[j] = temp
+            else:
+                break
+    return data
+
 def main(argv):
-    data = numpy.random.randint(0,1000,10) #create an array of 20 random number
-    data = insert_sorting(data)
+    data = numpy.random.randint(0,1000,10) #create an array of 10 random number
+    print(data)
+    data = insert_sorting2(data)
     print(data)
 
 if __name__ == '__main__':
