@@ -1,0 +1,172 @@
+PORTASOFT,Utilities
+99 RANCH,Supplies
+AFM OF,Supplies
+ALIEXPRESS,Supplies
+AMAZON,Supplies
+AMZN,Supplies
+ANN TAYLOR,Supplies
+ANNTAYLOR.COM,Supplies
+ITUNES,Supplies
+BANANA,Supplies
+BARCLAY'S 1301,Dinner out
+BLOOMINGDALES,Supplies
+BESTBUY,Supplies
+BEST BUY,Supplies
+BRANCHBURG,Recreation
+CIGNA,Health & Wellness
+EASTON,Travel
+WINE,Recreation
+COMCAST,Internet & Telephone
+COSTCO,Supplies
+CRAYOLA,Recreation
+CRICKET,Internet & Telephone
+DIGITALOCEAN,Service
+DUANE READE,Health & Wellness
+ELIZABETHTOWN,Utilities
+EXXON CLINTON 197929 9 ANNANDALE,Dinner out
+EXXONMOBIL,Auto Related
+FANDANGO,Recreation
+GOOGLE,Service
+GYMBOREE,Supplies
+H MART,Supplies
+HANNA ANDERSSON,Supplies
+HISCOX,Insurance
+HOMEDEPOT,Supplies
+YMCA,Donation
+PEDIATRIC,Health & Wellness
+ITALKBB,Internet & Telephone
+J. CREW,Supplies
+LOWES,Supplies
+LOWE'S,Supplies
+MACYS,Supplies
+MADEWELL,Supplies
+MCDONALD,Dinner out
+E-ZPASS,Travel
+NJM INSURANCE,Insurance
+OAKWOOD,Recreation
+FIRST ENERGY COR,Utilities
+GARAGE,Auto Related
+PRU THAI,Dinner out
+RCN,Internet & Telephone
+SUSHI,Dinner out
+SHOPRITE,Supplies
+STARBUCKS,Dinner out
+MAXX,Supplies
+TARGET,Supplies
+HOME DEPOT,Supplies
+TRANS BRIDGE,Travel  
+UNIQLO,Supplies
+UNITED,Travel
+USA*EAT RIGHT VENDING,Dinner out
+USPS,Postal
+WAL-MART,Supplies
+WALMART,Supplies
+WIKIMEDIA,Donation
+PANERA,Dinner out
+HUNTERDON FAMILY,Health & Wellness
+HUNTERDON PEDIATRIC,Health & Wellness
+NYCDOT,Travel
+BISTRO,Dinner out
+NETFLIX,Recreation
+SEARS WARRANTY,Insurance
+NM ONLINE,Supplies
+GAP,Supplies
+NEXT,Supplies
+LMR,Utilities
+J CREW,Supplies
+MICROSOFT,Supplies
+KINDLE,Supplies
+UPS,Postal
+WAWA,Auto Related
+PABT,Travel
+SHAKE SHACK,Dinner out
+LANDS END,Supplies
+NOODLE,Dinner out
+OLD NAVY,Supplies
+USA*USA*EAT,Dinner out
+LAWN,Service
+NEWEGG,Supplies
+EXPRESS,Supplies
+MTA,Travel
+CAFE,Dinner out
+TURBOTAX,Service
+HUAWEI,Supplies
+KALAHARI,Recreation
+PAYPAL,Service
+PARKING,Travel
+FIRST ENERGY CO,Utilities
+THE CLEAN PLATE,Dinner out
+ADVOCARE,Health & Wellness
+WALGREENS,Health & Wellness
+HAAGEN DAZS,Supplies
+AUNTIE ANNE,Supplies
+AIKOU,Dinner out
+SCHOLASTIC,Supplies
+STRIDERITE,Supplies
+IRS              USATAXPYMT,Taxation
+NEW YORK LIFE    INS,Insurance
+PRUDENTIAL,Insurance
+INFINITI,Auto Related
+NJ GIT / LBR PMT,Taxation
+NEW JERSEY EFT T,Taxation
+NJGOVSERVEW,Service
+LOLLI AND POPS,Dinner out
+CAVA GRILL,Dinner out
+THE LOBSTER HOUSE,Dinner out
+TALBOTS,Supplies
+PHARMACY,Health & Wellness
+PRICELINE,Travel
+DUN HUANG,Dinner out
+AVADYNE,Health & Wellness
+TEAVANA,Supplies
+BEACHFRONT,Recreation
+NJMVC,Service
+NJ MVC,Service
+FUEL STOP,Auto Related
+RAYMOUR,Supplies
+HYKEL LAW,Legal
+LAW FIRM,Legal
+LAW OFFICE,Legal
+MPA STREET METERS,Travel
+LIN'S PALACE,Dinner out
+SALARY,Salary
+SEWERAGE,Utilities
+DIABETES,Health & Wellness
+THE LEGO STORE,Recreation
+WCS BXZOO,Recreation
+RAY CATENA,Auto Related
+THRIFT BOOKS,Supplies
+GINSENG,Supplies
+CHUNG SOL GARDEN,Dinner out
+LUNARPAGES,Service
+WATER EDGE,Service
+LEBANON DOOR LLC,Service
+NJ.GOV,Taxation
+SUNMERRY BAKERY,Dinner out
+SUNSET BEACH GIFT SHOP,Recreation
+TREASURY,Taxation
+NJWEB,Taxation
+CLINTON TOWN,Service
+ATM WITHDRAWAL,Commission
+PCG FOR NJEIS FCP,Service
+LANCOME,Supplies
+OOTOYA,Dinner out
+SPEEDWAY,Auto Related
+VALERO,Auto Related
+CROCS INC,Supplies
+GO! CALENDARS,Recreation
+ANESTHESI,Health & Wellness
+OFFICE POSTER,Supplies
+ITALIAN RESTAU,Dinner out
+CENTRAL MANAGEMENT,Service
+GREAT BIG CANVAS,Supplies
+WHOLEFDS,Supplies
+DA VINCI,Recreation
+VIDA SHOES,Supplies
+PJ`S PLACE,Dinner out
+LIBERTY SCIENC,Recreation
+LUSH BRIDGEWTR,Supplies
+COLUMBUS 0553B,Dinner out
+ONCE UPON A CHLD,Recreation
+NYCFINANCECONVENIENCEFEE,Dinner out
+SPICE ROUTE,Dinner out

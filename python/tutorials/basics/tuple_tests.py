@@ -22,12 +22,12 @@ del tup;
 #print tup #will report error as tup no longer exists
 
 
-print 3 in (1,2,3)
+print (3 in (1,2,3))
 for x in (1,2,3):
-    print x
+    print (x)
 
 #test built-in tuple functions
 tuple1, tuple2 = (123, 'xyz', 'zara'), (456, 'abc')
 
-print "First tuple length : ", len(tuple1)
-print "Second tuple length : ", len(tuple2)
+print ("First tuple length : ", len(tuple1))
+print ("Second tuple length : ", len(tuple2))
