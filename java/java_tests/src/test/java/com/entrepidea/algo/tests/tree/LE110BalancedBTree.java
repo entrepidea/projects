@@ -9,7 +9,11 @@ import java.util.*;
 
 /**
  * @Source: https://leetcode.com/problems/balanced-binary-tree/
- * @Description: to determine if a tree is a balanced binary tree
+ * @Description:
+ * To determine if a tree is a balanced binary tree.
+ * My idea is that I do a BFS and determine the level and the height of each node. If a node found it has a sibling (another node of the the same level),
+ * the height of these two nodes are compared and if the difference is greater than 1, we found a winner!
+ *
  * @Date: 08/11/19
  *
  * */
