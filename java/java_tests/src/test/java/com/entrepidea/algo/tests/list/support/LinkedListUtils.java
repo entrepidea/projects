@@ -19,7 +19,7 @@ public class LinkedListUtils {
 
     /***************************************************************
      *
-     * Below are the help methods for this test
+     * Below are the help methods for this checkBalancedBinaryTree
      *
      ****************************************************************/
     //double linked list node
