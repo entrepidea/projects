@@ -23,11 +23,11 @@ public class SpliteratorTests {
         Spliterator<String> spliterator1 = stream.spliterator();
         Spliterator<String> spliterator2 = spliterator1.trySplit();
         if(spliterator2!=null){
-            System.out.println("Spliterator2 test:");
+            System.out.println("Spliterator2 checkBalancedBinaryTree:");
             spliterator2.forEachRemaining((s)->{System.out.println(s);});
         }
         if(spliterator1!=null){
-            System.out.println("Spliterator1 test:");
+            System.out.println("Spliterator1 checkBalancedBinaryTree:");
             spliterator1.tryAdvance((s)->System.out.println(s));
         }
 

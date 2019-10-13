@@ -29,4 +29,52 @@ public class BubbleSorting {
 
 	}
 
+
+	//redo, 02/26/19
+	@Test
+	public void test2(){
+		int[] a =new int[]{50,32,67,18};
+		ArrayUtil.printArry(a);
+		for (int i=1;i<a.length;i++){
+			boolean isSorted = true;
+			for (int j=0;j<a.length-i;j++){
+				if(a[j]<a[j+1]){
+					int temp = a[j];
+					a[j] = a[j+1];
+					a[j+1] = temp;
+					isSorted = false;
+				}
+
+			}
+			if(isSorted){
+				break;
+			}
+
+		}
+		ArrayUtil.printArry(a);
+	}
+
+	//redo, 03/08/19
+	@Test
+	public void test3(){
+		int[] a = ArrayUtil.generateRandomArray(1,100,10);
+		ArrayUtil.printArry(a);
+		for(int i=1;i<a.length;i++){
+			boolean isSorted = true;
+			for (int j=0;j<a.length-1;j++){
+				if(a[j]>a[j+1]){
+					int temp = a[j];
+					a[j] = a[j+1];
+					a[j+1] = temp;
+					isSorted = false;
+				}
+
+			}
+			if(isSorted){
+				break;
+			}
+		}
+		ArrayUtil.printArry(a);
+	}
+
 }

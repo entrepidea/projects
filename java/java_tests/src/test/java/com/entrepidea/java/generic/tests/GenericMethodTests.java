@@ -1,7 +1,7 @@
 package com.entrepidea.java.generic.tests;
 
 /**
- * @description: this is to test the generic method. In the example below, the method "union" is generic method with typed parameters.
+ * @description: this is to checkBalancedBinaryTree the generic method. In the example below, the method "union" is generic method with typed parameters.
  * Note that when this method is used, no concrete type needs to be specified, as shown on line 33. The compiler is smart enough
  * to figure it out, this is called type inference. 
  * 
@@ -61,7 +61,7 @@ public class GenericMethodTests {
 		Assert.assertEquals(2,index);
 	}
 
-	//test another algorithm meothd: sort
+	//checkBalancedBinaryTree another algorithm meothd: sort
     @Test
     public void testSort(){
         /*

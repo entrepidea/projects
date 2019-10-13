@@ -121,7 +121,7 @@ public class LambdaTests {
     //	Consumer, Supplier, Function, UnaryOperator, BinaryOperator
     //	see this link:
     //	http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html
-    //  As a comparison, predicate in C++ context is a kind of functor that test the elements, e.g "find_if"
+    //  As a comparison, predicate in C++ context is a kind of functor that checkBalancedBinaryTree the elements, e.g "find_if"
     // more predicate examples and usages can be found from: https://www.geeksforgeeks.org/java-8-predicate-with-examples/
     //
     @Test

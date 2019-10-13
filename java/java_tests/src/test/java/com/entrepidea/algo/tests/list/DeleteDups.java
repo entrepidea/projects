@@ -5,8 +5,9 @@ package com.entrepidea.algo.tests.list;
  * source: https://practice.geeksforgeeks.org/problems/remove-duplicate-element-from-sorted-linked-list/1
  * date: 12/10/18
  * */
+import com.entrepidea.algo.tests.list.support.LinkedListUtils;
+import com.entrepidea.algo.tests.list.support.ListNode;
 import org.junit.Test;
-import static com.entrepidea.algo.tests.list.LinkedListUtils.ListNode;
 public class DeleteDups {
     LinkedListUtils llu = LinkedListUtils.getInstance();
 

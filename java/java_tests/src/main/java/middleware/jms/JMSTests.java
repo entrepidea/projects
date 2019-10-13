@@ -1,4 +1,4 @@
-package com.entrepidea.midlleware.tests;
+package middleware.jms;
 
 public class JMSTests {
 

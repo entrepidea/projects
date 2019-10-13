@@ -1,5 +1,8 @@
 package com.entrepidea.java.basic.tests;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 /*
 * This class include unit tests of knowledge points that don't fit into any categories
 * */
@@ -10,7 +13,7 @@ public class MiscTests {
 
     //10/08/14 phone interview with BNP Paribas, GWT UI developer position, Jersey City
     //TODO 5. How to tune GC parameters
-    //TODO 16. How do you do unit test and integration test? Have you used mockit?
+    //TODO 16. How do you do unit checkBalancedBinaryTree and integration checkBalancedBinaryTree? Have you used mockit?
     //TODO 17. Maven. The "Runtime" or "Test" inside Dependency tag, what are they used for?
 
 
@@ -108,6 +111,19 @@ public class MiscTests {
     //TODO ArrayList and LinkedList? Pro and con? Whats the size of the reference in LinkedList's node? JVM 64 bit v.s 32 bit.
 
 
+    //The test below seems super strange but explainable.
+    //a, b falling into the range of a cache in which the value is cache thus references are the same
+    //c,d didn't fall into the range of the cache therefore they represent difference references.
+    //look the source of Integer#valueOf, then you will know.
+    @Test
+    public void testIntegerCompare(){
+        Integer a = 1;
+        Integer b = 1;
+        Assert.assertTrue(a==b);
 
+        Integer c = 200;
+        Integer d = 200;
+        Assert.assertFalse(c==d);
 
+    }
 }

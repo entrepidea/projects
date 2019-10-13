@@ -1,5 +1,7 @@
 package com.entrepidea.algo.tests.list;
 
+import com.entrepidea.algo.tests.list.support.LinkedListUtils;
+import com.entrepidea.algo.tests.list.support.ListNode;
 import org.junit.Test;
 
 /**
@@ -7,7 +9,6 @@ import org.junit.Test;
  * source: https://www.geeksforgeeks.org/rotate-a-linked-list/
  * date: 12/14/18
  * */
-import static com.entrepidea.algo.tests.list.LinkedListUtils.ListNode;
 public class RotateList {
 
     LinkedListUtils llu = LinkedListUtils.getInstance();

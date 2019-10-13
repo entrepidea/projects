@@ -18,7 +18,7 @@ package com.entrepidea.algo.tests.array;//source: https://leetcode.com/problems/
 
 //Credits:
 //Special thanks to @jianchao.li.fighter for adding this problem and 
-//creating all test cases.
+//creating all checkBalancedBinaryTree cases.
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -248,7 +248,7 @@ public class CommandDemo extends JPanel {
 	}
 
 	private void initialize() {
-		// fill some test data here into the listbox.
+		// fill some checkBalancedBinaryTree data here into the listbox.
 		defLocalList.addElement("first.html");
 		defLocalList.addElement("second.html");
 		defLocalList.addElement("third.html");

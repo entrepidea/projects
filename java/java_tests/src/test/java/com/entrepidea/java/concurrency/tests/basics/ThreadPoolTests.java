@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 public class ThreadPoolTests {
 
 	/**
-	 * This is to test when a thread from a thread pool changes its priority,
+	 * This is to checkBalancedBinaryTree when a thread from a thread pool changes its priority,
 	 * will it remain that level after returning to the pool? (Barcap)
 	 * The answer is YES, as proved by the following code
 	 * */

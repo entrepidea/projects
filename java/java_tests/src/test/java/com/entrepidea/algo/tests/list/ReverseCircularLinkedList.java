@@ -6,9 +6,10 @@ package com.entrepidea.algo.tests.list;
  * date: 01/01/2019
  * */
 
+import com.entrepidea.algo.tests.list.support.LinkedListUtils;
+import com.entrepidea.algo.tests.list.support.ListNode;
 import org.junit.Test;
 
-import static com.entrepidea.algo.tests.list.LinkedListUtils.ListNode;
 
 public class ReverseCircularLinkedList {
     LinkedListUtils llu = LinkedListUtils.getInstance();

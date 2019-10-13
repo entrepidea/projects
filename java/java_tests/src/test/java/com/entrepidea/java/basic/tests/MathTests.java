@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 
 /**
- * This is to test math related API in Java
+ * This is to checkBalancedBinaryTree math related API in Java
  * */
 public class MathTests {
 

@@ -14,7 +14,7 @@ Some examples:
 Note: Do not use the eval built-in library function.
 
 Credits:
-Special thanks to @ts for adding this problem and creating all test cases.
+Special thanks to @ts for adding this problem and creating all checkBalancedBinaryTree cases.
 */
 
 import java.util.Stack;

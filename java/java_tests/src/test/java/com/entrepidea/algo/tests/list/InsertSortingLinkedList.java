@@ -1,11 +1,12 @@
 package com.entrepidea.algo.tests.list;
 
+import com.entrepidea.algo.tests.list.support.LinkedListUtils;
+import com.entrepidea.algo.tests.list.support.ListNode;
 import org.junit.Test;
 /**
  * Insert sorting for a linked list
  * TODO there is bug.
  * */
-import static com.entrepidea.algo.tests.list.LinkedListUtils.ListNode;
 public class InsertSortingLinkedList {
 
     LinkedListUtils llu = LinkedListUtils.getInstance();
@@ -122,6 +123,64 @@ public class InsertSortingLinkedList {
         }
 
         //Print the sorted linked list.
+        llu.printList(head);
+    }
+
+    @Test
+    public void test4(){
+
+        ListNode head = llu.constructListFromArray(new int[]{27,20,37,64,33,66});
+        ListNode cur = head.next;
+        ListNode beforeLast = head;
+        while(cur.next!=null){
+            ListNode prev = head;
+            ListNode p = head;
+            while(p.next!=cur && p.val<cur.val){
+                prev = p;
+                p = p.next;
+            }
+            if(p.val>cur.val) {
+                p.next = cur.next;
+                cur.next = p;
+                if (p == head) {
+                    head = cur;
+                } else {
+                    prev.next = cur;
+                }
+                cur = p.next;
+            }
+            else {
+                cur = cur.next;
+            }
+            llu.printList(head);
+
+            if(beforeLast.next.next==null){
+                break;
+            }
+            else{
+                beforeLast = beforeLast.next;
+            }
+        }
+
+
+        ListNode prev = head;
+        ListNode p = head;
+        while(p.next!=cur && p.val<cur.val){
+            prev = p;
+            p = p.next;
+        }
+        if(p.val>cur.val) {
+//            p.next = cur.next;
+            cur.next = p;
+            if (p == head) {
+                head = cur;
+            } else {
+                prev.next = cur;
+            }
+            beforeLast.next = null;
+        }
+
+
         llu.printList(head);
     }
 }

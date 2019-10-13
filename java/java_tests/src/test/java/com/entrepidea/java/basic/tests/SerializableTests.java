@@ -55,7 +55,7 @@ public class SerializableTests {
     }
 
     /**
-     * Below test. First the mArg2 wasn't there. The class Foo was serialized to foo. Then class Foo added a new variable mArg2, but
+     * Below checkBalancedBinaryTree. First the mArg2 wasn't there. The class Foo was serialized to foo. Then class Foo added a new variable mArg2, but
      * readExternal/writeExternal remain unchanged, in this case, the file foo can be de-serialized all right - because readExtenal/writeExtenal
      * are customized serializer, and only mArg1 participate.
      * However if readExternal/writeExternal are upgraded to include the reading/writing of mArg2, the de-serialization of file foo will fail with OperationalException
@@ -94,7 +94,7 @@ public class SerializableTests {
 
     }
 
-    //TODO the test below also works, why? I thought it would break, since we added a new mArg2 thus the default serialization form changes as a result.
+    //TODO the checkBalancedBinaryTree below also works, why? I thought it would break, since we added a new mArg2 thus the default serialization form changes as a result.
     static class Foo2 implements Serializable {
         static final long serialVersionUID = 42L;
         public String mArg1;

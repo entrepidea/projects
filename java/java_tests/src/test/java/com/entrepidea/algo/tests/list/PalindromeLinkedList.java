@@ -4,11 +4,12 @@ package com.entrepidea.algo.tests.list;
  * source: https://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/
  * date: 12/31/18
  * */
+import com.entrepidea.algo.tests.list.support.LinkedListUtils;
+import com.entrepidea.algo.tests.list.support.ListNode;
 import org.junit.Test;
 
 import java.util.Stack;
 
-import static com.entrepidea.algo.tests.list.LinkedListUtils.ListNode;
 public class PalindromeLinkedList {
     LinkedListUtils llu = LinkedListUtils.getInstance();
 

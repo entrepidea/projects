@@ -5,7 +5,7 @@ package com.entrepidea.algo.tests.array;//Given a list of non negative integers,
 //Note: The result may be very large, so you need to return a string instead of an integer.
 
 //Credits:
-//Special thanks to @ts for adding this problem and creating all test cases.
+//Special thanks to @ts for adding this problem and creating all checkBalancedBinaryTree cases.
 
 //source: https://leetcode.com/problems/largest-number/
 

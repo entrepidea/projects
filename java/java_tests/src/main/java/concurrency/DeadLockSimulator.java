@@ -1,4 +1,4 @@
-package console;
+package concurrency;
 
 //Below is a simple simulator of how a dead lock is generated,
 //Interviewers like to ask how you detect a deadlock, sometime, they asked for

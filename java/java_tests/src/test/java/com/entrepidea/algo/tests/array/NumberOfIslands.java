@@ -20,7 +20,7 @@ package com.entrepidea.algo.tests.array;//Given a 2d grid map of '1's (land) and
 //Answer: 3
 
 //Credits:
-//Special thanks to @mithmatt for adding this problem and creating all test cases.
+//Special thanks to @mithmatt for adding this problem and creating all checkBalancedBinaryTree cases.
 
 import java.util.LinkedList;
 import java.util.Queue;

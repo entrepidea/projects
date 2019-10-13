@@ -1,4 +1,4 @@
-package com.entrepidea.algo.tests.list;
+package com.entrepidea.algo.tests.list.support;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -22,21 +22,6 @@ public class LinkedListUtils {
      * Below are the help methods for this checkBalancedBinaryTree
      *
      ****************************************************************/
-    //double linked list node
-    static class DListNode{
-        int val;
-        DListNode left;
-        DListNode right;
-        DListNode(int v){val = v; }
-    }
-
-    //singly linked list node
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
-
     //construct a single linked list for testing
     public ListNode constructList(int len){
         ListNode head = new ListNode(0);

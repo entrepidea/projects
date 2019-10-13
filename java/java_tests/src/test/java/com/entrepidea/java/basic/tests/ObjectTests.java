@@ -87,7 +87,7 @@ public class ObjectTests {
 		assertEquals(b.name, "A");
 	}
 
-	//test the Void class's usage. Void class has a member TYPE to indicate a void type.
+	//checkBalancedBinaryTree the Void class's usage. Void class has a member TYPE to indicate a void type.
 	//See: https://stackoverflow.com/questions/2352447/what-is-the-need-of-void-class-in-java
 	public void foo(){}
 	@Test

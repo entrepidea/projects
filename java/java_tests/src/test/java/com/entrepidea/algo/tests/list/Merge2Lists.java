@@ -1,5 +1,7 @@
 package com.entrepidea.algo.tests.list;
 
+import com.entrepidea.algo.tests.list.support.LinkedListUtils;
+import com.entrepidea.algo.tests.list.support.ListNode;
 import org.junit.Test;
 
 /**
@@ -7,7 +9,6 @@ import org.junit.Test;
  * source: https://www.geeksforgeeks.org/merge-a-linked-list-into-another-linked-list-at-alternate-positions/
  * date: 12/20/18
  * */
-import static com.entrepidea.algo.tests.list.LinkedListUtils.ListNode;
 public class Merge2Lists {
 
     LinkedListUtils llu = LinkedListUtils.getInstance();

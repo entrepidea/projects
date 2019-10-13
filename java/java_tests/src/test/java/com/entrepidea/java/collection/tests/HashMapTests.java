@@ -28,7 +28,7 @@ public class HashMapTests {
 
 
 	/**
-	 * @description: the below test demo the WeakHashMap. WeakHashMap will be the first candidates for garbage collection. GC will
+	 * @description: the below checkBalancedBinaryTree demo the WeakHashMap. WeakHashMap will be the first candidates for garbage collection. GC will
 	 * clean up the keys and values in such a map when it detects a low memory,before it throws a OutOfMemory error.
 	 * The below code take every 3rd elements out from the map and put them into a list, factually making them strongly reference,
 	 * so they won't be garbage collected.

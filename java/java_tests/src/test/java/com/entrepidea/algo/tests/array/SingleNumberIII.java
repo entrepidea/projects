@@ -11,7 +11,7 @@ Note:
 The order of the result is not important. So in the above example, [5, 3] is also correct.
 Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?
 Credits:
-Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
+Special thanks to @jianchao.li.fighter for adding this problem and creating all checkBalancedBinaryTree cases.
 ******/
 
 //key idea: count sort to find which element appears odd numbers.

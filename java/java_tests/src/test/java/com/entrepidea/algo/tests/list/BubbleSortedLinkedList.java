@@ -1,5 +1,7 @@
 package com.entrepidea.algo.tests.list;
 
+import com.entrepidea.algo.tests.list.support.LinkedListUtils;
+import com.entrepidea.algo.tests.list.support.ListNode;
 import org.junit.Test;
 
 /**
@@ -8,7 +10,6 @@ import org.junit.Test;
  * date: 01/07/19
  * */
 
-import static com.entrepidea.algo.tests.list.LinkedListUtils.ListNode;
 public class BubbleSortedLinkedList {
 
     LinkedListUtils llu = LinkedListUtils.getInstance();

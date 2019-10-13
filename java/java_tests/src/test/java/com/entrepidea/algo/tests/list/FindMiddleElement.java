@@ -1,5 +1,7 @@
 package com.entrepidea.algo.tests.list;
 
+import com.entrepidea.algo.tests.list.support.LinkedListUtils;
+import com.entrepidea.algo.tests.list.support.ListNode;
 import org.junit.Test;
 
 /**
@@ -12,10 +14,10 @@ public class FindMiddleElement {
 
     @Test
     public void test(){
-        LinkedListUtils.ListNode head = llu.constructList(10);
+        ListNode head = llu.constructList(10);
         llu.printList(head);
-        LinkedListUtils.ListNode fastP = head;
-        LinkedListUtils.ListNode slowP = head;
+        ListNode fastP = head;
+        ListNode slowP = head;
 
         while(fastP!=null && fastP.next!=null){
             fastP = fastP.next.next;
@@ -27,9 +29,9 @@ public class FindMiddleElement {
 
     @Test
     public void test2(){
-        LinkedListUtils.ListNode head = llu.constructList(10);
+        ListNode head = llu.constructList(10);
         llu.printList(head);
-        LinkedListUtils.ListNode mid = head;
+        ListNode mid = head;
         int count = 0;
         while(head!=null){
             if(count%2!=0){

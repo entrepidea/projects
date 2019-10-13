@@ -42,11 +42,13 @@ public class SpringConfig {
     @Bean
     StudentRecord getStudentRecord(){ return new StudentRecord();}
 
-/*    @Bean(name="John")
+    /*
+    @Bean(name="John")
     Student createJohn(){return new Student("John");}
 
     @Bean(name="Mary")
-    Student createMary(){return new Student("Mary");}*/
+    Student createMary(){return new Student("Mary");}
+    */
 
     /**
      *

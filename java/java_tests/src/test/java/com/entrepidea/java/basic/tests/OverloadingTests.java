@@ -1,6 +1,6 @@
 package com.entrepidea.java.basic.tests;
 /**
- * @description: This test is about Overloading. Be mindful that overloading is happening at compile time, meaning the below 
+ * @description: This checkBalancedBinaryTree is about Overloading. Be mindful that overloading is happening at compile time, meaning the below
  * checking of parameters of CollectionClassfier happened when the program is compiled. In the eyes of a compiler, these 3 
  * overloadings are no different - their inputs are always Collection. This is why in runtime, only "classify(Collection<?> c)"
  * is picked up. 

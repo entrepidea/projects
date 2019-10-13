@@ -4,11 +4,8 @@ package com.entrepidea.algo.tests.sort;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
 
 /*
 //  Morgan Stanley, onsite, 05/09/12
@@ -93,5 +90,52 @@ public class MergingSort {
             arr = Arrays.copyOfRange(arr,1,arr.length);
         }
         Assert.assertArrayEquals(ret, orig);
+    }
+
+
+    //redo, 02/23/19
+    int[] merge2(int[] l1, int[] l2){
+        int n1 = l1.length;
+        int n2 = l2.length;
+        int[] l = new int[n1+n2];
+        int k1=0,k2=0,k=0;
+        while (k1<n1 && k2<n2){
+            if(l1[k1]<=l2[k2]){
+                l[k++] = l1[k1++];
+            }
+            else{
+                l[k++] = l2[k2++];
+            }
+        }
+
+        while(k2<n2){
+            l[k++] = l2[k2++];
+        }
+        while(k1<n1){
+            l[k++] = l1[k1++];
+        }
+
+        return l;
+    }
+
+    int[] mergeSorting2(int[] arr){
+        int len = arr.length;
+        if(len==1){
+            return arr;
+        }
+        int[] l1 = Arrays.copyOfRange(arr,0,len/2);
+        int[] l2 = Arrays.copyOfRange(arr,len/2, len);
+        int[] a = mergeSorting2(l1);
+        int[] b = mergeSorting2(l2);
+
+        return merge2(a,b);
+    }
+
+    @Test
+    public void test2(){
+        int[] arr = ArrayUtil.generateRandomArray(0,100,11);
+        ArrayUtil.printArry(arr);
+        int[] ret = mergeSorting2(arr);
+        ArrayUtil.printArry(ret);
     }
 }

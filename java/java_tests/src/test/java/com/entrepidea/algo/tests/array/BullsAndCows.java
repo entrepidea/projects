@@ -16,7 +16,7 @@
 //You may assume that the secret number and your friend's guess only contain digits, and their lengths are always equal.
 
 //Credits:
-//Special thanks to @jeantimex for adding this problem and creating all test cases.
+//Special thanks to @jeantimex for adding this problem and creating all checkBalancedBinaryTree cases.
 
 package com.entrepidea.algo.tests.array;
 

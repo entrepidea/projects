@@ -7,7 +7,7 @@ package com.entrepidea.java.basic.tests;
  * for a discussion, check out this SO post and the reference within:
  * https://stackoverflow.com/questions/7563650/what-are-the-basic-language-constructs-in-java
  *
- * This test set covers relevant questions around constructs.
+ * This checkBalancedBinaryTree set covers relevant questions around constructs.
  *
  * */
 public class ConstructTests {
@@ -17,7 +17,7 @@ public class ConstructTests {
      */
     //https://stackoverflow.com/questions/9477476/why-constructors-cannot-be-final
     //some takeaways:
-    // 1. a construcotor can't be overriden, therefore it's implicitly final
+    // 1. a constructor can't be overridden, therefore it's implicitly final
     // 2. What's static? static keyword indicates that no instance of a class. However, when you use "new" followed by a constructor, an instance is created thus a "static" constructor doesn't make sense
     // 3. abstract keyword applied to a method implies that method doesn't have a body, a constructor always has a body, so it can't be abstract. Besides, abstract class/method are meant to be overridden, constructor is already final, it can't be overridden.
 
@@ -27,7 +27,7 @@ public class ConstructTests {
         Explain final and finally, and usage in real life scenarios	(Morgan Stanley Interview 05/17/17)
         Explain final keyword. (10/15/14, Markit on site)
      */
-    //final is used to decorate variables, instance methods and classes. It means variables are constants, non-overriable methods and non-inheritable classes respectively.
+    //final is used to decorate variables, instance methods and classes. It means variables are constants, non-overridable methods and non-inheritable classes respectively.
     //finally is used together with try/catch to provide an venue for house cleaning work such as closing a dbase connection.
 
 
@@ -57,7 +57,7 @@ public class ConstructTests {
 
     /**
        Morgan Stanley phone interview, 05/14/18
-       Different b/w int and Integer. Tell me more about Integer class. For example, is it inmutable
+       Different b/w int and Integer. Tell me more about Integer class. For example, is it immutable
      *
      */
     //Integer is immutable. its value, once set, can't be changed. A immutable's state cant be changed.
@@ -69,8 +69,8 @@ public class ConstructTests {
         Interview with Credit Susie (01/23/14)
         How to return a non-primitive member in a class and make sure it’s NOT mutable?
      */
-        //To make a returning class member immutable, it's important to make sure its internal state won't be change in all contexts.
-        //it's also noted that this applies to the members of the class member in question, in case it's a user type itself.
+    //To make a returning class member immutable, it's important to make sure its internal state won't be change in all contexts.
+    //it's also noted that this applies to the members of the class member in question, in case it's a user type itself.
 
 
     /**
@@ -80,7 +80,7 @@ public class ConstructTests {
     //polymorphism is an object taking many forms. it happens when a hierarchy of classes related via inheritance.
     //a derived class can inherit member functions (C++) or member methods (Java) from its base class.
     //While the signature is the same, the implementation can vary.
-    //In C++, member functions with qualifier "virtual" is deemed to be inherited and changed at the derived class's disposal, thus polymorphism.
+    //In C++, member functions with qualifier "virtual" is signaled to be inherited and changed at the derived class's disposal, thus polymorphism.
     //which qualifier "virtual", it's just another member function.
     // (while we are at it, a virtual destuctor is to be there as well)
     //https://www.tutorialspoint.com/cplusplus/cpp_polymorphism.htm
@@ -110,5 +110,10 @@ public class ConstructTests {
 
     //phone interview with Morgan Stanley 08/16/13 3:00 PM (recruiter: IRIS)
     //TODO marker interface, what is it? how to create one?
+
+    //static factory method vs. Constructor, what's the benefit?
+    //one benefit is it has name, and by that solves the delima that two constructors with same signature being syntax incorrect but reality necessary
+    //See this SO for an explanation: https://stackoverflow.com/questions/2842232/why-would-you-have-two-constructors-with-the-same-signature
+    //other benefits see Item#1 from Effective Java, 3rd Ed.
 
 }

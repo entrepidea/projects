@@ -1,8 +1,9 @@
 package com.entrepidea.algo.tests.list;
 
+import com.entrepidea.algo.tests.list.support.LinkedListUtils;
+import com.entrepidea.algo.tests.list.support.ListNode;
 import org.junit.Test;
 
-import static com.entrepidea.algo.tests.list.LinkedListUtils.ListNode;
 
 public class MergeSortLinkedList {
 

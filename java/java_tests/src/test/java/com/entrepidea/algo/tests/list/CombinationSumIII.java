@@ -22,7 +22,7 @@ package com.entrepidea.algo.tests.list;
  //[[1,2,6], [1,3,5], [2,3,4]]
 
  //Credits:
- //Special thanks to @mithmatt for adding this problem and creating all test cases.
+ //Special thanks to @mithmatt for adding this problem and creating all checkBalancedBinaryTree cases.
  //Source: https://leetcode.com/problems/combination-sum-iii/
 
  //TODO write my own solution

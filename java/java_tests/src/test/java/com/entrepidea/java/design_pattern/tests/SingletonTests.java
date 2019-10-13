@@ -1,6 +1,9 @@
 package com.entrepidea.java.design_pattern.tests;
 
 
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
  * Morgan Stanley Interview 05/17/17
  * How Singleton is implemented?
@@ -10,8 +13,18 @@ package com.entrepidea.java.design_pattern.tests;
 *
  * note that DLC approach wasn't even mentioned.
  *
+ * @Comment: Two popular idioms of Singleton are Initialization-on-demand holder idiom and Double Lock Check idiom.
  * */
 public class SingletonTests {
+
+    //Initialization-on-demand holder idiom
+    @Test
+    public void testLazyHolderIdiom(){
+        SingleFoo foo = SingleFoo.getInstance();
+        SingleFoo foo2 = SingleFoo.getInstance();
+        Assert.assertTrue(foo==foo2);
+        Assert.assertTrue(foo.getClass()==foo2.getClass());
+    }
     //TODO double-lock-check idiom
 
     //10/01/14, 5:30PM, BofA phone interview with Wilson
@@ -25,5 +38,16 @@ public class SingletonTests {
     //TODO 10. give example of singleton implmentation in jdk
     //TODO 11. give examples of deisng patterns of classes in JDK
 
+}
 
+//Initialization-on-demand holder idiom
+//reference to wiki: https://en.wikipedia.org/wiki/Initialization-on-demand_holder_idiom
+class SingleFoo{
+    private SingleFoo(){}
+    static class LazyHolder {
+        private static final SingleFoo instance = new SingleFoo();
+    }
+    public static SingleFoo getInstance(){
+        return LazyHolder.instance;
+    }
 }

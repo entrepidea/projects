@@ -28,7 +28,7 @@ public class MoveHeadNode {
         return head;
     }
 
-    //test init is done
+    //checkBalancedBinaryTree init is done
     public  void printList(Node head){
 
         Node node = head;

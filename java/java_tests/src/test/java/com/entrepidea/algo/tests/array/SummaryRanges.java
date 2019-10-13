@@ -5,7 +5,7 @@ package com.entrepidea.algo.tests.array;//source: https://leetcode.com/problems/
 //For example, given [0,1,2,4,5,7], return ["0->2","4->5","7"].
 
 //Credits:
-//Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
+//Special thanks to @jianchao.li.fighter for adding this problem and creating all checkBalancedBinaryTree cases.
 
 import java.util.LinkedList;
 import java.util.List;

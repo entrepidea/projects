@@ -4,11 +4,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.Random;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.IntStream;
 
 /**
@@ -57,4 +56,99 @@ public class AtomicClassesTests {
     //Morgan Stanley, onsite, 05/09/12
     //TODO 1.Write a thread safe class, getValue, incr (int val++) (sync on both, what if use volatile, or what if use AtomicInteger);
     //TODO 2.If AtomicInteger is used, do u know how its method incrementAndSet work? oldVal = value; newVal = value; if(newVal != value)…
+
+
+    //The test was from the book "java特种兵", Cpt 5.3.4.
+    //In multi-threading environment, result of AtomicInteger's increment and get remains constant and expected. Not the case for volatile variables.
+    static class Foo{
+        public static volatile int index;
+        public final static AtomicInteger TEST_INTEGER = new AtomicInteger(0);
+    }
+    @Test
+    public void testAtomicIncrementAndGetAndVolatileCompare(){
+        final CountDownLatch cdl = new CountDownLatch(1);
+        final Thread[] threads = new Thread[10];
+        for(int i=0;i<10;i++){
+            threads[i] = new Thread(()->{
+                try{
+                    cdl.await();
+                }
+                catch(InterruptedException e){
+                    e.printStackTrace();
+                }
+
+                for(int j=0;j<10;j++){
+                    Foo.index++;
+                    Foo.TEST_INTEGER.incrementAndGet();
+                }
+
+            });
+            threads[i].start();
+        }
+        try {
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException e){
+            e.printStackTrace();
+        }
+        cdl.countDown();
+        for(Thread t : threads){
+            try {
+                t.join();
+            }
+            catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println("Atomic result: "+Foo.TEST_INTEGER);
+        System.out.println("Volatile result: "+Foo.index);
+    }
+
+    //Below is a test of AtomicReference - the value it hosts can be checked and updated by any thread safely
+    //code is from the book "java特种兵", Cpt 5.3.4.
+    @Test
+    public void testAtomicRefCompareAndSet(){
+        final CountDownLatch cdl = new CountDownLatch(1);
+        final AtomicReference<String> atomicReference = new AtomicReference<>("ABC");
+        final Random RANDOM_NUMBER = new Random();
+        final Thread[] threads = new Thread[20];
+        for(int i=0;i<20;i++){
+            final int num = i;
+            threads[i] = new Thread(()->{
+                String oldVal = atomicReference.get();
+                try {
+                    cdl.await();
+                    Thread.sleep(RANDOM_NUMBER.nextInt() & 1000);
+                }
+                catch(InterruptedException e){
+                    e.printStackTrace();
+                }
+                atomicReference.compareAndSet(oldVal, oldVal+num);
+
+            });
+            threads[i].start();
+        }
+
+        try{
+            Thread.sleep(200);
+        }
+        catch(InterruptedException e){
+            e.printStackTrace();
+        }
+
+        cdl.countDown();
+
+        for(Thread t : threads){
+            try {
+                t.join();
+            }
+            catch(InterruptedException e ){
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println(atomicReference.get());
+
+    }
 }

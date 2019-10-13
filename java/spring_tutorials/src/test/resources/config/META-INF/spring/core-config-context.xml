@@ -40,7 +40,6 @@
     <bean id="clientService" class="com.entrepidea.spring.core.ioc.supports.ClientService" init-method="createInstance"/>
     <bean id="clientService2" class="com.entrepidea.spring.core.ioc.supports.ClientService" init-method="createInstance"/>
 
-
     <bean id="p_namespace" class="com.entrepidea.spring.core.ioc.supports.ClientService" init-method="createInstance" p:email="support@FakeCompany.com"/>
 
     <bean id="foo" class="com.entrepidea.spring.core.ioc.supports.Foo">

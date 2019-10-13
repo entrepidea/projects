@@ -9,7 +9,7 @@ package com.entrepidea.algo.tests.misc;//Given an array containing n distinct nu
 
 //Credits:
 //Special thanks to @jianchao.li.fighter for adding this problem and 
-//creating all test cases.
+//creating all checkBalancedBinaryTree cases.
 
 public class MissingNumber {
     //Considering the fact that 1+2+...+n = n*(n+1)/2,

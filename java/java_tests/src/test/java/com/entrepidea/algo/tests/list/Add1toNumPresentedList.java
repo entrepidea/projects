@@ -8,9 +8,10 @@ package com.entrepidea.algo.tests.list;
  * date: 12/29/18
  *
  * */
+import com.entrepidea.algo.tests.list.support.LinkedListUtils;
+import com.entrepidea.algo.tests.list.support.ListNode;
 import org.junit.Test;
 
-import static com.entrepidea.algo.tests.list.LinkedListUtils.ListNode;
 public class Add1toNumPresentedList {
 
     LinkedListUtils llu = LinkedListUtils.getInstance();

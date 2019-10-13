@@ -7,9 +7,9 @@ package com.entrepidea.algo.tests.list;
  * the idea is to use merge sort
  *
  * */
+import com.entrepidea.algo.tests.list.support.DListNode;
 import org.junit.Test;
 
-import static com.entrepidea.algo.tests.list.LinkedListUtils.DListNode;
 public class FlattenList {
 
     private DListNode constructList(){

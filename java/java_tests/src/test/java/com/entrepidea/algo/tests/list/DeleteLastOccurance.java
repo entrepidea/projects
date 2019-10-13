@@ -1,5 +1,7 @@
 package com.entrepidea.algo.tests.list;
 
+import com.entrepidea.algo.tests.list.support.LinkedListUtils;
+import com.entrepidea.algo.tests.list.support.ListNode;
 import org.junit.Test;
 /*
 * desc: Given a liked list and a key to be deleted. Delete last occurrence of key from linked. The list may have duplicates.
@@ -8,7 +10,6 @@ import org.junit.Test;
 *
 *
 * */
-import static com.entrepidea.algo.tests.list.LinkedListUtils.ListNode;
 public class DeleteLastOccurance {
 
     LinkedListUtils llu = LinkedListUtils.getInstance();

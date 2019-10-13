@@ -2,7 +2,7 @@ package com.entrepidea.java.generic.tests;
 
 /**
  * this item is about the typesafe of heterogeneous containers. When the value types of the container is more than 
- * type, we can parameterize the keys instead of values to archive type-safty.
+ * type, we can parameterize the keys instead of values to achieve type-safty.
  * @see item #29, EJ, "Consider typesafe heterogeneous containers"
  * 
  * @note: 1. you can use class objects as keys for typesafe heterogeneous containers. The class object used in such a fashion is 

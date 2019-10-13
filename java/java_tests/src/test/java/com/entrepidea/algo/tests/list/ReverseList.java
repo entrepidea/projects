@@ -9,8 +9,10 @@ package com.entrepidea.algo.tests.list;
 *
 */
 
+import com.entrepidea.algo.tests.list.support.LinkedListUtils;
+import com.entrepidea.algo.tests.list.support.ListNode;
 import org.junit.Test;
-import com.entrepidea.algo.tests.list.LinkedListUtils.*;
+import com.entrepidea.algo.tests.list.support.LinkedListUtils.*;
 
 public class ReverseList{
 
@@ -157,6 +159,67 @@ public class ReverseList{
 
 
 
+    //redo 02/23/19, recursive version
+    ListNode reverseList3(ListNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        ListNode newHead = reverseList3(head.next);
+        ListNode temp = newHead;
+        while(temp.next!=null){
+            temp  = temp.next;
+        }
+        temp.next = head;
+        head.next = null;
+
+        return newHead;
+
+    }
+    @Test
+    public void testReverseList5(){
+        ListNode head = llu.constructList(10);
+        llu.printList(head);
+        ListNode newHead = reverseList3(head);
+        llu.printList(newHead);
+    }
+
+    //redo, 02/25/19, non-recursive version
+    ListNode reverseList4(ListNode head){
+        if(head==null || head.next==null){
+            return head;
+        }
+        ListNode cur = head;
+
+        while (cur.next != null) {
+            cur = cur.next;
+        }
+
+        ListNode newHead = cur;
+        cur = head;
+        ListNode pre = null;
+
+        while(head.next!=null) {
+            while (cur.next != null) {
+                pre = cur;
+                cur = cur.next;
+            }
+            cur.next = pre;
+            pre.next = null;
+            cur = head;
+            pre = null;
+        }
+
+        return newHead;
+    }
+
+    @Test
+    public void testReverseList6(){
+        ListNode head = llu.constructRandomNumberList(10,100);
+        llu.printList(head);
+        ListNode newHead = reverseList4(head);
+        llu.printList(newHead);
+    }
 
 
 

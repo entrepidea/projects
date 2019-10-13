@@ -12,7 +12,7 @@ from pyspark import SparkContext, SparkConf
 
 def movie_names():
     movie_map = {}
-    with open ('u.item',encoding = "ISO-8859-1") as file:
+    with open ('ml-100k/u.item',encoding = "ISO-8859-1") as file:
         for line in file:
             fields = line.split('|')
             movie_map[int(fields[0])] = fields[1]
