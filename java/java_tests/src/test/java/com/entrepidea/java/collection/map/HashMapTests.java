@@ -1,20 +1,62 @@
-package com.entrepidea.java.collection.tests;
+package com.entrepidea.java.collection;
 
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import junit.framework.TestCase;
+/**
+ * @Desc:
+ * Map, HashMap, HashTable, SortedMap, synchronized Map, ConcurrentHashMap and other maps are associated containers that feature key & value pairs data structure.
+ * Details, caveats of each and their differences are explained and demoed as in the test cases below.
+ *
+ * */
 
 public class HashMapTests {
 
-	private static Logger log = LoggerFactory.getLogger(HashMapTests.class);
 
 
-	/*
+	//performance tests between synchronized map and concurrentHashMap
+	//This could be done with a better test.
+	//The idea is from this post: https://crunchify.com/hashmap-vs-concurrenthashmap-vs-synchronizedmap-how-a-hashmap-can-be-synchronized-in-java/
+	private void perf(Map<String, Integer> map, int threadNum){
+
+		long start = System.nanoTime();
+		ExecutorService service = Executors.newFixedThreadPool(threadNum);
+		for(int i=0;i<threadNum;i++) {
+			service.execute(() -> {
+				for(int j=0;j<5000000;j++){
+					Integer value = (int)(Math.ceil(Math.random()));
+					String key = String.valueOf(value);
+					map.put(key,value);
+				}
+			});
+		}
+		service.shutdown();
+		try {
+			service.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
+		}catch(InterruptedException e){
+			e.printStackTrace();
+		}
+		long end = System.nanoTime();
+		System.out.println("Total time takes: "+(end-start)/1000000L+" milliseconds for "+map.getClass());
+
+	}
+	@Test
+	public void testMapPerformance(){
+		final int THREAD_NUM = 5;
+
+		Map<String, Integer> map = Collections.synchronizedMap(new HashMap<String,Integer>());
+		perf(map,THREAD_NUM);
+		map = new ConcurrentHashMap<>();
+		perf(map,THREAD_NUM);
+
+	}
+
+	/**
 	*	HSBC interviews (by tan bin) 07/18/17
 	*
 	* 1. TODO Do you have to iterate all elements in a bucket of a hashmap to find out the dups?
@@ -27,92 +69,7 @@ public class HashMapTests {
 
 
 
-	/**
-	 * @description: the below checkBalancedBinaryTree demo the WeakHashMap. WeakHashMap will be the first candidates for garbage collection. GC will
-	 * clean up the keys and values in such a map when it detects a low memory,before it throws a OutOfMemory error.
-	 * The below code take every 3rd elements out from the map and put them into a list, factually making them strongly reference,
-	 * so they won't be garbage collected.
-	 *
-	 * @see: Think in Java, 4th edition, p892, "The WeakHashMap"
-	 *
-	 * */
-	class Element {
-		
-		private String ident;
-		
-		public Element(String id){
-			this.ident = id;
-		}
-		@Override
-		public String toString(){
-			return ident;
-		}
-		@Override
-		public boolean equals(Object o){
-			return o instanceof Element &&
-			ident.equals(((Element)o).ident);
-		}
-		@Override
-		public int hashCode(){
-			return ident.hashCode();
-		}
-		@Override
-		protected void finalize(){
-			log.info("Finalizing "+getClass().getSimpleName() + " "+ident);
-		}
-	}
-	
-	class Key extends Element{
 
-		public Key(String id) {
-			super(id);
-		}
-	}
-	
-	class Value extends Element{
-
-		public Value(String id) {
-			super(id);
-		}
-	}
-	
-	@Test
-	public void testCleanWeakHashMap(){
-		int size = 100;
-		//Key[] keys = new Key[size];
-		List<Key> keys = new ArrayList<Key>();
-		
-		WeakHashMap<Key, Value> map = new WeakHashMap<Key,Value>();
-		
-		for(int i=0;i<size;i++){
-			Key key = new Key(new Integer(i).toString());
-			Value value = new Value(new Integer(i).toString());
-			
-			if(i%3==0){
-				keys.add(key);
-			}
-			map.put(key, value);
-		}
-		
-		Set<Key> set = map.keySet();
-		Iterator<Key> iter = set.iterator();
-		int count=0;
-		while(iter.hasNext()){
-			Key k = iter.next();
-			log.info(count+ " "+k +" : "+ map.get(k));
-			count++;
-		}
-		log.info("start gc: ");
-		long then = System.nanoTime();
-		System.gc();
-		log.info("gc done, it takes : {} nano seconds.",(System.nanoTime()-then));
-		
-		log.info("suvivor numbers: {} ",keys.size());
-		
-		for(Key k: keys){
-			log.info("suvivors: {} ", k);
-		}
-	}
 
 	//can a HashMap have null key/value?
 	//and this statement from ConcurrentHashMap confirms that Hashtable DOESN'T allow null keys or values, but HashMap does.
@@ -129,7 +86,8 @@ public class HashMapTests {
 
 	//TODO Explain diff of HashTable, HashMap; how to sync a Map; (Morgan Stanley Interview 05/17/17)
 
-	//TODO 1. ConcurentHashMap and synchrnoized hashMap, which is preferred, why? (10/15/14, Markit on site)
+	//TODO 1. ConcurentHashMap and synchronized hashMap, which is preferred, why? (10/15/14, Markit on site)
+
 
 
 	//TODO 17.
