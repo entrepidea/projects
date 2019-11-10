@@ -175,7 +175,26 @@ def test_bfs2():
 
         node = q.get()
 
+#test BFS again
+def test_BFS3():
+    arr = [1,2,2,3,4,4,3]
+    root = from_array_to_tree(arr)
+    q = queue.Queue()
+    q.put(root)
+    while q.empty() is not True:
+        node = q.get()
+        if node is not None:
+            print(node.val)
 
+        n = node.lchild
+        if n is not None:
+            q.put(n)
+
+        n = node.rchild
+        if n is not None:
+            q.put(n)
+
+    print('\n')
 
 #DFS, or Depth First Search ...
 #TODO
