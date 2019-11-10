@@ -1,4 +1,4 @@
-package com.entrepidea.java.collection;
+package com.entrepidea.java.collection.map;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package interview.coding;
+package interview;
 
 
 /**

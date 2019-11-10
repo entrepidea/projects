@@ -1,0 +1,8 @@
+Philadelphia,Pittsburgh
+Boston,New York
+Hartford,New York
+Los Angeles,San Diego
+New York,Croton-Harmon
+St. Petersburg, Tampa
+Pittsburgh,Los Angeles
+San Diego,New York

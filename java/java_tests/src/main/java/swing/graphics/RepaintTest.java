@@ -42,9 +42,7 @@ public class RepaintTest extends JFrame {
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 		
-		Thread t = new Thread(new Runnable(){
-			@Override
-			public void run(){
+		Thread t = new Thread(()->{
 				while(true){
 				try{
 					s.repaint();
@@ -54,7 +52,6 @@ public class RepaintTest extends JFrame {
 					e.printStackTrace();
 				}
 				}
-			}
 		});
 		t.start();
 		

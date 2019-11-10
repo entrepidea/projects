@@ -23,12 +23,12 @@ public class TransparentTable extends JPanel {
 
 	public TransparentTable(){
 		
-		JTable table = new JTable(40,5){
+		JTable table = new JTable(80,25){
 			{this.setOpaque(false);}
 		};
 		table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){{setOpaque(false);}});
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		table.setPreferredScrollableViewportSize(new Dimension(300,250));
+		table.setPreferredScrollableViewportSize(new Dimension(600,550));
 		JTableHeader th = table.getTableHeader();
 		th.setDefaultRenderer(new DefaultTableCellRenderer(){{setOpaque(false);}});
 		th.setOpaque(false);
@@ -41,7 +41,7 @@ public class TransparentTable extends JPanel {
 //				g2d.setPaint(new GradientPaint(0,0,Color.BLUE, getWidth(), getHeight(),Color.RED));
 //				g2d.fillRect(0, 0, getWidth(), getHeight());
 				
-				URL url = getClass().getResource("/images/IMG_5485.JPG");
+				URL url = getClass().getResource("/images/penguins.jpg");
 				//bi = ImageIO.read(new File("/home/john/projects/java_workspace/ExxonDataProcessor/src/main/resources/images/IMG_5485.JPG"));
 				try {
 					bi = ImageIO.read(url);

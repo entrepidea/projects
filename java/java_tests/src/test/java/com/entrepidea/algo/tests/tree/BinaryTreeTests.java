@@ -88,7 +88,7 @@ public class BinaryTreeTests {
 		
 		TreeNode node;
 		while((node=q.poll())!=null){
-			System.out.print(node.val+", ");
+			System.out.print(node+", ");
 			TreeNode n = node.lChild;
 			if(n!=null)
 				q.add(n);
@@ -99,11 +99,26 @@ public class BinaryTreeTests {
 		System.out.println();
 	}
 
-	//TODO checkBalancedBinaryTree breadth first search using recursion
+	//No difference from above, just re-practice the code
 	@Test
-    public void testBreadthFirstSearchRecursively(){
+	public void testBreadthFirstSearch2(){
+		Queue<TreeNode> q = new ArrayBlockingQueue<>(16);
+		q.add(root);
+		TreeNode node;
+		while((node=q.poll())!=null){
+			System.out.print(node);
+			TreeNode n = node.lChild;
+			if(n!=null) q.add(n);
+			n = node.rChild;
+			if(n!=null) q.add(n);
+		}
+		System.out.println();
+	}
 
-    }
+	//breadth first search using recursion
+	//Not a good idea, see this post: https://stackoverflow.com/questions/2549541/performing-breadth-first-search-recursively
+
+
 
     //inorder: recursive traversal
     private void inorder(TreeNode node){
@@ -116,7 +131,7 @@ public class BinaryTreeTests {
     }
 
     @Test
-    public void testRecursiveInorderTraveral(){
+    public void testRecursiveInorderTraversal(){
 	    inorder(root);
     }
 
