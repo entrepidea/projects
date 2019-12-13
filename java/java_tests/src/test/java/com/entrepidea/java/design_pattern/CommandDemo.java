@@ -1,4 +1,4 @@
-package com.entrepidea.java.design_pattern.tests;
+package com.entrepidea.java.design_pattern;
 
 /**
  * @author Hai Yi
@@ -22,8 +22,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-
 
 
 public class CommandDemo extends JPanel {

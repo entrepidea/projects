@@ -1,4 +1,4 @@
-package com.entrepidea.java.design_pattern.tests;
+package com.entrepidea.java.design_pattern;
 
 import org.junit.Test;
 
