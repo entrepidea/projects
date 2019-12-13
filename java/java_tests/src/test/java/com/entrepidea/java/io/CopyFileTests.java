@@ -1,4 +1,4 @@
-package com.entrepidea.java.io.tests;
+package com.entrepidea.java.io;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

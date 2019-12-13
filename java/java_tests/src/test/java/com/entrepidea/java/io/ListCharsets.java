@@ -1,4 +1,4 @@
-package com.entrepidea.java.io.tests;
+package com.entrepidea.java.io;
 
 import java.nio.charset.Charset;
 import java.util.Iterator;

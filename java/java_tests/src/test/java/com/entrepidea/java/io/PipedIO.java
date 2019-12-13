@@ -1,4 +1,4 @@
-package com.entrepidea.java.io.tests;
+package com.entrepidea.java.io;
 
 import java.io.IOException;
 import java.io.PipedReader;

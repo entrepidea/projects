@@ -1,4 +1,4 @@
-package com.entrepidea.java.io.tests;
+package com.entrepidea.java.io;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.entrepidea.java.io.tests;
+package com.entrepidea.java.io;
 
 /**
  * @description: this is simple write some strings to the file system. It's simple but effective, used in many occasions. 
