@@ -1,4 +1,4 @@
-package com.entrepidea.java.generic.tests;
+package com.entrepidea.java.generic;
 
 /**
  * @description: this is to checkBalancedBinaryTree the generic method. In the example below, the method "union" is generic method with typed parameters.

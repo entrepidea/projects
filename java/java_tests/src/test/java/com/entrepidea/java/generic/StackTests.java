@@ -1,4 +1,4 @@
-package com.entrepidea.java.generic.tests;
+package com.entrepidea.java.generic;
 
 import java.util.ArrayList;
 import java.util.Arrays;

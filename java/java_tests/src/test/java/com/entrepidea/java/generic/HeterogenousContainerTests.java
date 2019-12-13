@@ -1,4 +1,4 @@
-package com.entrepidea.java.generic.tests;
+package com.entrepidea.java.generic;
 
 /**
  * this item is about the typesafe of heterogeneous containers. When the value types of the container is more than 

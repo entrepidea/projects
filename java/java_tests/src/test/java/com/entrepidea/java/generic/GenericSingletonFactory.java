@@ -1,4 +1,4 @@
-package com.entrepidea.java.generic.tests;
+package com.entrepidea.java.generic;
 
 import org.junit.Test;
 
