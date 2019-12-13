@@ -1,4 +1,4 @@
-package com.entrepidea.java.jvm.tests;
+package com.entrepidea.java.jvm;
 
 public class MiscTests {
 
