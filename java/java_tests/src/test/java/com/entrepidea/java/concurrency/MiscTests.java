@@ -1,4 +1,4 @@
-package com.entrepidea.java.concurrency.tests;
+package com.entrepidea.java.concurrency;
 
 /*
 * This class includes all tests that don't seem fit in any categories, but still related to Concurrency
