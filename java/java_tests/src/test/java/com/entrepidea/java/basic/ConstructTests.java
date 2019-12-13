@@ -1,4 +1,4 @@
-package com.entrepidea.java.basic.tests;
+package com.entrepidea.java.basic;
 
 /**
  * Construct in Java means allowable elements on the language level. Examples of constructs include but not limited to:

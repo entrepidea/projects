@@ -1,4 +1,4 @@
-package com.entrepidea.java.basic.tests;
+package com.entrepidea.java.basic;
 
 public class StringTests {
 

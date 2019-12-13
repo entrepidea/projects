@@ -1,4 +1,4 @@
-package com.entrepidea.java.basic.tests.support;
+package com.entrepidea.java.basic.support;
 
 /**
  * Created by jonat on 1/10/2017.

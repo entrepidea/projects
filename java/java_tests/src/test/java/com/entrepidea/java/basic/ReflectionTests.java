@@ -1,4 +1,4 @@
-package com.entrepidea.java.basic.tests;
+package com.entrepidea.java.basic;
 
 import org.junit.Assert;
 import org.junit.Test;

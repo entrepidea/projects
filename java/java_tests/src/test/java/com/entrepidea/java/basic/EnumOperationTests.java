@@ -1,4 +1,4 @@
-package com.entrepidea.java.basic.tests;
+package com.entrepidea.java.basic;
 
 /**
  * @description: this is about the new enum type since JDK 1.5. The new enum is a class that exports one instance 

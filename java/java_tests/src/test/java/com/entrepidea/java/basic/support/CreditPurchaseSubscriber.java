@@ -1,4 +1,4 @@
-package com.entrepidea.java.basic.tests.support;
+package com.entrepidea.java.basic.support;
 
 import com.google.common.eventbus.Subscribe;
 

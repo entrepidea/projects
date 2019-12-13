@@ -1,4 +1,4 @@
-package com.entrepidea.java.basic.tests;
+package com.entrepidea.java.basic;
 /**
  * @description: This checkBalancedBinaryTree is about Overloading. Be mindful that overloading is happening at compile time, meaning the below
  * checking of parameters of CollectionClassfier happened when the program is compiled. In the eyes of a compiler, these 3 

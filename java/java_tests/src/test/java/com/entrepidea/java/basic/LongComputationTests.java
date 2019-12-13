@@ -1,10 +1,10 @@
-package com.entrepidea.java.basic.tests;
+package com.entrepidea.java.basic;
 
 import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import static com.entrepidea.java.basic.tests.LongComputationTests.Pi.computePi;
+import static com.entrepidea.java.basic.LongComputationTests.Pi.computePi;
 
 /**
  * Created by jonat on 4/13/2017.
