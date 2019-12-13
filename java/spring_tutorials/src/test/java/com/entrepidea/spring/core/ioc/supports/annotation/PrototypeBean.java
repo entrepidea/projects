@@ -1,4 +1,4 @@
-package com.entrepidea.spring.core.ioc.supports;
+package com.entrepidea.spring.core.ioc.supports.annotation;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;

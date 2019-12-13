@@ -1,4 +1,4 @@
-package com.entrepidea.spring.core.ioc.supports;
+package com.entrepidea.spring.core.ioc.supports.xml;
 
 public class Foo {
 

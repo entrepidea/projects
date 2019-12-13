@@ -1,4 +1,4 @@
-package com.entrepidea.spring.core.ioc.supports;
+package com.entrepidea.spring.core.ioc.supports.xml;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +8,7 @@ import javax.annotation.PreDestroy;
 
 public class LifecycleBean2 {
 
-    private Logger log = LoggerFactory.getLogger(com.entrepidea.spring.core.ioc.supports.LifecycleBean2.class);
+    private Logger log = LoggerFactory.getLogger(LifecycleBean2.class);
 
     @PostConstruct
     public void init(){

@@ -1,4 +1,4 @@
-package com.entrepidea.spring.core.ioc.supports;
+package com.entrepidea.spring.core.ioc.supports.annotation;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

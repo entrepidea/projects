@@ -1,4 +1,4 @@
-package com.entrepidea.spring.core.ioc.supports;
+package com.entrepidea.spring.core.ioc.supports.xml;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

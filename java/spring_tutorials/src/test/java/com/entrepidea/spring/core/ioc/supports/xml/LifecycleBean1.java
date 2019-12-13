@@ -1,14 +1,13 @@
-package com.entrepidea.spring.core.ioc.supports;
+package com.entrepidea.spring.core.ioc.supports.xml;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class LifecycleBean1 implements InitializingBean, DisposableBean {
 
-    Logger log = LoggerFactory.getLogger(com.entrepidea.spring.core.ioc.supports.LifecycleBean1.class);
+    Logger log = LoggerFactory.getLogger(LifecycleBean1.class);
 
     @Override
     public void destroy() throws Exception {

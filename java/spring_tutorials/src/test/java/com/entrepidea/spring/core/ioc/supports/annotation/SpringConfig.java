@@ -1,8 +1,8 @@
-package com.entrepidea.spring.core.ioc.supports;
+package com.entrepidea.spring.core.ioc.supports.annotation;
 
 import com.entrepidea.spring.core.lifecycle.InitialDisposeService;
 import com.entrepidea.spring.core.lifecycle.InjectionService;
-import com.entrepidea.spring.core.ioc.supports.Student;
+import com.entrepidea.spring.core.ioc.supports.xml.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
