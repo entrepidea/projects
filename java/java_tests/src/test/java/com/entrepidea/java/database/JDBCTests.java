@@ -1,4 +1,4 @@
-package com.entrepidea.java.database.tests;
+package com.entrepidea.java.database;
 
 public class JDBCTests {
 
