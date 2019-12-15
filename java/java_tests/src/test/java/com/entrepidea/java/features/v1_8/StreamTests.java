@@ -3,19 +3,18 @@ package com.entrepidea.java.features.v1_8;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static com.google.common.math.IntMath.factorial;
+import static java.util.stream.Collectors.*;
 
 /**
- * Description: stream is a sequence of elements that operations can be applied on. Operations include:
+ * @Desc: stream is a sequence of elements that functional-style operations can be applied on.
+ * Operations include:
  * map: transform an array; filter: set a filter; match, find matches; reduce; count, etc.
  * Java's collection APIs are retrofitted to include Stream operations since 1.8
  * Java Stream are either intermediate, in which case once a stream is worked on, another stream is returned for additional stream operations;
@@ -23,12 +22,17 @@ import static com.google.common.math.IntMath.factorial;
  *
  * References:
  * https://github.com/winterbe/java8-tutorial#streams
+ * Also:
+ * official package document https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html
+ * and Stream document: https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
  *
  * */
 public class StreamTests {
-    /*Morgan Stanley phone interview, 05/14/18
+    /*
 
-    //4. Heard of Stream? Tell me some about this API.
+    Morgan Stanley phone interview, 05/14/18
+
+    Heard of Stream? Tell me some about this API.
     answer:
         Stream is a sequence of elements that operation can be performed on. Stream can be intermediate, which return another stream; or
         terminal, which returns a result.
@@ -36,7 +40,7 @@ public class StreamTests {
         Stream can be normal or parallelStream
         operations on stream can be filter, map, match, reduce, just to name a few.
 
-    //5. Explain terminal vs intermediate in Java stream
+    Explain terminal vs intermediate in Java stream
     answer: if a Java Stream API is terminal, it produces a result; if it's intermediate, it produces another stream for another Java stream operation.
 
     */
@@ -46,6 +50,28 @@ public class StreamTests {
     public void testStreamMap(){
         int[] expected = new int[]{0,1,4,9,16,25};
         Assert.assertArrayEquals(expected, IntStream.rangeClosed(0,5).map(i->i*i).toArray());
+    }
+
+    //flatmap: a combination of mapping and a flatting operations
+    //
+    @Test
+    public void testFlatMap(){
+        List<Integer> evenInts = IntStream.rangeClosed(0,10).filter(x->x%2==0).boxed().collect(Collectors.toList());
+        List<Integer> oddInts = IntStream.rangeClosed(0,10).filter(x->x%2!=0).boxed().collect(Collectors.toList());
+        List<Integer> primeInts = IntStream.rangeClosed(1,10).filter(x -> {
+            for(int i=2;i<=x/2;i++){
+                if(x%i==0){
+                    return false;
+                }
+            }
+            return true;
+        }).boxed().collect(Collectors.toList());
+
+        //before flatMap: 3 lists of integers
+        Arrays.asList(evenInts,oddInts,primeInts).forEach(System.out::println);
+
+        //after flatMap:
+        Arrays.asList(evenInts,oddInts,primeInts).stream().flatMap(list -> list.stream()).collect(Collectors.toList()).forEach(System.out::println);
     }
 
     @Test
@@ -101,5 +127,57 @@ public class StreamTests {
         System.out.format("it's taken %d mil seconds to complete", TimeUnit.NANOSECONDS.toMillis(t1-t0));
     }
 
+
+    /**
+     * @Desc: Wells Fargo onsite interview question, in Nov/2019.
+     * This is to convert a list of Persons into a map<String, List<Person> > with keys groupped by the companies they employed with.
+     * @Note: Stream#Collectors' toMap has groupBy function.
+     * @Date: 12/09/19
+     * */
+
+    //Collectors.groupingBy examples.
+    static class Person {
+        public String getName() {
+            return name;
+        }
+
+        public String getEmployer() {
+            return employer;
+        }
+
+        private String name;
+        private String employer;
+        public Person(String n, String e){name = n; employer = e;}
+
+        @Override
+        public String toString(){
+            return "{name="+name+", employer="+employer+"}";
+        }
+    }
+
+
+    private List<Person> constructList(){
+        List<Person> l = new ArrayList<>();
+        l.add(new Person("John", "Barclays"));
+        l.add(new Person("Tom", "Barclays"));
+        l.add(new Person("Cathy", "Exxon"));
+        l.add(new Person("Jane", "Exxon"));
+
+        return l;
+    }
+
+    @Test
+    public void testCollectorsGroupingBy(){
+        List<Person> l = constructList();
+
+
+        Map<String, List<Person>> rst = l.stream().collect(groupingBy(Person::getEmployer));
+        rst.forEach((k,v) -> {
+            System.out.println(k+":"+v);
+        });
+
+        //Now we wanted to customize the value to show only names.
+        l.stream().collect(groupingBy(Person::getEmployer, mapping(s->s.getName(), toList()))).forEach((k,v)->{System.out.println(k+":"+v);});
+    }
 
 }
