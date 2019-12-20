@@ -1,0 +1,33 @@
+COSTCO,Supplies
+ATM WITHDRAWAL,Commission
+IRS              USATAXPYMT,Taxation
+TREASURY,Taxation
+NJWEB,Taxation
+PUBLIC SERVICE   PSEG,Utilities
+ELIZABETHTOWN GAS BILL,Utilities
+PORTASOFT,Utilities
+WHIPPANY WHIPPANY NJ,Dinner
+BARCLAY'S WHIPPANY,Dinner
+5GUYS,Dinner
+EXXON CLINTON 197929 9 ANNANDALE,Dinner out
+EXXONMOBIL,Auto Related
+INFINITI,Auto Related
+Infiniti,Auto Related
+NEW JERSEY - AME PAYMENT,Utilities
+PRUDENTIAL,Insurance
+HISCOX,Insurance
+TARGET,Supplies
+AMAZON,Supplies
+AMZN,Supplies
+Amazon,Supplies
+BESTBUY,Supplies
+HOMEDEPOT,Supplies
+KAM MAN,Supplies
+WAL-MART,Supplies
+COMCAST,Internet & Telephone
+CRICKET,Internet & Telephone
+ITALKBB,Internet & Telephone
+DIGITALOCEAN,Service
+GOOGLE,Service
+YMCA,Donation
+LYONS,Travel
