@@ -1,21 +1,53 @@
 COSTCO,Supplies
 ATM WITHDRAWAL,Commission
+WITHDRAWAL,Commission
 IRS              USATAXPYMT,Taxation
 TREASURY,Taxation
 NJWEB,Taxation
 PUBLIC SERVICE   PSEG,Utilities
 ELIZABETHTOWN GAS BILL,Utilities
 PORTASOFT,Utilities
+LMR,Utilities
 WHIPPANY WHIPPANY NJ,Dinner
 BARCLAY'S WHIPPANY,Dinner
+COSI,Dinner
+VENDING,Dinner
 5GUYS,Dinner
-EXXON CLINTON 197929 9 ANNANDALE,Dinner out
+CHU'S CAFE,Dinner
+MCDONALD,Dinner
+PANERA BREAD,Dinner
+STARBUCKS,Dinner
+EXXON CLINTON 197929 9 ANNANDALE,Dinner
+BARCLAYS,Dinner
+BURGER SHACK,Dinner
+CHUCK E CHEESE,Dinner
+SMART LUNCHES,Dinner
+ASIAN BISTRO,Dinner
+PARIS BAGUETTE,Dinner
+TACO BELL,Dinner
+TUM THAI CUISINE,Dinner
+FROZENLANDIA,Dinner
+ROYAL QUEEN,Dinner
 EXXONMOBIL,Auto Related
+US FUEL,Auto Related
 INFINITI,Auto Related
 Infiniti,Auto Related
+VALERO,Auto Related
+WAWA,Auto Related
+WHITEHOUSE AUTO SERVICE,Auto Related
+SUNOCO,Auto Related
+bob philips auto,Auto Related
+GARAGE,Auto Related
+BP#,Auto Related
 NEW JERSEY - AME PAYMENT,Utilities
+FIRST ENERGY COR,Utilities
+sewerage,Utilities
+water bill,Utilities
 PRUDENTIAL,Insurance
 HISCOX,Insurance
+NJM,Insurance
+SEARS WARRANTY,Insurance
+prudentuial,Insurance
 TARGET,Supplies
 AMAZON,Supplies
 AMZN,Supplies
@@ -24,10 +56,91 @@ BESTBUY,Supplies
 HOMEDEPOT,Supplies
 KAM MAN,Supplies
 WAL-MART,Supplies
+ELEMENTARY OS,Supplies
+SHOPRITE,Supplies
+HOME DEPOT,Supplies
+UNIQLO,Supplies
+WALGREENS,Supplies
+WALMART,Supplies
+99 RANCH,Supplies
+ITUNES,Supplies
+Audible US,Supplies
+CVS/PHARMACY,Supplies
+J CREW,Supplies
+J. CREW,Supplies
+LOWES,Supplies
+MACYS,Supplies
+KINGS SUPERMKT,Supplies
+aliexpress,Supplies
+GOLD VALLEY SUPERMARKE,Supplies
+AFM OF PISCATAWAY,Supplies
+ROYAL FARMS,Supplies
+Jabra,Supplies
+Talbots,Supplies
+koep,Supplies
+RITE AID,Supplies
+IKEA,Supplies
+7-ELEVEN,Supplies
+Kindle,Supplies
 COMCAST,Internet & Telephone
+RCN*CABLE,Internet & Telephone
 CRICKET,Internet & Telephone
 ITALKBB,Internet & Telephone
+OPTIMUM,Internet & Telephone
+US Mobile,Internet & Telephone
 DIGITALOCEAN,Service
 GOOGLE,Service
+AMHERST,Service
+PARK CITY,Service
+home inspection,Service
+priority tax,Service
+LUNARPAGES,Service
+Microsoft,Service
+PAYPAL,Service
+exit realty first choice,Service
+cps filling service,Service
+SEARS ROEBUCK,Service
+CONDO CERTS,Service
+NJEIS,Service
 YMCA,Donation
+Wikipedia,Donation
+STUDENTS FOR FAIR ADM,Donation
 LYONS,Travel
+MILLBURN - PARKING,Travel
+NEW JERSEY E-ZPASS,Travel
+TRANS BRIDGE,Travel
+CITY OF EASTON PARKING,Travel
+METROCARD,Travel
+NJT PABT,Travel
+UBER,Travel
+WESTBOROUGH INN,Travel
+PRICELINE,Travel
+PENN STA,Travel
+EXPEDIA,Travel
+CRAYOLA,Recreation
+NETFLIX,Recreation
+Netflix,Recreation
+HBO NOW,Recreation
+LIQUORS,Recreation
+Little Dolphins,Recreation
+TURTLE BACK ZOO,Recreation
+LIBERTY SCIENC,Recreation
+STEAMGAMES,Recreation
+SPIRITS,Recreation
+USA SPORT GROUP,Recreation
+HUNTERDON FAMILY,Health & Wellness
+HUNTERDON PEDIATRIC,Health & Wellness
+RETINA,Health & Wellness
+SCC VNJ,Health & Wellness
+CHOP,Health & Wellness
+SAINT PETER,Health & Wellness
+SARKU JAPAN,Health & Wellness
+CHILTON MEDICAL CENTER,Health & Wellness
+CIGNA,Health & Wellness
+RADIOLOGY,Health & Wellness
+USPS,Postal
+UPS,Postal
+ERIC MARK,Legal
+peter kriner,Legal
+TELEFLORACOM,Gift
+ZEN GINSENG,Gift
