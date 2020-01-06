@@ -22,7 +22,7 @@ public class BlockingQueue<T> {
     }
 
     //public APIs
-    public T poll() throws InterruptedException{
+    public T take() throws InterruptedException{
         synchronized (buffer){
             while(buffer.isEmpty()){
                 buffer.wait();
@@ -33,7 +33,7 @@ public class BlockingQueue<T> {
         }
     }
 
-    public void add(T ele) throws InterruptedException {
+    public void put(T ele) throws InterruptedException {
         synchronized (buffer){
             while(buffer.size() == capacity){
                 buffer.wait();

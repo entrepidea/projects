@@ -17,7 +17,7 @@ public class BlockingQueueTests {
             for(int i=0;i<17;i++){
                 try {
                     System.out.println("Producer: "+i);
-                    bq.add(i);
+                    bq.put(i);
                 }
                 catch(InterruptedException e){
                     e.printStackTrace();
@@ -35,7 +35,7 @@ public class BlockingQueueTests {
         public void run(){
             try {
                 while(true) {
-                    System.out.println("consumer: "+bq.poll());
+                    System.out.println("consumer: "+bq.take());
                 }
             }
             catch(InterruptedException e){
@@ -55,6 +55,44 @@ public class BlockingQueueTests {
         }
         catch(InterruptedException e){
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void test2() { //test the BlockingQueue implementation that uses explicit lock
+        ExecutorService es = Executors.newCachedThreadPool();
+        final BlockingQueue2<Integer> bq2 = new BlockingQueue2<>(10);
+
+        es.submit(() -> { //fast producing thread
+            int i=0;
+            while(true) {
+                try {
+                    System.out.println("Producer: "+i);
+                    bq2.put(i++);
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+
+        es.submit(() -> { //slow consuming thread
+            while (true) {
+                try {
+                    System.out.println("consumer: "+bq2.take());
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        try{
+            es.awaitTermination(1, TimeUnit.MINUTES);
+        }
+        catch(InterruptedException e){
+            //eat me
         }
     }
 }
