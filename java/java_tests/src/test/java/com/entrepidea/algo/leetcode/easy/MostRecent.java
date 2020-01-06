@@ -15,7 +15,7 @@ public class MostRecent {
 
         Integer max = Arrays.asList(new File(dir).listFiles()).stream()
                 .filter(f  -> !("MostRecent.java").equals(f.getName()))
-                .mapToInt(file->new Integer(file.getName().substring(2,5))).max().orElseThrow(NoSuchElementException::new);
+                .mapToInt(file->new Integer (file.getName().substring(2,5))).max().orElseThrow(NoSuchElementException::new);
 
         System.out.println(max);
     }
