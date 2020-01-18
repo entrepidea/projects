@@ -17,18 +17,19 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-/*
-     * Description:
+/**
+     * @Description:
      *
      * Lamda replaces anonymous inner class hence improves the readability;
      * another common use of Lambda is to pass it as a data type in a function's argument list.
      * Lambda is an instance of a more broader concept known as functional interface, which can be seen as a data type.
      *
      * Functional interface is introduced since Java 8 to address the outcry for addition of functional programming in Java, like Scala.
-     * Functional interface has an abstract method and zero/multiple default method implementations.
+     * Functional interface has an abstract method and zero/multiple default method implementations. Be careful that the methods in the Object class can not be used as Functional interface's abstract method.
      * Functional interface is annotated with @FunctionalInterface
+     * A Functional interface can be assigned with a lambda expression or a method reference.
      *
-     * Lambda are generic functional interface instance instances, but there are also several other built-in functional interface instances such as:
+     * Lambda are generic functional interface instances, but there are also several other built-in functional interface instances such as:
      * Predicate, Function, Consumer, Supplier, etc
      *
      * In addition, the APIs in Java Collection package is retrofitted to accommodate functional interfaces and lambda, e.g sort.
@@ -50,7 +51,7 @@ import static org.junit.Assert.assertTrue;
 
 public class LambdaTests {
 
-    //maybe simple lambda example
+    //maybe most simple lambda example
     @Test
     public void testSimpleLambda() {
         List<String> fruits = Arrays.asList("Apple", "Pear", "Mongo", "Water melon", "Pineapple");
@@ -65,6 +66,7 @@ public class LambdaTests {
     public void testEvenMoreSimpleLambda() {
         List<String> fruits = Arrays.asList("Apple", "Pear", "Mongo", "Water melon", "Pineapple");
         fruits.sort((a, b) -> a.compareTo(b));//compiler is smart enough to deference what type a and b should be basing on the type of fruits.
+
         fruits.forEach(System.out::println);
     }
 
@@ -75,7 +77,7 @@ public class LambdaTests {
 
     @Test
     public void testFunctionInterface() {
-        Converter<String, Integer> converter = (from) -> Integer.valueOf(from);
+        Converter<String, Integer> converter = (from) -> Integer.valueOf(from);//convert from a String type to an Integer type
         assertEquals(converter.convert("123"), 123, 0);
         //another way, more simple way, through method reference
         Converter<String, Integer> converter2 = Integer::valueOf;
@@ -86,7 +88,7 @@ public class LambdaTests {
     @Test
     public void testLambdaAccessFinalVar() {
         final int num = 1; // the final keyword can be ignored, as long as num won't change, thus implicitly it's thought of as final
-        Converter<Integer, String> int2StringConverter = (from) -> String.valueOf(from + num);
+        Converter<Integer, String> int2StringConverter = (from) -> String.valueOf(from + num); //assign a lambda expression to a Function interface variable.
         assertTrue(int2StringConverter.convert(2).equals("3"));
 
     }

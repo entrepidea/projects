@@ -14,8 +14,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 /**
- * These tests are about volatile variables.
- * volatile variables are mostly relevant in the multi-threading environment, it helps keep the data integration, to some extends.
+ * @Desc:
+ * The latest update of a volatile variable is visible across all threads sharing it.
  * volatile guarantees data's visibility, tackling execution re-ordering issues, but fails to maintain operational atomicity.
  * Given that, one of the appropriate scenarios of using volatile variables is a toggle flag, where the operation is most likely a simple assignment operation: set the flag.
  *
@@ -26,9 +26,10 @@ public class VolatileTests {
 
 
     /**
-    volatile variables don't guarantee atomicity. inc++ is not an atomic operation.
-    Once if multiple threads tapping on a shared volatile variable with no additional protection, the final result is undetermined.
-    as shown below we expected the value to be 10,000, it normally won't happen
+        volatile variables don't guarantee atomicity
+        (it's better put that volatile doesn't guarantee the atomicity of the compound operations such as inc++; for assignment to a single primitive type variable, including long or double type, I think the atomicity of those operations are still guaranteed)
+        Once if multiple threads tapping on a shared volatile variable with no additional protection, the final result is undetermined.
+        as shown below we expected the value to be 10,000, it normally won't happen
     */
     private volatile int inc = 0;
     private void increase(){
@@ -110,6 +111,29 @@ public class VolatileTests {
         es.awaitTermination(1, TimeUnit.MINUTES);
 
         log.info("The final number is: {}",atomicInteger.get());
+    }
+
+
+    //The following is to test the visibility of volatile variable. If removing the "volatile" keyword, the thread in question will run forever.
+    //from "实战Java高并发程序设计", 2.3
+    public static class NoVisibility {
+        private static volatile boolean ready;
+        private static int number;
+        private static class ReadingTask implements Runnable {
+            @Override
+            public void run() {
+                while (!ready);
+                System.out.println(number);
+            }
+        }
+    }
+    @Test
+    public void testVisibility() throws InterruptedException {
+        new Thread(new NoVisibility.ReadingTask()).start();
+        Thread.sleep(1000);
+        NoVisibility.number = 42;
+        NoVisibility.ready = true;
+        Thread.sleep(2000);
     }
 
     //TODO 10. Explain JMM and happen-before model. (10/15/14, Markit on site)

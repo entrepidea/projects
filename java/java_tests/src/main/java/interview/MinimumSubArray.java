@@ -79,4 +79,53 @@ public class MinimumSubArray {
         Assert.assertEquals(subArr2(arr, 9),3);
         Assert.assertEquals(subArr2(arr, 8),3);
     }
+
+    //the below uses two loops. The outer loop start from index 0, the inner loop include all elements to the one in the outter loop.
+    //keep adding them and stop when the condition is satisfied, then record the length, find out the smallest one
+    //source: https://www.geeksforgeeks.org/stream-reduce-java-examples/
+    //date: 12/05/19
+    private int minWindow(Integer[] arr, int target){
+
+        if(Arrays.asList(arr).stream().reduce(0, (x,y) -> (x+y))<target){ //all added up but still the sum is less than the target,
+            return -1;
+        };
+
+        int minLen = arr.length;
+        for(int i=0;i<arr.length-1;i++){
+            int sum=arr[i];
+            int k=1;
+            int j=i+1;
+            while(sum<=target && j<arr.length){
+                sum += arr[j++];
+                k++;
+            }
+            if(sum>target){
+                if(k<minLen){
+                    minLen = k;
+                }
+            }
+        }
+        return minLen;
+    }
+
+    @Test
+    public void test3(){
+        Integer[] arr = {1, 4, 45, 6, 0, 19};
+        int target = 51;
+        Assert.assertEquals(minWindow(arr,target),3);
+
+        arr = new Integer[]{1, 10, 5, 2, 7};
+        target = 9;
+        Assert.assertEquals(minWindow(arr,target),1);
+
+        arr = new Integer[]{1, 11, 100, 1, 0, 200, 3, 2, 1, 250};
+        target = 280;
+        Assert.assertEquals(minWindow(arr,target),4);
+
+        arr = new Integer[]{1, 2, 4};
+        target = 8;
+        Assert.assertEquals(minWindow(arr,target),-1);
+
+    }
+
 }

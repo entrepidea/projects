@@ -32,6 +32,6 @@ public class Stairs {
         Assert.assertTrue(stairs.climb(1)==1);
         Assert.assertTrue(stairs.climb(2)==2);
         Assert.assertTrue(stairs.climb(3)==3);
-        System.out.println(stairs.climb(5));
+        System.out.println(stairs.climb(20));
     }
 }
