@@ -1,34 +1,24 @@
 package com.entrepidea.spring.core.ioc;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
 
-import javax.sql.DataSource;
-
-import com.entrepidea.spring.core.ioc.supports.*;
+import com.entrepidea.spring.core.ioc.supports.xml.*;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.MessageSource;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.scripting.groovy.*;
 
 /**
  * The tests under this package uses Spring XML style configuration

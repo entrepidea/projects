@@ -19,7 +19,7 @@
 	<context:annotation-config />  
 
 	
-	<bean id="parent" abstract="true" class="com.entrepidea.spring.core.ioc.supports.ComplexObject">
+	<bean id="parent" abstract="true" class="com.entrepidea.spring.core.ioc.supports.xml.ComplexObject">
         <property name="adminEmails">
             <props>
                 <prop key="administrator">administrator@example.com</prop>
@@ -37,33 +37,33 @@
         </property>
     </bean>
 
-    <bean id="clientService" class="com.entrepidea.spring.core.ioc.supports.ClientService" init-method="createInstance"/>
-    <bean id="clientService2" class="com.entrepidea.spring.core.ioc.supports.ClientService" init-method="createInstance"/>
+    <bean id="clientService" class="com.entrepidea.spring.core.ioc.supports.xml.ClientService" init-method="createInstance"/>
+    <bean id="clientService2" class="com.entrepidea.spring.core.ioc.supports.xml.ClientService" init-method="createInstance"/>
 
 
-    <bean id="p_namespace" class="com.entrepidea.spring.core.ioc.supports.ClientService" init-method="createInstance" p:email="support@FakeCompany.com"/>
+    <bean id="p_namespace" class="com.entrepidea.spring.core.ioc.supports.xml.ClientService" init-method="createInstance" p:email="support@FakeCompany.com"/>
 
-    <bean id="foo" class="com.entrepidea.spring.core.ioc.supports.Foo">
+    <bean id="foo" class="com.entrepidea.spring.core.ioc.supports.xml.Foo">
         <constructor-arg type="int" value="1"/>
         <constructor-arg type="java.lang.String" value="hello world"/>
     </bean>
 
-    <bean id="bar" class="com.entrepidea.spring.core.ioc.supports.Bar"/>
-    <bean id="baz" class="com.entrepidea.spring.core.ioc.supports.Baz"/>
-    <bean id="c_namespace" class="com.entrepidea.spring.core.ioc.supports.Foo" c:bar-ref="bar" c:baz-ref="baz" />
+    <bean id="bar" class="com.entrepidea.spring.core.ioc.supports.xml.Bar"/>
+    <bean id="baz" class="com.entrepidea.spring.core.ioc.supports.xml.Baz"/>
+    <bean id="c_namespace" class="com.entrepidea.spring.core.ioc.supports.xml.Foo" c:bar-ref="bar" c:baz-ref="baz" />
 
-    <bean id="foo_dependents" class="com.entrepidea.spring.core.ioc.supports.Foo" depends-on="bar,baz" p:bar-ref="bar" p:baz-ref="baz"/>
+    <bean id="foo_dependents" class="com.entrepidea.spring.core.ioc.supports.xml.Foo" depends-on="bar,baz" p:bar-ref="bar" p:baz-ref="baz"/>
 
     <!--  test how to use depend-on property -->
-    <bean id="manager" class="com.entrepidea.spring.core.ioc.supports.ManagerBean" />
+    <bean id="manager" class="com.entrepidea.spring.core.ioc.supports.xml.ManagerBean" />
     
 
     
     <!-- example of method injection -->
-    <bean id="commandManager" class="com.entrepidea.spring.core.ioc.supports.CommandManager">
+    <bean id="commandManager" class="com.entrepidea.spring.core.ioc.supports.xml.CommandManager">
     	<lookup-method name="createCommand" bean="myCommand"/>
     </bean>
-    <bean id="myCommand" class="com.entrepidea.spring.core.ioc.supports.AsyncCommand" scope="prototype" />
+    <bean id="myCommand" class="com.entrepidea.spring.core.ioc.supports.xml.AsyncCommand" scope="prototype" />
     
 
     <!--  example of bean inheritance, be noted that the parent doesnt need to have a corresponding class if it's defined as abstract="true" -->
@@ -72,16 +72,16 @@
     	<property name="age" value="56" />
     </bean>
     
-    <bean id="deriveBean" class="com.entrepidea.spring.core.ioc.supports.DeriveBean" parent="parentWithoutClass">
+    <bean id="deriveBean" class="com.entrepidea.spring.core.ioc.supports.xml.DeriveBean" parent="parentWithoutClass">
     	<property name="name" value="son"/>
     </bean>
     
     <!-- bean lifecycle tests -->
     <!-- this is to test the InitializingBean and disposableBean interface -->
-    <bean id="lifecycleBean1" class="com.entrepidea.spring.core.ioc.supports.LifecycleBean1"/>
-    <bean id="lifecycleBean2" class="com.entrepidea.spring.core.ioc.supports.LifecycleBean2"/>
+    <bean id="lifecycleBean1" class="com.entrepidea.spring.core.ioc.supports.xml.LifecycleBean1"/>
+    <bean id="lifecycleBean2" class="com.entrepidea.spring.core.ioc.supports.xml.LifecycleBean2"/>
 
-    <bean id="student" class="com.entrepidea.spring.core.ioc.supports.Student"/>
+    <bean id="student" class="com.entrepidea.spring.core.ioc.supports.xml.Student"/>
     <bean id="name" class="java.lang.String">
         <constructor-arg value="John"/>
     </bean>

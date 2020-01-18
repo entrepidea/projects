@@ -1,10 +1,10 @@
 package com.entrepidea.spring.core.ioc;
 
-import com.entrepidea.spring.core.ioc.supports.DummyUtilities;
-import com.entrepidea.spring.core.ioc.supports.SpringConfig;
+import com.entrepidea.spring.core.ioc.supports.annotation.DummyUtilities;
+import com.entrepidea.spring.core.ioc.supports.annotation.SpringConfig;
 import com.entrepidea.spring.core.lifecycle.InitialDisposeService;
 import com.entrepidea.spring.core.lifecycle.InjectionService;
-import com.entrepidea.spring.core.ioc.supports.SingletonBean;
+import com.entrepidea.spring.core.ioc.supports.annotation.SingletonBean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
