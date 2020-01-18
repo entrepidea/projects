@@ -3,11 +3,12 @@ import os
 import re
 from datetime import datetime
 import pandas as pd
+
 """
 Utilities methods.
 """
-
 def num(s):
+    s = re.sub('[!"]','', s)
     pat = re.compile(r'^[0-9]*[.,]?[0-9]*$')
     if pat.match(s):
         if ',' in s:
@@ -49,18 +50,18 @@ def parse_transaction_file(trans_file):
         keyword = 'CHECK'
 
         to_file_name = def_dest_folder() + '\\CHASE_' + keyword+'.CSV'
-        with open(to_file_name, 'w') as to:
+        with open(to_file_name, 'w') as to: #create a file including the transactions paid in checks. This file needs further process to extract individual items.
             to.writelines(line.split(',')[1]+','+line.split(',')[2]+','+line.split(',')[3]+'\n'
                           for line in contents if line.split(',')[0]==keyword and float(line.split(',')[3])!=-1402.45) # the number is monthly salary, it's excluded.
 
         keyword = 'CREDIT'
         to_file_name = def_dest_folder() + '\\CHASE_' + keyword+'.CSV'
-        with open(to_file_name, 'w') as to:
+        with open(to_file_name, 'w') as to:#create a file including all the incomes
             to.writelines(line.strip()+'\n' for line in contents if line.split(',')[0]==keyword)
 
         keyword = 'DEBIT'
         to_file_name = def_dest_folder() + '\\CHASE_' + keyword+'.CSV'
-        with open(to_file_name, 'w') as to:
+        with open(to_file_name, 'w') as to:#create a file including all the expense items paid via ACH and debit card. This file needs further process to extract individual items.
             to.writelines(line.strip()+'\n' for line in contents
                           if line.split(',')[0]==keyword
                           and 'CHASE CREDIT CRD AUTOPAYBUS' not in line.split(',')[2] #remove chase credit, analysis will be done seperatedly
@@ -72,7 +73,7 @@ def parse_transaction_file(trans_file):
 def parse_debit_file(file_name):
     with open(file_name) as f:
         contents = f.readlines()
-        debit_tups = [(date, desc, amt) for _, date, desc, amt, _, _, _, _ in (line.split(',') for line in contents)]
+        debit_tups = [(date, desc, amt) for _, date, desc, amt, _, _, _, _ in (line.split(',') for line in contents if "GODDARD SCHO" not in line)]
 
     return debit_tups
 
@@ -81,12 +82,44 @@ def parse_debit_file(file_name):
 def parse_chase_credit_card_file(credit_card_file):
     with open(credit_card_file) as f:
         contents = f.readlines()
-        creditcard_tups = [(date, desc, amt) for _,_,date,desc,_,_,amt,_ in (line.split(',') for line in contents[1:] if 'THANK' not in line)]
+        creditcard_tups = [(date, desc, amt) for _,_,date,desc,_,_,amt,_ in (line.split(',') for line in contents[1:]
+                            if 'THANK' not in line and 'ALBROOK' not in line)] #children tuition excluded.
 
     with open (def_dest_folder() + '\\' + 'CHASE_CREDITCARD_THANK.CSV','w') as f:
         f.writelines(line.strip() +'\n' for line in contents if 'THANK' in line)
 
     return creditcard_tups
+
+
+def parse_citi_credit_card_file(file_name):
+    with open(file_name) as f:
+        s = ' '.join([line.rstrip('\n') for line in f])
+
+    line_list = [line.split(',') for line in s.split("Cleared")]
+    #for line in line_list:
+    ret = []
+    for line in line_list:
+        if len(line)<5:
+            continue
+
+        if str(line[3]) != '':
+            line[3] = str(0-num(line[3].strip()))
+        if str(line[4]) !='':
+            line[3] = line[4]
+
+        t = (line[1],line[2],line[3])
+        ret.append(t)
+
+    #[print(t) for t in ret]
+
+    return ret
+
+def parse_chase_checks_file(file_name):
+    with open(file_name) as f:
+        contents = f.readlines()
+        tups = [(date, desc, amt) for date, _, amt, desc in (line.strip().split(',') for line in contents)]
+        #print(tups)
+    return tups
 
 
 def merge_expense_items(debitcard_tups, chase_creditcard_tups, citi_creditcard_tups, chase_check_tups):
@@ -106,7 +139,7 @@ def merge_expense_items(debitcard_tups, chase_creditcard_tups, citi_creditcard_t
 
     return all_expense_items
 
-
+#using pandas to do some aggregation work.
 def aggregate_expense_items(all_expense_items, aggregate_output_file_name):
 
 
@@ -124,37 +157,6 @@ def write_expense_file(all_expense_items, file_name):
 
 
 
-def parse_citi_credit_card_file(file_name):
-    with open(file_name) as f:
-        contents = f.readlines()
-        #tups = [(date, desc, amt) for _,date,desc,amt,_,_ in (line.strip().split(',') for line in contents[6:])]
-        s = ' '.join([line.rstrip('\n') for line in f])
-
-
-
-    line_list = [line.split(',') for line in s.split("Cleared")]
-    #for line in line_list:
-    ret = []
-    for line in line_list:
-        if len(line)<5:
-            continue
-
-        if str(line[3]) != '':
-            line[3] = str(0-num(line[3].strip()))
-        if str(line[4]) !='':
-            line[3] = line[4]
-
-        t = (line[1],line[2],line[3])
-        ret.append(t)
-
-    return ret
-
-def parse_chase_checks_file(file_name):
-    with open(file_name) as f:
-        contents = f.readlines()
-        tups = [(date, desc, amt) for date, _, amt, desc in (line.strip().split(',') for line in contents)]
-        print(tups)
-    return tups
 
 def main(argu):
     if argu is None or len(argu) == 0:
@@ -170,10 +172,11 @@ def main(argu):
     citi_creditcard_items = parse_citi_credit_card_file(citi_credit_file)
     chase_check_items =  parse_chase_checks_file(chase_checks_file)
     all_expense_items = merge_expense_items(debitcard_items, chase_creditcard_items, citi_creditcard_items, chase_check_items)
+
     output_filename = def_dest_folder() + '\\processed#1_'+datetime.now().strftime('%Y%m%d_%H%M%S')+'.CSV'
     write_expense_file(all_expense_items, output_filename)
 
-    #using pandas to do some aggregation work.
+
     output_filename = def_dest_folder() + '\\processed#2_' + datetime.now().strftime('%Y%m%d_%H%M%S') + '.CSV'
     aggregate_expense_items(all_expense_items, output_filename)
 

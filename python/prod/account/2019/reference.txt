@@ -1,4 +1,4 @@
-COSTCO,Supplies
+COSTCO WHSE,Supplies
 ATM WITHDRAWAL,Commission
 WITHDRAWAL,Commission
 IRS              USATAXPYMT,Taxation
@@ -14,20 +14,33 @@ COSI,Dinner
 VENDING,Dinner
 5GUYS,Dinner
 CHU'S CAFE,Dinner
+CHU S CAFE,Dinner
 MCDONALD,Dinner
 PANERA BREAD,Dinner
 STARBUCKS,Dinner
-EXXON CLINTON 197929 9 ANNANDALE,Dinner
+SMITHS FOOD,Dinner
+RUBY THAI KITCHEN,Dinner
+SUSHI,Dinner
+TOUS LES JOURS,Dinner
+EXXON CLINTON,Dinner
 BARCLAYS,Dinner
 BURGER SHACK,Dinner
 CHUCK E CHEESE,Dinner
 SMART LUNCHES,Dinner
 ASIAN BISTRO,Dinner
+DUNKIN,Dinner
 PARIS BAGUETTE,Dinner
+DUN HUANG,Dinner
 TACO BELL,Dinner
+CHUNG SOL GARDEN,Dinner
 TUM THAI CUISINE,Dinner
+THE STONE BEAN,Dinner
+BAKERY,Dinner
+RISTORANTE,Dinner
 FROZENLANDIA,Dinner
 ROYAL QUEEN,Dinner
+HAAGEN DAZS,Dinner
+NOODLE PLUS,Dinner
 EXXONMOBIL,Auto Related
 US FUEL,Auto Related
 INFINITI,Auto Related
@@ -35,8 +48,11 @@ Infiniti,Auto Related
 VALERO,Auto Related
 WAWA,Auto Related
 WHITEHOUSE AUTO SERVICE,Auto Related
+SPEEDWAY,Auto Related
 SUNOCO,Auto Related
 bob philips auto,Auto Related
+BOB PHILLIPS,Auto Related
+QUICK CHEK,Auto Related
 GARAGE,Auto Related
 BP#,Auto Related
 NEW JERSEY - AME PAYMENT,Utilities
@@ -49,6 +65,7 @@ NJM,Insurance
 SEARS WARRANTY,Insurance
 prudentuial,Insurance
 TARGET,Supplies
+CLARINS,Supplies
 AMAZON,Supplies
 AMZN,Supplies
 Amazon,Supplies
@@ -56,7 +73,12 @@ BESTBUY,Supplies
 HOMEDEPOT,Supplies
 KAM MAN,Supplies
 WAL-MART,Supplies
+LUSH BRIDGEWTR,Supplies
+HAAGEN DAZS,Supplies
+RAYMOUR,Supplies
 ELEMENTARY OS,Supplies
+TJ MAXX,Supplies
+TRADER JOE,Supplies
 SHOPRITE,Supplies
 HOME DEPOT,Supplies
 UNIQLO,Supplies
@@ -64,6 +86,7 @@ WALGREENS,Supplies
 WALMART,Supplies
 99 RANCH,Supplies
 ITUNES,Supplies
+H MART,Supplies
 Audible US,Supplies
 CVS/PHARMACY,Supplies
 J CREW,Supplies
@@ -73,8 +96,10 @@ MACYS,Supplies
 KINGS SUPERMKT,Supplies
 aliexpress,Supplies
 GOLD VALLEY SUPERMARKE,Supplies
-AFM OF PISCATAWAY,Supplies
+WHOLEFDS,Supplies
+MADEWELL,Supplies
 ROYAL FARMS,Supplies
+AUNTIE ANNE,Supplies
 Jabra,Supplies
 Talbots,Supplies
 koep,Supplies
@@ -82,6 +107,12 @@ RITE AID,Supplies
 IKEA,Supplies
 7-ELEVEN,Supplies
 Kindle,Supplies
+AFM,Supplies
+DSW,Supplies
+HANNA ANDERSSON,Supplies
+MIZUNO,Supplies
+LOTTE PLAZA,Supplies
+SCHOLASTIC BOOK,Supplies
 COMCAST,Internet & Telephone
 RCN*CABLE,Internet & Telephone
 CRICKET,Internet & Telephone
@@ -92,28 +123,37 @@ DIGITALOCEAN,Service
 GOOGLE,Service
 AMHERST,Service
 PARK CITY,Service
+TOWNSHIP OF CLINTON,Service
 home inspection,Service
 priority tax,Service
 LUNARPAGES,Service
 Microsoft,Service
 PAYPAL,Service
 exit realty first choice,Service
+INSTANT CERTS,Service
+HILLS HIGHLAND,Service
+PNC MORTGAGE,Service
 cps filling service,Service
 SEARS ROEBUCK,Service
 CONDO CERTS,Service
+COSTCO INSTALL,Service
 NJEIS,Service
 YMCA,Donation
 Wikipedia,Donation
+WPY*,Donation
 STUDENTS FOR FAIR ADM,Donation
 LYONS,Travel
 MILLBURN - PARKING,Travel
 NEW JERSEY E-ZPASS,Travel
 TRANS BRIDGE,Travel
+METHODIST HOSP,Travel
 CITY OF EASTON PARKING,Travel
+EZ QUICK,Travel
 METROCARD,Travel
 NJT PABT,Travel
 UBER,Travel
 WESTBOROUGH INN,Travel
+MARRIOTT,Travel
 PRICELINE,Travel
 PENN STA,Travel
 EXPEDIA,Travel
@@ -122,14 +162,19 @@ NETFLIX,Recreation
 Netflix,Recreation
 HBO NOW,Recreation
 LIQUORS,Recreation
+FROZEN YOGU,Recreation
 Little Dolphins,Recreation
 TURTLE BACK ZOO,Recreation
 LIBERTY SCIENC,Recreation
+CANDID,Recreation
+WINE,Recreation
 STEAMGAMES,Recreation
 SPIRITS,Recreation
 USA SPORT GROUP,Recreation
 HUNTERDON FAMILY,Health & Wellness
+MEDICINE,Health & Wellness
 HUNTERDON PEDIATRIC,Health & Wellness
+OPHTHALMOLOGY,Health & Wellness
 RETINA,Health & Wellness
 SCC VNJ,Health & Wellness
 CHOP,Health & Wellness
@@ -138,6 +183,10 @@ SARKU JAPAN,Health & Wellness
 CHILTON MEDICAL CENTER,Health & Wellness
 CIGNA,Health & Wellness
 RADIOLOGY,Health & Wellness
+ADVOCARE,Health & Wellness
+HUNTERDON,Health & Wellness
+UNIVERSITY CHILDRENS,Health & Wellness
+PEDIATRIC,Health & Wellness
 USPS,Postal
 UPS,Postal
 ERIC MARK,Legal
