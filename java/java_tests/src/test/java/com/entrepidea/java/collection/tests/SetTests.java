@@ -25,9 +25,7 @@ public class SetTests {
         s.add(2);
         s.add(20);
 
-        for(Integer i: s){
-            System.out.println(i); //this is a natual sorting.
-        }
+        s.stream().forEach(System.out::println); //this is a natural sorting.
 
         //sort by alphabetic order.
         Comparator<Integer> cmp = (x,y) -> x.toString().equals(y.toString())?0:1;

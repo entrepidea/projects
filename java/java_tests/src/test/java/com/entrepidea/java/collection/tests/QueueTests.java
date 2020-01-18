@@ -3,7 +3,7 @@ package com.entrepidea.java.collection.tests;
  * @author J.E.Y
  *
  * @description this is to demo the usage of the Interface BlockingQueue, using the P-C model. The BlockingQueue
- * stops receiving more elements when it's full. Familiarilize yourselves with its implementations:ArrayBlockingQueue,
+ * stops receiving more elements when it's full. Familiarize yourselves with its implementations:ArrayBlockingQueue,
  * DelayQueue, LinkedBlockingQueue, PriorityBlockingQueue, SynchronousQueue
  *
  */
