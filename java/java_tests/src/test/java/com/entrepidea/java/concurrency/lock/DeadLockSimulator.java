@@ -1,4 +1,6 @@
-package concurrency;
+package com.entrepidea.java.concurrency.lock;
+
+import org.junit.Test;
 
 //Below is a simple simulator of how a dead lock is generated,
 //Interviewers like to ask how you detect a deadlock, sometime, they asked for
@@ -39,9 +41,42 @@ public class DeadLockSimulator {
         }
     }
 
-    public static void main(String args[]) {
+    //the test below create a deadlock situation.
+    @Test
+    public void testCreateDeadlock() {
 
-        new FirstThread().start();
-        new SecondThread().start();
+        Thread firstThread = new FirstThread();
+        firstThread.start();
+        Thread secondThread = new SecondThread();
+        secondThread.start();
+
+        try {
+            firstThread.join();
+            secondThread.join();
+        }
+        catch(InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+
+    //Now we excise an best practice to show what we can do in the face of a scenario where multiple locks are used
+    private void graceUseLocks(Object lock1, Object lock2){
+        int h1 = System.identityHashCode(lock1);
+        int h2 = System.identityHashCode(lock2);
+        if(h1>h2){
+            synchronized (lock1){
+                synchronized (lock2){
+
+                }
+            }
+        }
+        else{
+            synchronized (lock1){
+                synchronized (lock2){
+
+                }
+            }
+        }
     }
 }
