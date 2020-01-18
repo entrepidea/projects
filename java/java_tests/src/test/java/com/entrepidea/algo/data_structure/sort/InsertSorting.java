@@ -1,6 +1,9 @@
 package com.entrepidea.algo.data_structure.sort;
 
 import org.junit.Test;
+
+import java.util.Arrays;
+
 /**
  * desc: insert sorting is like playing card - start from the 2nd card, compare those on its left, insert the card in order.
  * Move to the 3rd, 4th, 5th, ... and repeat the above process.
@@ -33,4 +36,6 @@ public class InsertSorting {
         System.out.println();
 
     }
+
+
 }

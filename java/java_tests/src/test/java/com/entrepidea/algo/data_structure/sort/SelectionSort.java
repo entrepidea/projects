@@ -2,6 +2,7 @@ package com.entrepidea.algo.data_structure.sort;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -58,5 +59,36 @@ public class SelectionSort {
             System.out.print("\t");
         }
         System.out.println();
+    }
+
+    //redo on 01/13/2020,
+    //this link shows good demo:
+    // https://www.zhihu.com/question/19830721/answer/667233164?utm_source=com.ideashower.readitlater.pro&utm_medium=social&utm_oi=809364293245075456
+    private void selSort(int[] arr){
+        int index =0;
+        while(index!=arr.length-1){
+            int movCurr = index;
+            int min = arr[index];
+            int foundIdx = index;
+            while(movCurr<arr.length){
+                if(arr[movCurr]<min) {
+                    min = arr[movCurr];
+                    foundIdx = movCurr;
+                }
+                movCurr++;
+            }
+            int temp = arr[index];
+            arr[index] = min;
+            arr[foundIdx] = temp;
+            index++;
+
+        }
+    }
+
+    @Test
+    public void test2(){
+        int[] a = {2,-1,100,-9,200,-10,-50,50};
+        selSort(a);
+        Arrays.stream(a).forEach(System.out::println);
     }
 }
