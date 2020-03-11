@@ -1,9 +1,7 @@
 COSTCO WHSE,Supplies
+WWW COSTCO COM,Supplies
 ATM WITHDRAWAL,Commission
 WITHDRAWAL,Commission
-IRS              USATAXPYMT,Taxation
-TREASURY,Taxation
-NJWEB,Taxation
 PUBLIC SERVICE   PSEG,Utilities
 ELIZABETHTOWN GAS BILL,Utilities
 PORTASOFT,Utilities
@@ -47,6 +45,7 @@ INFINITI,Auto Related
 Infiniti,Auto Related
 VALERO,Auto Related
 WAWA,Auto Related
+RAY CATENA,Auto Related
 WHITEHOUSE AUTO SERVICE,Auto Related
 SPEEDWAY,Auto Related
 SUNOCO,Auto Related
@@ -55,8 +54,10 @@ BOB PHILLIPS,Auto Related
 QUICK CHEK,Auto Related
 GARAGE,Auto Related
 BP#,Auto Related
+COSTCO GAS,Auto Related
 NEW JERSEY - AME PAYMENT,Utilities
 FIRST ENERGY COR,Utilities
+FIRSTENERGY,Utilities
 sewerage,Utilities
 water bill,Utilities
 PRUDENTIAL,Insurance
@@ -113,6 +114,7 @@ HANNA ANDERSSON,Supplies
 MIZUNO,Supplies
 LOTTE PLAZA,Supplies
 SCHOLASTIC BOOK,Supplies
+BOSTON COMMON,Supplies
 COMCAST,Internet & Telephone
 RCN*CABLE,Internet & Telephone
 CRICKET,Internet & Telephone
@@ -138,6 +140,8 @@ SEARS ROEBUCK,Service
 CONDO CERTS,Service
 COSTCO INSTALL,Service
 NJEIS,Service
+NEW YORK PRESBYTERIAN,Service
+BRIGHT HORIZONS BACKUP,Service
 YMCA,Donation
 Wikipedia,Donation
 WPY*,Donation
@@ -157,6 +161,8 @@ MARRIOTT,Travel
 PRICELINE,Travel
 PENN STA,Travel
 EXPEDIA,Travel
+PARKING METERS,Travel
+LYFT *RIDE,Travel
 CRAYOLA,Recreation
 NETFLIX,Recreation
 Netflix,Recreation
@@ -171,6 +177,11 @@ WINE,Recreation
 STEAMGAMES,Recreation
 SPIRITS,Recreation
 USA SPORT GROUP,Recreation
+LIN AND WINNERD,Recreation
+LOLLI AND POPS,Recreation
+SHIMON AND SARA,Recreation
+RONG RONG FASHION,Recreation
+PRIMARK DWNTWN CROSSING,Recreation
 HUNTERDON FAMILY,Health & Wellness
 MEDICINE,Health & Wellness
 HUNTERDON PEDIATRIC,Health & Wellness
@@ -187,9 +198,17 @@ ADVOCARE,Health & Wellness
 HUNTERDON,Health & Wellness
 UNIVERSITY CHILDRENS,Health & Wellness
 PEDIATRIC,Health & Wellness
+HORIZON PHARMACY,Health & Wellness
 USPS,Postal
 UPS,Postal
 ERIC MARK,Legal
 peter kriner,Legal
 TELEFLORACOM,Gift
 ZEN GINSENG,Gift
+99 & UP FLUSHING NY,Supplies
+IRS              USATAXPYMT,Taxation
+TREASURY,Taxation
+NJWEB,Taxation
+NJ GIT,Taxation
+NEW JERSEY EFT,Taxation
+NJ WEB PMT,Taxation
