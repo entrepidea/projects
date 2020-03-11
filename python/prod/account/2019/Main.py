@@ -65,7 +65,19 @@ def parse_transaction_file(trans_file):
             to.writelines(line.strip()+'\n' for line in contents
                           if line.split(',')[0]==keyword
                           and 'CHASE CREDIT CRD AUTOPAYBUS' not in line.split(',')[2] #remove chase credit, analysis will be done seperatedly
-                          and 'CITI AUTOPAY' not in line.split(',')[2]) #remove citi credit, analysis will be done seperatedly
+                          and 'CITI AUTOPAY' not in line.split(',')[2] #remove citi credit, analysis will be done seperatedly
+                          and 'GODDARD SCHO' not in line.split(',')[2] #remove Goddard tuition
+                          and 'INSUFFICIENT FUNDS FEE' not in line.split(',')[2] #remove insuffecient funds fee
+                          and 'Transfer from' not in line.split(',')[2] #remove fund transfer
+                          and 'Transfer to' not in line.split(',')[2]  #remove fund transfer
+                          and 'PARK CITY' not in line.split(',')[2]
+                          #and 'IRS' not in line.split(',')[2]
+                          #and 'NEW JERSEY EFT' not in line.split(',')[2]
+                          #and 'NJ GIT' not in line.split(',')[2]
+                          #and 'NJ WEB PMT' not in line.split(',')[2]
+                          and 'VANGUARD BUY' not in line.split(',')[2]
+                          and 'ROBINHOOD        Funds' not in line.split(',')[2])
+
 
         return parse_debit_file(to_file_name)
 
@@ -73,7 +85,7 @@ def parse_transaction_file(trans_file):
 def parse_debit_file(file_name):
     with open(file_name) as f:
         contents = f.readlines()
-        debit_tups = [(date, desc, amt) for _, date, desc, amt, _, _, _, _ in (line.split(',') for line in contents if "GODDARD SCHO" not in line)]
+        debit_tups = [(date, desc, amt) for _, date, desc, amt, _, _, _, _ in (line.split(',') for line in contents)]
 
     return debit_tups
 
@@ -104,26 +116,26 @@ def parse_citi_credit_card_file(file_name):
 
         if str(line[3]) != '':
             line[3] = str(0-num(line[3].strip()))
-        if str(line[4]) !='':
+        if str(line[4]).strip() !='':
             line[3] = line[4]
 
         t = (line[1],line[2],line[3])
         ret.append(t)
 
-    #[print(t) for t in ret]
+    [print(t) for t in ret]
 
     return ret
 
 def parse_chase_checks_file(file_name):
     with open(file_name) as f:
         contents = f.readlines()
-        tups = [(date, desc, amt) for date, _, amt, desc in (line.strip().split(',') for line in contents)]
+        tups = [(date, desc, amt) for date, _, amt, desc in (line.strip().split(',') for line in contents if 'priority tax' not in line)]
         #print(tups)
     return tups
 
 
 def merge_expense_items(debitcard_tups, chase_creditcard_tups, citi_creditcard_tups, chase_check_tups):
-    with open("reference.txt") as ref:
+    with open("resources\\reference.txt") as ref:
         refs = ref.readlines()
         ref_tups = sorted([(desc, cat) for desc, cat in (line.strip().split(',') for line in refs)],key=lambda tup:tup[1])
 
@@ -160,9 +172,9 @@ def write_expense_file(all_expense_items, file_name):
 
 def main(argu):
     if argu is None or len(argu) == 0:
-        trans_file = 'chase_biz_account_all_transactions_2019.CSV'
-        chase_credit_file = 'chase_biz_credit_card_expense_2019.CSV'
-        citi_credit_file = 'citi_credit_card_expense_2019.CSV'
+        trans_file = 'resources\\chase_biz_account_all_transactions_2019.CSV'
+        chase_credit_file = 'resources\\chase_biz_credit_card_expense_2019.CSV'
+        citi_credit_file = 'resources\\citi_credit_card_expense_2019.CSV'
         chase_checks_file = def_dest_folder()+'\\CHASE_CHECK_enriched.CSV'
     else:
         trans_file, chase_credit_file,citi_credit_file = argu
@@ -170,16 +182,14 @@ def main(argu):
     debitcard_items = parse_transaction_file(trans_file)
     chase_creditcard_items = parse_chase_credit_card_file(chase_credit_file)
     citi_creditcard_items = parse_citi_credit_card_file(citi_credit_file)
+
     chase_check_items =  parse_chase_checks_file(chase_checks_file)
     all_expense_items = merge_expense_items(debitcard_items, chase_creditcard_items, citi_creditcard_items, chase_check_items)
-
     output_filename = def_dest_folder() + '\\processed#1_'+datetime.now().strftime('%Y%m%d_%H%M%S')+'.CSV'
     write_expense_file(all_expense_items, output_filename)
 
-
     output_filename = def_dest_folder() + '\\processed#2_' + datetime.now().strftime('%Y%m%d_%H%M%S') + '.CSV'
     aggregate_expense_items(all_expense_items, output_filename)
-
 
 if __name__ == '__main__':
     main(argv[1:])
