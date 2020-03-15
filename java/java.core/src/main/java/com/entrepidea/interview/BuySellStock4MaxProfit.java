@@ -1,4 +1,8 @@
 package com.entrepidea.interview;
+
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
  * @Desc:
  * The details of the question can be found in here:
@@ -6,7 +10,8 @@ package com.entrepidea.interview;
  * However there seemed to have two variations of this problem:
  * 1. Buy or sell only once each day
  * 2. Buy 1 sell any times each day
- * For the 2nd variation, my friend Victor Tan gave a solution in here:
+ *
+ * The link above covers both scenarios, and my friend Victor Tan gave a solution for the 2nd variation too:
  * https://github.com/tiger40490/repo1/blob/py1/py/algo_arr/maxProfit_buy1sellAny.py
  *
  * @date: 03/13/20
@@ -17,6 +22,52 @@ package com.entrepidea.interview;
  * */
 
 public class BuySellStock4MaxProfit {
-    //TODO
+    //buy one, sell multiple
+    int profit(int[] prices, int start, int end){
+        if(end<=start){
+            return 0;
+        }
+        int maxProfit =0;
+        for(int i=start;i<end;i++){
+            for(int j=i+1;j<=end;j++){
+                if(prices[j]>prices[i]){
+                    int curProfit = prices[j]-prices[i]
+                            +profit(prices,start, i-1)
+                            + profit(prices, j+1, end);
+                    maxProfit = Math.max(maxProfit, curProfit);
+                }
+            }
+        }
+        return maxProfit;
+    }
 
+    @Test
+    public void test(){
+        int[] prices = new int[]{100, 180, 260, 310, 40, 535, 695};
+        int p = profit(prices, 0, prices.length-1);
+        Assert.assertEquals(p, 865);
+    }
+
+    //buy/sell once only for each day
+    int profit2(int[] prices){
+        int maxProfit = prices[1] - prices[0];
+        int minPrice = prices[0];
+        for(int i=1;i<prices.length;i++){
+            int diff = prices[i] - minPrice;
+            if(diff>maxProfit){
+                maxProfit = diff;
+            }
+            if(prices[i]<minPrice){
+                minPrice = prices[i];
+            }
+        }
+        return maxProfit;
+    }
+
+    @Test
+    public void test2(){
+        int[] prices = new int[]{1, 2, 90, 10, 110};
+        int p = profit2(prices);
+        Assert.assertEquals(p, 109);
+    }
 }
