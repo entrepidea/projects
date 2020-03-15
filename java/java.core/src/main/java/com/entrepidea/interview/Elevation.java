@@ -3,8 +3,13 @@ package com.entrepidea.interview;
 import org.junit.Test;
 
 /**
- * @Desc: GS code pad.
- * Created by jonat on 11/7/2019.
+ * @Desc:
+ * Goldman Sachs code pad. See the email for details. The same question can be found in this link:
+ * https://www.geeksforgeeks.org/trapping-rain-water/
+ *
+ * TODO
+ *
+ * @Date: 11/7/2019.
  */
 public class Elevation {
 
