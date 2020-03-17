@@ -38,4 +38,61 @@ public class InsertSorting {
     }
 
 
+
+    //another test - redo again, this is not very elegant.
+    private void sort(int[] arr){
+        int count = arr.length -1;
+
+        int startIdx = arr.length-1;
+        while(count!=0){
+            int curIdx = -1;
+            for(int i=0;i<=startIdx-1;i++){
+                if(arr[startIdx]<arr[i]){
+                    curIdx = i;
+                    break;
+                }
+            }
+            if(curIdx==-1){
+                curIdx = startIdx;
+            }
+            int tmp = arr[startIdx];
+            for(int k=startIdx-1;k>=curIdx;k--){
+                arr[k+1] = arr[k];
+            }
+            arr[curIdx] = tmp;
+
+            if(curIdx==startIdx){
+                startIdx--;
+            }
+            count--;
+        }
+    }
+    @Test
+    public void test2(){
+
+
+        int[] arr = new int[]{5,3,1,4,2};
+        sort(arr);
+        Arrays.stream(arr).forEach(System.out::print);
+        System.out.println();
+
+        arr = new int[]{5,1,3,4,2};
+        sort(arr);
+        Arrays.stream(arr).forEach(System.out::print);
+        System.out.println();
+
+        arr = new int[]{5,4,3,2,1};
+        sort(arr);
+        Arrays.stream(arr).forEach(System.out::print);
+        System.out.println();
+
+
+        arr = new int[]{1,2,3,4,5};
+        sort(arr);
+        Arrays.stream(arr).forEach(System.out::print);
+        System.out.println();
+
+    }
+
+
 }
