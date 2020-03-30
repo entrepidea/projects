@@ -19,6 +19,20 @@
             <name>another maven repo</name>
             <url>http://central.maven.org/maven2/</url>
         </repository>
+
+
+        <repository>
+            <id>twitter4j.org</id>
+            <name>twitter4j.org Repository</name>
+            <url>http://twitter4j.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
     </repositories>
 
 
