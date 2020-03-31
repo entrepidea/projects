@@ -20,6 +20,12 @@
             <url>http://central.maven.org/maven2/</url>
         </repository>
 
+        <repository>
+            <id>confluent.io-repo</id>
+            <name>confluent io maven repo</name>
+            <url>https://packages.confluent.io/maven</url>
+        </repository>
+
 
         <repository>
             <id>twitter4j.org</id>
