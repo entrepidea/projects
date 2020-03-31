@@ -26,6 +26,27 @@
           <version>2.3.0</version>
       </dependency>
 
+      <!-- https://mvnrepository.com/artifact/io.confluent/kafka-avro-serializer -->
+      <dependency>
+          <groupId>io.confluent</groupId>
+          <artifactId>kafka-avro-serializer</artifactId>
+          <version>5.4.1</version>
+      </dependency>
+
+
+      <!-- twitter4j dependency -->
+      <dependency>
+          <groupId>org.twitter4j</groupId>
+          <artifactId>twitter4j-core</artifactId>
+          <version>[4.0,)</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.twitter4j</groupId>
+          <artifactId>twitter4j-stream</artifactId>
+          <version>[4.0,)</version>
+      </dependency>
+
   </dependencies>
 
 </project>
