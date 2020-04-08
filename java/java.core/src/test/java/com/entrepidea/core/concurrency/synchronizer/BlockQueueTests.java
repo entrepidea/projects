@@ -2,14 +2,15 @@ package com.entrepidea.core.concurrency.synchronizer;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class BlockQueueTests {
 
-    //Morgan Stanley, onsite, 05/09/12
-    //TODO 1.Write a blockingqueue using wait / notify
+    /**
+     * Morgan Stanley, onsite, 05/09/12
+     * Write a blockingqueue using wait / notify
+     */
     class BlockQueue<T>{
         private int capacity;
         private List<T> buffer;
@@ -110,5 +111,135 @@ public class BlockQueueTests {
         Runnable task2 = new Consumer(bq,!slowDown);
         new Thread(task2).start();
         while(true){;}
+    }
+
+    /**
+    * BNP Paribas, on-site, 02/18/2020
+    * Write a Queue<T>. requirement: 1) Thread safe. 2)Callback is offered for both add() and poll()
+    *
+    * Date: 04/07/20, 04/08/20
+    *
+    */
+
+    interface QueueListener {
+        default void added(){}; //since Java 8 an interface can have default implementations for its methods.
+        default void polled(){};
+    }
+
+    class BNPQueue<T> {
+
+        private int capacity;
+        private List<T> buf = new ArrayList<>();
+        private Set<QueueListener> queueListeners = new HashSet<>();
+
+        public BNPQueue(){
+            this(16);
+        }
+
+        public BNPQueue(int cap){
+            capacity = cap;
+        }
+
+        public void add(T entity, QueueListener listener) throws InterruptedException{
+            synchronized (buf){
+
+                while(buf.size()==capacity){
+                    buf.wait();
+                }
+                buf.add(entity);
+                if(!queueListeners.contains(listener)){
+                    queueListeners.add(listener);
+                }
+                for(QueueListener l : queueListeners){
+                    l.added();
+                }
+                buf.notifyAll();
+            }
+        }
+
+        public T poll(QueueListener listener) throws InterruptedException{
+            T ret;
+            synchronized (buf){
+                while(buf.size()==0){
+                    buf.wait();
+                }
+                if(!queueListeners.contains(listener)){
+                    queueListeners.add(listener);
+                }
+                for(QueueListener l : queueListeners){
+                    l.polled();
+                }
+                ret = buf.remove(0);
+                buf.notifyAll();
+            }
+            return ret;
+        }
+    }
+
+    class ProduceTask implements Runnable, QueueListener {
+
+        private Integer num;
+
+        private BNPQueue<Integer> queue;
+        public ProduceTask(BNPQueue<Integer> queue){
+            this.queue = queue;
+        }
+        @Override
+        public void added() {
+            System.out.println("a random number: "+num+" has been added!");
+        }
+
+        @Override
+        public void run() {
+            while(true) {
+                try {
+                    num = new Random().nextInt();
+                    queue.add(num, this);
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    class ConsumerTask implements Runnable, QueueListener{
+
+        private BNPQueue<Integer> queue;
+        private Integer num;
+        public ConsumerTask(BNPQueue<Integer> queue){
+            this.queue = queue;
+        }
+
+        @Override
+        public void polled() {
+            if(num!=null) {
+                System.out.println("The number has been polled is: " + num);
+            }
+        }
+
+        @Override
+        public void run() {
+            while(true){
+                try {
+                    num = queue.poll(this);
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    @Test
+    public void testBNPQueue() throws InterruptedException {
+        BNPQueue<Integer> q = new BNPQueue<>();
+        Thread producer = new Thread(new ProduceTask(q));
+        producer.start();
+
+        Thread consumer = new Thread(new ConsumerTask(q));
+        consumer.start();
+
+        producer.join();
+        consumer.join();
     }
 }
