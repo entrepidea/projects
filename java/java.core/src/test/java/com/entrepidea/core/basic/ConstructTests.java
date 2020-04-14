@@ -21,7 +21,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * for a discussion, check out this SO post and the reference within:
  * https://stackoverflow.com/questions/7563650/what-are-the-basic-language-constructs-in-java
  *
- * @Date: 01/22/20,
+ * @Date: 01/22/20, 04/12/20
  *
  * */
 public class ConstructTests {
@@ -238,5 +238,27 @@ public class ConstructTests {
     //one benefit is it has name, and by that solves the dilimma that two constructors with same signature being syntax incorrect but reality necessary
     //See this SO for an explanation: https://stackoverflow.com/questions/2842232/why-would-you-have-two-constructors-with-the-same-signature
     //other benefits see Item#1 from Effective Java, 3rd Ed.
+
+
+    /**
+     * BNP Paribas onsite by Leo, 02/18/20
+     * Can protected be accessed by the class in the same package?
+     * */
+    //yes. See demo below.
+    class Foo{
+        protected int x = 4;
+    }
+
+    class Boo{
+        public int getProtectedVarFromOtherClass(){
+            Foo f = new Foo();
+            return f.x;
+        }
+    }
+
+    @Test
+    public void testGetProtectedVarFromOtherClass(){
+        Assert.assertTrue(new Boo().getProtectedVarFromOtherClass()==4);
+    }
 
 }
