@@ -108,4 +108,33 @@ public class BubbleSorting {
 			System.out.println(i);
 		}
 */	}
+
+	/*Bubble sorting can be used to pick up the top k elements in the array, only k loops are required in the outter loop */
+	@Test
+	public void topKelements(){
+		int[] arr = new int[]{3,210,4,1,10,9,345,2,-1,300,21};
+		int len = arr.length;
+		int k =3;
+		for(int n=0,i=1;i<len & n<k;i++,n++){
+			boolean isSorted = true;
+			for(int j=0;j<len-1;j++){
+				if(arr[j]>arr[j+1]){
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+					isSorted = false;
+				}
+			}
+			if(isSorted){
+				break;
+			}
+		}
+
+		ArrayUtil.printArry(arr);
+	}
+
+
+
+
+
 }
