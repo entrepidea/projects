@@ -94,5 +94,53 @@ public class InsertSorting {
 
     }
 
+    //do it again. Insert sort can also be used to pick up the K top ones. As shown below. 04/14/20.
+    private void insertSort(int[] arr){
+        int len = arr.length;
+        int topMax=2;
+        for(int i=1;i<len;i++){
+            int curIdx = i;
+            int idx = 0;
+            while(idx<curIdx && arr[curIdx]<arr[idx]){
+                idx++;
+            }
+            if(idx==curIdx){
+                continue;
+            }
+            int temp = arr[curIdx];
+            for(int j=curIdx-1;j>=idx;j--){
+                arr[j+1] = arr[j];
+            }
+            arr[idx] = temp;
+            topMax--;
+            if(topMax==0){
+                break;
+            }
+            Arrays.stream(arr).forEach(System.out::print);
+            System.out.println();
+        }
+    }
+
+    @Test
+    public void test3(){
+        int[] arr = new int[]{5,1,3,4,2};
+        insertSort(arr);
+        Arrays.stream(arr).forEach(System.out::print);
+        System.out.println();
+
+        /*
+        arr = new int[]{5,4,3,2,1};
+        insertSort(arr);
+        Arrays.stream(arr).forEach(System.out::print);
+        System.out.println();
+
+        arr = new int[]{1,2,3,4,5};
+        insertSort(arr);
+        Arrays.stream(arr).forEach(System.out::print);
+        System.out.println();
+        */
+
+
+    }
 
 }
