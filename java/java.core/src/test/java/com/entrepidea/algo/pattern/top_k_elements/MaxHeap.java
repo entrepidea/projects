@@ -8,7 +8,7 @@ import org.junit.Test;
  * For an arbitrary array, to pick up the top K largest elements
  * Below is the implementation using MaxHeap. It can be implemented using enhanced sorting, see the relevant category in this project for the code.
  * @Source: https://www.geeksforgeeks.org/max-heap-in-java/
- *
+ * @Date: 04/15/20
  * */
 public class MaxHeap {
     private int[] Heap;
@@ -25,14 +25,6 @@ public class MaxHeap {
         Heap = new int[this.maxsize + 1];
         Heap[0] = Integer.MAX_VALUE;
     }
-
-/*    public MaxHeap(int maxsize)
-    {
-        this.maxsize = maxsize;
-        this.size = 0;
-        Heap = new int[this.maxsize + 1];
-        Heap[0] = Integer.MAX_VALUE;
-    }*/
 
     // Returns position of parent
     private int parent(int pos)
