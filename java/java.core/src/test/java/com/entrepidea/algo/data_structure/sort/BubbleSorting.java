@@ -2,6 +2,9 @@ package com.entrepidea.algo.data_structure.sort;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * desc: bubble sorting: like a bubble rises from the bottom of the water to the top.
  * Iterate from the lest to the right, if the element is greater than the one next right to it, swap.
@@ -81,7 +84,7 @@ public class BubbleSorting {
 
 	//a little better,pay attention to the k variable.
 	@Test
-	public void testX(){
+	public void test4(){
 		int[] arr = new int[]{3,4,1,10,9,345,2,-1,300,210};
 		int len = arr.length;
 		int k=0;
@@ -109,6 +112,41 @@ public class BubbleSorting {
 		}
 */	}
 
+	//test again - 05/09/20
+	private void printArr(int[] arr){
+		for(int i=0;i<arr.length;i++){
+			System.out.print(arr[i]+", ");
+		}
+		System.out.println();
+	}
+	private void sort5(int[] arr){
+		for(int i=1;i<arr.length;i++){
+			boolean isSorted = true;
+			for(int j=0;j<arr.length-1;j++){
+				if(arr[j]>arr[j+1]){
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+					isSorted = false;
+				}
+			}
+			//printArr(arr);
+			if(isSorted){
+				break;
+			}
+		}
+	}
+
+	@Test
+	public void test5(){
+		int[] arr = ThreadLocalRandom.current().ints(0,100).limit(30).toArray();
+		//Arrays.stream(arr).forEach(System.out::println);
+		//int[] arr = new int[]{3,7,1,5};
+		printArr(arr);
+		sort5(arr);
+		printArr(arr);
+	}
+
 	/*Bubble sorting can be used to pick up the top k elements in the array, only k loops are required in the outter loop */
 	@Test
 	public void topKelements(){
@@ -132,9 +170,4 @@ public class BubbleSorting {
 
 		ArrayUtil.printArry(arr);
 	}
-
-
-
-
-
 }
