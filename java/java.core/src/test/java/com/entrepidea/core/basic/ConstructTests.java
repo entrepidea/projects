@@ -226,6 +226,7 @@ public class ConstructTests {
 
     /**
         phone interview with Morgan Stanley 08/16/13 3:00 PM (recruiter: IRIS)
+        BNP Paribas onsite 02/18/20
         marker interface, what is it? how to create one?
      *
      */
@@ -261,4 +262,17 @@ public class ConstructTests {
         Assert.assertTrue(new Boo().getProtectedVarFromOtherClass()==4);
     }
 
+    /**
+     * BNP Paribas onsite, 02/18/20
+     * Abstract class. Does it have default constructor?
+     *
+     * */
+    //it does. public abstract class has default public constructor; protected abstract class has default protected constructor.
+
+    /**
+     * BNP Paribas onsite, 02/18/20
+     * Will finally block always be executed?
+     *
+     * */
+    //almost. Except for system.exit. That's the most destructive nuke bomb.
 }
