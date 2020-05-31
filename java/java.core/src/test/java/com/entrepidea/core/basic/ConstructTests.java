@@ -8,9 +8,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -21,7 +19,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * for a discussion, check out this SO post and the reference within:
  * https://stackoverflow.com/questions/7563650/what-are-the-basic-language-constructs-in-java
  *
- * @Date: 01/22/20, 04/12/20
+ * @Date: 01/22/20, 04/12/20, 05/29/20, 05/30/20
  *
  * */
 public class ConstructTests {
@@ -102,8 +100,7 @@ public class ConstructTests {
      */
     //To make a returning class member immutable, it's important to make sure its internal state won't be changed in all circumstances.
     //it's also noted that this applies to the members of the class member in question, in case it's a user defined type itself.
-    //By extension, if there is a list in the class, how can we return the list but also make sure it won't be altered structurely (meaning no insertion/deletion, etc)
-    //for the last part, I think we can return a iterator of the CopyOnWriteArrayList wrapper. The iterator is only a snapshot so that it won't be altered.
+
     static class Koo{
         private int id;
         Koo(int id){
@@ -116,7 +113,6 @@ public class ConstructTests {
         }
     }
     static class ImmutableFoo{
-        private String bar;
         private List<Koo> lstKoo;
         ImmutableFoo(){
             lstKoo = new ArrayList<>();
@@ -125,9 +121,17 @@ public class ConstructTests {
             }
         }
 
-        public String getBar(){return bar;}
+        //By extension, if there is a list in the class, how can we return the list but also make sure it won't be altered structurely (meaning no insertion/deletion, etc)
+        //for the last part, I think we can return a iterator of the CopyOnWriteArrayList wrapper. The iterator is only a snapshot so that it won't be altered.
         public Iterator<Koo> getKoos(){
             return new CopyOnWriteArrayList<Koo>(lstKoo).iterator();
+        }
+        //Update: the above answer regarding returning a list might not be right. I think that, in order to prevent a returning list from being modified structurely
+        // is to override those APIs (add, append, delete, remove, etc) and throw UnsupportedException, factually stop people from using them.
+        //take a look at the source code of unmodifiableList.
+        public List<Koo> getKooList(){
+            List<Koo> ret = Collections.unmodifiableList(Arrays.asList(new Koo(1),new Koo(2),new Koo(3),new Koo(4)));
+            return ret;
         }
     }
 
@@ -141,6 +145,13 @@ public class ConstructTests {
         //No way can update foo's internal state.
     }
 
+    //be noted the below test of Exception is documented in junit 4, junit 5 has different approach.
+    @Test(expected = UnsupportedOperationException.class)
+    public void test3(){
+        List<Koo> l = new ImmutableFoo().getKooList();
+        l.add(new Koo(5));
+    }
+
 
     /**
      * polymorphism, how is it implemented in C++ or Java?
@@ -151,7 +162,7 @@ public class ConstructTests {
     //While the signature is the same, the implementation can vary.
     //In C++, member functions with qualifier "virtual" is signaled to be inherited and changed at the derived class's disposal, thus polymorphism.
     //which qualifier "virtual", it's just another member function.
-    // (while we are at it, a virtual destuctor is to be there as well)
+    // (while we are at it, a virtual destructor is to be there as well)
     //https://www.tutorialspoint.com/cplusplus/cpp_polymorphism.htm
     //In Java, every member methods are implicitly virtual therefore all instance methods can be inherited.
     //https://stackoverflow.com/questions/34445553/polymorphism-c-vs-java
@@ -161,17 +172,18 @@ public class ConstructTests {
      *
         Abstract class v.s Interface
      */
-    //Abstract class is a class with qualifier "abstract". An abstract class can't be instantialized and is meant to be inherited.
-    //Interface is a functions advertisement of a modules. The function declared within don't have a body (this is no longer the case since 1.8)
-    //Since we are at it, interface with only one method (excluding default method implementation) is called functional interface (since 1.8),
-    // it's normally working with lambda expression. See more examples from features package in this project.
+    // Abstract class is a class with qualifier "abstract". An abstract class can't be instantiated and is meant to be inherited and its methods be overridden.
+    // Interface is an advertisement (or protocol, or covenant, or agreement) of a modules' APIs, so that the clients of that module know exactly what functionalities they expect from the module.
+    // The function declared within don't have a body (this is no longer necessary since 1.8)
+    // Since we are at it, interface with only one method (excluding default method implementation) is called functional interface (since 1.8),
+    // and it normally works with lambda expression. See more examples from features package in this project.
 
 
     /**
      *
             Inheritance v.s Composite
      */
-    //Inheritance defines a "Is-a" relation while Composite defines a "Has-a" relation. Composite is preferable over Inheritance
+    //Inheritance describes a "Is-a" relation while Composite a "Has-a" relation. Composite is preferable over Inheritance
     //See this link: https://stackoverflow.com/questions/2399544/difference-between-inheritance-and-composition
     //and item 18 in EJ 3rd edition: Favor composite over inheritance
     //Be noted that Adapter pattern can use inheritance or composite (recommended) for implementation. See Design pattern packages.
