@@ -143,4 +143,27 @@ public class InsertSorting {
 
     }
 
+    private void insertSort2(int[] arr){
+        for(int i=1;i<arr.length;i++){
+            for(int j=0;j<i;j++){
+                if(arr[i]<arr[j]){
+                    int temp = arr[i];
+/*                    for(int k=i-1;k>=j;k--){
+                        arr[k+1] = arr[k];
+                    }*/
+                    //the above commented code can be refactored to one line below
+                    System.arraycopy(arr, j, arr, j + 1, i - j);
+                    arr[j] = temp;
+                }
+            }
+        }
+    }
+
+    @Test
+    public void testInsertSort2(){
+        int[] arr = new int[]{10,5,7,3,16};
+        insertSort2(arr);
+        Arrays.stream(arr).forEach(System.out::println);
+    }
+
 }

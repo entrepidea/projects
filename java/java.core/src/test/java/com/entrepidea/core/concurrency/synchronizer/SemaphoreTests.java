@@ -107,4 +107,22 @@ public class SemaphoreTests {
 
 		exe.awaitTermination(5, TimeUnit.SECONDS);
 	}
+
+
+	/**
+	 * BNP Paribas onsite 02/18/20
+	 * Synchronizer. semaphore ? How does it work?
+	 *
+	 * */
+	//Semaphore is a construct that hold a set of "permit" that can be allocated to threads for them to access shared resource.
+	//A thread "acquire" a permit before using the resource and explicitly "release" the permit so the next waiting thread can acquire it. when permit is 1, the semaphore is degenerated to a mutex, acting like a lock. Only differ that semaphore needs to release the permit. A normal lock is released once the thread completes its running course.
+
+	/**
+	 * BNP Paribas onsite 02/18/20
+	 * How does semaphore is different from Latch? CountdownLatcher? How is CountdownLatch different from CyclicBarrier
+	 *
+	 * */
+	//Latch is created for threads collaboration. In the case of Latch (e.g CoutdownLatcher) the main thread is held up (blocked) until each participating thread complete its share of work, and then the main thread move on.
+	//CyclicBarrier is useful in multi-phase task. On each phase, the main thread holds up until all participating threads complete their respective task; and holdup again at the next phase until the threads complete another set of tasks, respectively.
+
 }

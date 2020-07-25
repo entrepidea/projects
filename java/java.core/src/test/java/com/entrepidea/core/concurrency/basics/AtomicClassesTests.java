@@ -269,4 +269,12 @@ public class AtomicClassesTests {
 
 
     }
+
+
+    /**
+     * BNP Paribas onsite 02/18/20
+     * AtomicInteger, besides self incremental, what else operations?
+     *
+     * */
+    //Compare and Set
 }

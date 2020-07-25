@@ -11,7 +11,9 @@ import org.junit.Test;
  * Think more: 
  * 1.when the inner class is defined outside the method but inside the parent class (like InnerClass2 below), such restriction is removed; 
  * 2. and even the inner class defined inside the method, it seems having no problem accessing the variables defined in parent class.
- * 
+ *
+ * @Date: Unknown, 04/12/20
+ *
  */
 public class InnerClassTests {
 
@@ -70,8 +72,11 @@ public class InnerClassTests {
 	// "The anonymous inner class has advantage over the inner class (as in the question example code) in that it closes over the local variables of the method"
 	// digest this line, pay particular attention the word "close over".
 
-
-
+	/** BNP Paribas onsite, 02/18/20, Leo
+	static inner class. inner class. Can inner class access instance variables of the hosting class?
+	 */
+	//Static inner class and regular inner class are both classes inside a class.
+	// The former can access the static variables of the hosting class, while the latter can access ALL instance variables of the hosting class because it has an intrinsic "this" reference.
 
 
 }

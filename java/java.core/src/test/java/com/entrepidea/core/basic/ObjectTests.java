@@ -258,6 +258,11 @@ public class ObjectTests {
 	//Renaissance Technologies, 05/08/14, 3PM
 	//TODO How the public constructor, equals and hashCode are implemented.
 
-
+	/**
+	 * BNP Paribas onsite 02/18/20
+	 * equals() contract with compareTo()
+	 *
+	 * */
+	//equals override leads to compareTo override. Not sure.
 
 }

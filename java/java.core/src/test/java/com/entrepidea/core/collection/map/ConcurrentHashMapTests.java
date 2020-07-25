@@ -59,4 +59,11 @@ public class ConcurrentHashMapTests {
 
     }
 
+    /**
+     * BNP Paribas onsite 02/18/20
+     * When a thread iterate ConcurrentHashMap, a different thread insert or delete entities in the CHM, what'll happen?
+     *
+     * */
+    //Insertion and deletion of CHM are structural changes. The thread iterating the CHM will throw CurrentModificationException (CME) when it detects structural change in the CHM.
+
 }

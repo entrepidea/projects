@@ -50,7 +50,20 @@ public class DeadLockTests {
 	//3 rounds of Interview with Neuberger Berman
 	//TODO 1. explain dead lock and how to solve and detect
 
+	/**
+	 * BNP Paribas onsite, 02/18/20
+	 * How do you detect Deadlock?
+	 *
+	 * */
+	//use jps to get the pid, and use "jstack pid" to get a thread dump, look for key word such as "BLOCKED" or "DEADLOCK" and locate the offended threads.
 
-
+	/**
+	 *  BNP Paribas onsite, 02/18/20
+	 * Can deadlock happen to Database? If it happens, what will result?
+	 *
+	 * */
+	//Database will pick up one transaction and kill it.
+	//What'll happen from the client code perspective?
+	//Client will have an exception.
 }
 

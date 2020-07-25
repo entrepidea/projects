@@ -311,6 +311,9 @@ local.properties
 *.launch
 
 
+#VSCode settings
+.vscode/
+
 
 
 
@@ -456,6 +459,8 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
+#ignore intermediate files
+generated/
 
 #ignore these C++ related intermediate files
 # Prerequisites

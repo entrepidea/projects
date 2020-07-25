@@ -198,6 +198,13 @@ public class ThreadLocalTests {
 
     }
 
+    /**
+     * BNP Paribas onsite 02/18/20
+     * ThreadLocal?
+     *
+     * */
+    //ThreadLocal makes a copy of the shared resource exclusively for each participating thread to achieve threadsafety, w/o using locks.
+
 
 
 }

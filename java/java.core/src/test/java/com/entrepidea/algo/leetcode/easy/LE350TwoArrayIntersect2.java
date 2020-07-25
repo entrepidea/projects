@@ -6,7 +6,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 /**
- *
+ * @Desc: find intersection of two arrays
+ * @Source: the solution below is from: https://leetcode.com/problems/intersection-of-two-arrays-ii/discuss/577370/Simple-java-Solution
+ * @Date: 04/15/20
  * */
 public class LE350TwoArrayIntersect2 {
 
@@ -16,7 +18,7 @@ public class LE350TwoArrayIntersect2 {
         Arrays.stream(smallerArr).forEach(val -> seen.put(val, seen.getOrDefault(val,0)+1));
         int[] largerArr = smallerArr == num1?num2:num1;
         return Arrays.stream(largerArr).filter(val -> {
-            int count = seen.get(val);
+            int count = seen.getOrDefault(val,0);
             if(count==0){
                 return false;
             }
@@ -29,6 +31,12 @@ public class LE350TwoArrayIntersect2 {
 
     @Test
     public void test(){
+        int[] num1 = new int[]{1,2,2,1};
+        int[] num2 = new int[]{2,2};
+        Arrays.stream(intersect(num1,num2)).forEach(System.out::println);
 
+        num1 = new int[]{4,9,5};
+        num2 = new int[]{9,4,9,8,4};
+        Arrays.stream(intersect(num1,num2)).forEach(System.out::println);
     }
 }

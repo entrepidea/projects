@@ -14,7 +14,7 @@ import org.junit.Test;
  * The link above covers both scenarios, and my friend Victor Tan gave a solution for the 2nd variation too:
  * https://github.com/tiger40490/repo1/blob/py1/py/algo_arr/maxProfit_buy1sellAny.py
  *
- * @date: 03/13/20
+ * @date: 03/13/20, 07/09/20
  *
  * @Note:
  * This question was asked on a 01/27/20 Goldman onsite interview and again in a Bank of New York HankRank test on 02/18/20.
@@ -69,5 +69,37 @@ public class BuySellStock4MaxProfit {
         int[] prices = new int[]{1, 2, 90, 10, 110};
         int p = profit2(prices);
         Assert.assertEquals(p, 109);
+    }
+
+    //I wrote below algo on 07/09/20. Miss anything? The test passed.
+    int profit3(int[] arr){
+        int low = arr[0];
+        int high = arr[0];
+        int p = 0;
+        for (int i=1;i<arr.length;i++){
+            if(arr[i]>high){
+                high = arr[i];
+            }
+            else{
+                if(high>low) {
+                    p += (high - low);
+                }
+                low = high = arr[i];
+            }
+        }
+        if(high>low){
+            p+=(high - low);
+        }
+        return p;
+    }
+
+    @Test
+    public void test3(){
+        int[] quotes = new int[]{100,180,260,310,40,535,695};
+        Assert.assertEquals(865, profit3(quotes));
+        quotes = new int[]{100,90,80,70,60,50,40};
+        Assert.assertEquals(0, profit3(quotes));
+        quotes = new int[]{100,90,80,70,60,50,695};
+        Assert.assertEquals(645, profit3(quotes));
     }
 }
