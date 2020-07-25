@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * desc: bubble sorting: like a bubble rises from the bottom of the water to the top.
  * Iterate from the lest to the right, if the element is greater than the one next right to it, swap.
  * source: https://www.geeksforgeeks.org/bubble-sort/
- * date: 01/13/19
+ * date: 01/13/19,07/19/20
  * */
 public class BubbleSorting {
 
@@ -169,5 +169,26 @@ public class BubbleSorting {
 		}
 
 		ArrayUtil.printArry(arr);
+	}
+
+	//test again, 07/19/20
+	private void sort6(int[] arr){
+		int maxIdx = arr.length-1;
+		for(int i=maxIdx-1;i>=0;i--){
+			for(int j=i;j<maxIdx;j++){
+				if(arr[j]>arr[j+1]){
+					int temp = arr[j+1];
+					arr[j+1] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+	}
+
+	@Test
+	public void test6(){
+		int[] arr = new int[]{11,2,9,5,1,3,8,7,4,10,6,0};
+		sort6(arr);
+		Arrays.stream(arr).forEach(System.out::println);
 	}
 }
