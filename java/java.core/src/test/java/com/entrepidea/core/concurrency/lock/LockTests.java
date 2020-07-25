@@ -160,4 +160,10 @@ public class LockTests {
     //4.TODO How to generate a deadlock?
     //5.TODO The performance issue with locking? Like val++, that require two machine inst, but sync around it will take hundreds of inst; on the other hand, database ops take million of intrs so 100 is neglective
     //6.TODO Lock free system?
+
+    /**
+     * BNP Paribas 02/18/20 onsite
+     * static synchronized method and synchronized method
+     * */
+    //The format acquire the lock "Foo.class" while the latter acquire the lock "this". Different locks thus if two threads acquire them respectively, no interference of any kind.
 }

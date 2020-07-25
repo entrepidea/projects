@@ -19,6 +19,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * volatile guarantees data's visibility, tackling execution re-ordering issues, but fails to maintain operational atomicity.
  * Given that, one of the appropriate scenarios of using volatile variables is a toggle flag, where the operation is most likely a simple assignment operation: set the flag.
  *
+ * @Date: unknown, 04/16/20
+ *
  * */
 public class VolatileTests {
 
@@ -159,4 +161,11 @@ public class VolatileTests {
 
     //Citi onsite (Jersey City) 08/20/13, from 09AM to 11:30AM.
     //TODO Volatile in depth. How is the volatile variable updated? Does a thread sync up its local with the "main memory" of a volatile variable? How does volatile differ from a full-brown synchronization?
+
+    /**
+     * BNP Paribas, 02/18/20, onsite
+     * Volatile? what's main memory and thread's "memory"
+     * */
+    //main memory is the RAM as we know it. However, for the sake of performance, each thread works on the "working memory" which corresponds to the CPU caches.
+    // Obviously if no proper measure is taken, variables out-of-sync will remain an issue.
 }

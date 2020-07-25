@@ -3,7 +3,7 @@
 #all argument lists or parameters passed to a function is passed by reference.
 def changeList(list):
     list.append([1,2,3,4])
-    return;
+    return
 
 myList = [5,6,7,8]
 print("original list is: ", myList)
@@ -28,7 +28,7 @@ def printInfo(name, age):
     print( "the age is %d"% age)
     return
 
-printInfo(age = 50, name="john")
+printInfo(age=50, name="john")
 
 #variable-length arguments, specified by asterisk
 def printInfo2(arg1, *args):

@@ -111,4 +111,12 @@ public class ImmutableObjectTests {
         }
     }
 
+    /**
+     * BNP Paribas onsite, 02/18/20, Leo
+     * immutable variable? why is there even an immutable existing? what's the purpose?
+     *
+     * */
+    //Inmutable variable's internal states can't be modified. Its invariance remains unchanged regardless its a single or multi-threaded environment.
+    // The biggest benefit of using immutable variables is to use them as keys in a map structure.
+
 }
