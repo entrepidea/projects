@@ -3,6 +3,8 @@ package com.entrepidea.algo.pattern.top_k_elements;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * @Desc:
  * For an arbitrary array, to pick up the top K largest elements
@@ -19,7 +21,7 @@ public class MaxHeap {
     // empty max heap with given maximum
     // capacity.
     public MaxHeap(){
-        this.maxsize = 15;
+        this.maxsize = 10000001;
         //this.maxsize = maxsize;
         this.size = 0;
         Heap = new int[this.maxsize + 1];
@@ -133,5 +135,28 @@ public class MaxHeap {
         for (int i=0;i<topKMax;i++){
             System.out.println(maxHeap.extractMax());
         }
+    }
+
+    //discussion in this link shows some techniques to generate large unique random numbers.
+    //https://stackoverflow.com/questions/8115722/generating-unique-random-numbers-in-java
+
+    @Test
+    public void test2(){
+        long start = System.currentTimeMillis();
+
+        int[] largeIntSet = ThreadLocalRandom.current().ints(0, Integer.MAX_VALUE).distinct().limit(10000000).toArray();
+
+        System.out.printf("It takes %d millseconds to generate 10000000 integers.\n", (System.currentTimeMillis()-start));
+
+        for(int x : largeIntSet){
+            maxHeap.insert(x);
+        }
+
+        int topKMax = 50;
+        System.out.printf("The largest %d elements in the array are:\n", topKMax);
+        for (int i=0;i<topKMax;i++){
+            System.out.println(maxHeap.extractMax());
+        }
+        System.out.printf("It takes %d millseconds to complete the computation.\n", (System.currentTimeMillis()-start));
     }
 }
