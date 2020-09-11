@@ -287,4 +287,11 @@ public class ConstructTests {
      *
      * */
     //almost. Except for system.exit. That's the most destructive nuke bomb.
+
+    /**
+     * BNP Paribas phone, 02/05/20
+     * In C++, you can write code inside destructor to indicate the destruction of an object, how do you do it in Java?
+    * */
+    //finalize() method. But this is more or less up to the gabarage collector - it will decide to or not to run the method. However finalize() can be overridden by programmers when it comes to calling native methods. For example the C api,
+    // free(), can be invoked from finalize() (Think in Java).
 }

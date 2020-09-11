@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static com.google.common.math.IntMath.factorial;
 import static java.util.stream.Collectors.*;
@@ -186,6 +187,20 @@ public class StreamTests {
         Map<Integer, Integer> map = Arrays.stream(input).distinct().boxed().collect(Collectors.toMap(Function.identity(), i->i*i));
         map.forEach((k,v)->System.out.println(k+":"+v));
 
+    }
+
+    //LinkedHashMap sorts the keys basing on their insertion order. Below shows how to use Stream#toMap API for this purpose
+    //https://stackoverflow.com/questions/29090277/how-do-i-keep-the-iteration-order-of-a-list-when-using-collections-tomap-on-a
+    @Test
+    public void testToLinkedHashMap(){
+        Map<String,String> m = Stream.of(
+                new String[][]{
+                        {"C","0"},
+                        {"B","1"},
+                        {"A","2"},
+                }).collect(Collectors.toMap(data -> data[0], data -> data[1], (u,v) -> {throw new IllegalStateException(String.format("Duplicated key %s",u));}, LinkedHashMap::new));
+
+        m.forEach((u,v) -> System.out.println(String.format("%s:%s",u,v)));
     }
 
 }
