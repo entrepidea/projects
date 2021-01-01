@@ -1,8 +1,10 @@
 this is the sample code from the book "fluent python"
 
-To avoid over-catagorization, no more directories are to be created under this.
+To avoid over-categorization, no more directories are to be created underneath chapters.
 
-info such as which chapter the code is from and etc is noted in the comments of the samples.
+file names would be descriptive suffixed with chapter and section numbers
 
-of course, the file names should be as sensible as possible.
+as always, pay attention to the comments in the files if there is any
+
+other knowledge points that don't come with code will be put into a "notes.txt" file under respective chapters.
 
