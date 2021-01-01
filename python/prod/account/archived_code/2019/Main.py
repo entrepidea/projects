@@ -135,7 +135,7 @@ def parse_chase_checks_file(file_name):
 
 
 def merge_expense_items(debitcard_tups, chase_creditcard_tups, citi_creditcard_tups, chase_check_tups):
-    with open("resources\\reference.txt") as ref:
+    with open("resources/reference.txt") as ref:
         refs = ref.readlines()
         ref_tups = sorted([(desc, cat) for desc, cat in (line.strip().split(',') for line in refs)],key=lambda tup:tup[1])
 
@@ -172,9 +172,9 @@ def write_expense_file(all_expense_items, file_name):
 
 def main(argu):
     if argu is None or len(argu) == 0:
-        trans_file = 'resources\\chase_biz_account_all_transactions_2019.CSV'
-        chase_credit_file = 'resources\\chase_biz_credit_card_expense_2019.CSV'
-        citi_credit_file = 'resources\\citi_credit_card_expense_2019.CSV'
+        trans_file = 'resources/chase_biz_account_all_transactions_2019.CSV'
+        chase_credit_file = 'resources/chase_biz_credit_card_expense_2019.CSV'
+        citi_credit_file = 'resources/citi_credit_card_expense_2019.CSV'
         chase_checks_file = def_dest_folder()+'\\CHASE_CHECK_enriched.CSV'
     else:
         trans_file, chase_credit_file,citi_credit_file = argu

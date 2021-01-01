@@ -16,7 +16,7 @@ def temp_sln(file_name):
 
 def update_item_catogories(orig_item_list):
 
-    with open('data/reference.txt','r') as f:
+    with open('data/reference.txt', 'r') as f:
         references = f.readlines()
 
     #Create a dictionary
@@ -100,7 +100,7 @@ def main(argv):
     expenses = citi_credit_card_list + chase__credit_card_list + chase_debit_card_list + chase_debit_ACH_list + chase_debit_checks_list + chase_debit_acnt_1833_list
     mod_expenses = update_item_catogories(expenses)
 
-    write_expenses_file(mod_expenses,'processed.csv')
+    write_expenses_file(mod_expenses, 'processed.csv')
 
     show_misc_items(mod_expenses)
     #show_all_items(mod_expenses)
