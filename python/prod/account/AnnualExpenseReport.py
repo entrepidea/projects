@@ -57,19 +57,19 @@ def parse_transaction_file(trans_file):
         contents = f.readlines()
         keyword = 'CHECK'
 
-        to_file_name = def_dest_folder() + '\\CHASE_' + keyword + '.CSV'
+        to_file_name = def_dest_folder() + '/CHASE_' + keyword + '.CSV'
         # create a file including the transactions paid in checks. This file needs further process to extract individual items.
         with open(to_file_name, 'w') as to:
             to.writelines(line.split(',')[1] + ',' + line.split(',')[2] + ',' + line.split(',')[3] + '\n'
                           for line in contents if line.split(',')[0] == keyword and float(line.split(',')[3]) != -1402.45)  # the number is monthly salary, it's excluded.
 
         keyword = 'CREDIT'
-        to_file_name = def_dest_folder() + '\\CHASE_' + keyword + '.CSV'
+        to_file_name = def_dest_folder() + '/CHASE_' + keyword + '.CSV'
         with open(to_file_name, 'w') as to:  # create a file including all the incomes
             to.writelines(line.strip() + '\n' for line in contents if line.split(',')[0] == keyword)
 
         keyword = 'DEBIT'
-        to_file_name = def_dest_folder() + '\\CHASE_' + keyword + '.CSV'
+        to_file_name = def_dest_folder() + '/CHASE_' + keyword + '.CSV'
         with open(to_file_name,
                   'w') as to:  # create a file including all the expense items paid via ACH and debit card. This file needs further process to extract individual items.
             to.writelines(line.strip() + '\n' for line in contents
@@ -181,14 +181,14 @@ def write_expense_file(all_expense_items, file_name):
         to.writelines(i + '\n' for i in all_expense_items)
 
 
-def main(argu):
-    if argu is None or len(argu) == 0:
-        trans_file = 'resources\\chase_biz_account_all_transactions_2019.CSV'
-        chase_credit_file = 'resources\\chase_biz_credit_card_expense_2019.CSV'
-        citi_credit_file = 'resources\\citi_credit_card_expense_2019.CSV'
+def main(argv):
+    if argv is None or len(argv) == 0:
+        trans_file = 'transactions\\chase_biz_account_all_transactions_2020.CSV'
+        chase_credit_file = 'transactions\\chase_biz_credit_card_expense_2020.CSV'
+        citi_credit_file = 'transactions\\citi_credit_card_expense_2019.CSV'
         chase_checks_file = def_dest_folder() + '\\CHASE_CHECK_enriched.CSV'
     else:
-        trans_file, chase_credit_file, citi_credit_file = argu
+        trans_file, chase_credit_file, citi_credit_file = argv
 
     debitcard_items = parse_transaction_file(trans_file)
     chase_creditcard_items = parse_chase_credit_card_file(chase_credit_file)
