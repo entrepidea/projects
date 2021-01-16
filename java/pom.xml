@@ -11,6 +11,7 @@
         <module>framework.spring.core</module>
         <module>middleware.kafka</module>
         <module>webservice.ReSTFul.Jersey</module>
+        <module>bigdata.Hadoop</module>
     </modules>
 
     <repositories>

@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 
 import com.entrepidea.algo.data_structure.tree.supports.TreeNode;
+import com.entrepidea.algo.data_structure.tree.supports.TreeUtilities;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -164,7 +165,7 @@ public class BinaryTreeTests {
 	    TreeNode curr = root;
 
 	    while (true) {
-	        if (backtrack == false) {
+	        if (!backtrack) {
 	           while (curr.lChild != null) {
 	               sta.push(curr);
 	               curr = curr.lChild;
@@ -184,7 +185,6 @@ public class BinaryTreeTests {
 	        else break;
 	    }
 
-	    return;
 	}
 
 	//Preorder traversal
@@ -202,5 +202,13 @@ public class BinaryTreeTests {
 	    preorder(root);
     }
 
+    @Test
+	public void testConvertArray2BST(){
+		final int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 6, 6, 6,6 };
+		TreeNode root = new TreeNode(arr[0]);
+		int arrLen = arr.length;
+		TreeNode newRoot = TreeUtilities.insertLevelNode(arr,root,0,arrLen);
+		inorder(newRoot);
+	}
 }
 

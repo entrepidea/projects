@@ -1,4 +1,4 @@
-package com.entrepidea.core.features.v1_8.support;
+package com.entrepidea.core.features.v8.support;
 
 import java.util.List;
 import java.util.function.Predicate;

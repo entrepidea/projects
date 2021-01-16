@@ -1,2 +1,3 @@
-package com.entrepidea.algo.misc;public class WaterContainer {
+package com.entrepidea.algo.misc;
+public class WaterContainer {
 }
