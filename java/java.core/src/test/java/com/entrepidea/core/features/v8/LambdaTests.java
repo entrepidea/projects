@@ -1,7 +1,7 @@
-package com.entrepidea.core.features.v1_8;
+package com.entrepidea.core.features.v8;
 
-import com.entrepidea.core.features.v1_8.support.Person;
-import com.entrepidea.core.features.v1_8.support.RoboContact;
+import com.entrepidea.core.features.v8.support.Person;
+import com.entrepidea.core.features.v8.support.RoboContact;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.entrepidea.core.features.v1_8;
+package com.entrepidea.core.features.v8;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;

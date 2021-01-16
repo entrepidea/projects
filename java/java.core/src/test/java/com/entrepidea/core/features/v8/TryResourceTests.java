@@ -1,6 +1,5 @@
-package com.entrepidea.core.features.v1_8;
+package com.entrepidea.core.features.v8;
 
-import com.entrepidea.core.collection.map.HashMapTests;
 import org.apache.log4j.BasicConfigurator;
 import org.junit.Before;
 import org.junit.Test;

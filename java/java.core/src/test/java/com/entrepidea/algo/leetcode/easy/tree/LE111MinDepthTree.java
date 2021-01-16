@@ -1,4 +1,4 @@
-package com.entrepidea.algo.leetcode.easy;
+package com.entrepidea.algo.leetcode.easy.tree;
 
 import com.entrepidea.algo.data_structure.tree.supports.TreeNode;
 import org.junit.Assert;
