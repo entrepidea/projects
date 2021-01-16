@@ -108,35 +108,42 @@ def parse_chase_credit_card_file(credit_card_file):
                            (line.split(',') for line in contents[1:]
                             if 'THANK' not in line and 'ALBROOK' not in line)]  # children tuition excluded.
 
-    with open(def_dest_folder() + '\\' + 'CHASE_CREDITCARD_THANK.CSV', 'w') as f:
+    with open(def_dest_folder() + '/CHASE_CREDITCARD_THANK.CSV', 'w') as f:
         f.writelines(line.strip() + '\n' for line in contents if 'THANK' in line)
 
     return creditcard_tups
 
+"""
+the method below read and analyze citi credit card file
+the file is a CSV with head (date, desc, fee, credit, category), the intended output is a list of tuple (date, desc, amt)
+Note: mannual removal of the parts of letter head and head is requierd, only data remain.  
+"""
 
 def parse_citi_credit_card_file(file_name):
     with open(file_name) as f:
-        s = ' '.join([line.rstrip('\n') for line in f])
+        # s = ' '.join([line.rstrip('\n') for line in f])
+        contents = f.readlines()
 
-    line_list = [line.split(',') for line in s.split("Cleared")]
-    # for line in line_list:
     ret = []
-    for line in line_list:
-        if len(line) < 5:
-            continue
+    for line in contents:
+        # How to split but ignore separators in quoted strings, in python?
+        # https://stackoverflow.com/questions/2785755/how-to-split-but-ignore-separators-in-quoted-strings-in-python
+        li = re.split(''',(?=(?:[^'"]|'[^']*'|"[^"]*")*$)''', line)
+        # remove the double quotations
+        for i in range(len(li)):
+            li[i] = li[i].strip('\"')
+        # convert the date format from "Jun 8, 2020" to "06/08/20"
+        li[0] = datetime.strptime(li[0], "%b %d, %Y").strftime("%m/%d/%Y")
 
-        if str(line[3]) != '':
-            line[3] = str(0 - num(line[3].strip()))
-        if str(line[4]).strip() != '':
-            line[3] = line[4]
-
-        t = (line[1], line[2], line[3])
+        # move column 4 to column 3 if its value not empty, column 4 is credit
+        li[2] = li[2] if li[3] == '' else li[3]
+        # reconstruct the list into a tuple (date, desc, amt)
+        t = tuple(li[0:3])
+        # assert len(t) == 3
+        # print(t)
         ret.append(t)
 
-    [print(t) for t in ret]
-
     return ret
-
 
 def parse_chase_checks_file(file_name):
     with open(file_name) as f:
@@ -148,7 +155,7 @@ def parse_chase_checks_file(file_name):
 
 
 def merge_expense_items(debitcard_tups, chase_creditcard_tups, citi_creditcard_tups, chase_check_tups):
-    with open("resources\\reference.txt") as ref:
+    with open("transactions/reference.txt") as ref:
         refs = ref.readlines()
         ref_tups = sorted([(desc, cat) for desc, cat in (line.strip().split(',') for line in refs)],
                           key=lambda tup: tup[1])
@@ -160,7 +167,28 @@ def merge_expense_items(debitcard_tups, chase_creditcard_tups, citi_creditcard_t
 
     all_expense_items = sorted(debitcard_items + chase_creditcard_items + citi_creditcard_items + chase_check_items,
                                key=lambda line: (line.split(',')[3], line.split(',')[1]))
-    [print(i) for i in all_expense_items]
+
+    # [print(i) for i in all_expense_items]
+
+    return all_expense_items
+
+
+# this funtion is almost the duplication of the one above, only that this one doesn't count in the data from checks
+def merge_expense_items_exclude_checks(debitcard_tups, chase_creditcard_tups, citi_creditcard_tups):
+    with open("transactions/reference.txt") as ref:
+        refs = ref.readlines()
+        ref_tups = sorted([(desc, cat) for desc, cat in (line.strip().split(',') for line in refs)],
+                          key=lambda tup: tup[1])
+
+    debitcard_items = [unpack(i) for i in matched(debitcard_tups, ref_tups)]
+    chase_creditcard_items = [unpack(i) for i in matched(chase_creditcard_tups, ref_tups)]
+    citi_creditcard_items = [unpack(i) for i in matched(citi_creditcard_tups, ref_tups)]
+    # chase_check_items = [unpack(i) for i in matched(chase_check_tups, ref_tups)] this one isn't counted in.
+
+    all_expense_items = sorted(debitcard_items + chase_creditcard_items + citi_creditcard_items,
+                               key=lambda line: (line.split(',')[3], line.split(',')[1]))
+
+    # [print(i) for i in all_expense_items]
 
     return all_expense_items
 
@@ -183,24 +211,27 @@ def write_expense_file(all_expense_items, file_name):
 
 def main(argv):
     if argv is None or len(argv) == 0:
-        trans_file = 'transactions\\chase_biz_account_all_transactions_2020.CSV'
-        chase_credit_file = 'transactions\\chase_biz_credit_card_expense_2020.CSV'
-        citi_credit_file = 'transactions\\citi_credit_card_expense_2019.CSV'
-        chase_checks_file = def_dest_folder() + '\\CHASE_CHECK_enriched.CSV'
+        trans_file = 'transactions/chase_biz_account_all_transactions_2020.CSV'
+        chase_credit_file = 'transactions/chase_biz_credit_card_expense_2020.CSV'
+        citi_credit_file = 'transactions/citi_credit_card_expense_2019.CSV'
+        chase_checks_file = def_dest_folder() + '/CHASE_CHECK_enriched.CSV'
     else:
         trans_file, chase_credit_file, citi_credit_file = argv
 
+    # read and parse the soruce files (chase debit card, credit card, checks and citi credit card),
+    # transform the content into a list of tuples (date, desc, amt) respectively.
     debitcard_items = parse_transaction_file(trans_file)
     chase_creditcard_items = parse_chase_credit_card_file(chase_credit_file)
     citi_creditcard_items = parse_citi_credit_card_file(citi_credit_file)
-
     chase_check_items = parse_chase_checks_file(chase_checks_file)
+
+    # put the above lists of tuples together, filter them agaist a reference and sort them
     all_expense_items = merge_expense_items(debitcard_items, chase_creditcard_items, citi_creditcard_items,
                                             chase_check_items)
-    output_filename = def_dest_folder() + '\\processed#1_' + datetime.now().strftime('%Y%m%d_%H%M%S') + '.CSV'
+    output_filename = def_dest_folder() + '/processed#1_' + datetime.now().strftime('%Y%m%d_%H%M%S') + '.CSV'
     write_expense_file(all_expense_items, output_filename)
 
-    output_filename = def_dest_folder() + '\\processed#2_' + datetime.now().strftime('%Y%m%d_%H%M%S') + '.CSV'
+    output_filename = def_dest_folder() + '/processed#2_' + datetime.now().strftime('%Y%m%d_%H%M%S') + '.CSV'
     aggregate_expense_items(all_expense_items, output_filename)
 
 
