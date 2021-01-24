@@ -4,8 +4,10 @@ from functools import wraps
 """
 Show how to pass additional arguments when applying decorator pattern on a function. 
 
-when you have a function like
-@decorator
+The idea is that the outermost function accepts the desired arguments and makes them available 
+to the inner function decorate. The function decorate accepts a function and put a wrapper around it.
+
+The key part is that the wrapped function is allowed to use the argument passed through log.
 """
 
 def logged(level, name=None, message=None):
