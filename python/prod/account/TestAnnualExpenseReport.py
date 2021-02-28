@@ -1,14 +1,14 @@
-from AnnualExpenseReport import parse_transaction_file
-from AnnualExpenseReport import parse_chase_credit_card_file
-from AnnualExpenseReport import parse_citi_credit_card_file
-from AnnualExpenseReport import merge_expense_items
-from AnnualExpenseReport import parse_chase_checks_file
-from AnnualExpenseReport import merge_expense_items_exclude_checks
-from AnnualExpenseReport import write_expense_file
-from AnnualExpenseReport import aggregate_expense_items
 from datetime import datetime
 from os import path
-import pandas as pd
+
+from AnnualExpenseReport import aggregate_expense_items
+from AnnualExpenseReport import merge_expense_items_exclude_checks
+from AnnualExpenseReport import parse_chase_checks_file
+from AnnualExpenseReport import parse_chase_credit_card_file
+from AnnualExpenseReport import parse_citi_credit_card_file
+from AnnualExpenseReport import parse_transaction_file
+from AnnualExpenseReport import write_expense_file
+
 
 class TestAnnualExpenseReportCases:
     def test_parse_transaction_file(self):
@@ -33,12 +33,14 @@ class TestAnnualExpenseReportCases:
         assert citi_creditcard_items is not None and len(citi_creditcard_items) > 0
         [print(t) for t in citi_creditcard_items]
 
+    #TODO problematic - to review
     def test_parse_chase_checks_file(self):
         chase_checks_file = './generated/CHASE_CHECK_enriched.CSV'
         chase_check_items = parse_chase_checks_file(chase_checks_file)
         assert chase_check_items is not None and len(chase_check_items) > 0
         [print(t) for t in chase_check_items]
 
+    # TODO problematic - to review
     def test_merge_expense_items_exclude_checks(self):
         trans_file = "./transactions/chase_biz_account_all_transactions_2020.CSV"
         credit_exp_file = "./transactions/chase_biz_credit_card_expense_2020.CSV"

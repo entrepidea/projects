@@ -1,11 +1,10 @@
-COSTCO WHSE,Supplies
-WWW COSTCO COM,Supplies
 ATM WITHDRAWAL,Commission
 WITHDRAWAL,Commission
-PUBLIC SERVICE   PSEG,Utilities
+Zelle,Commission
 ELIZABETHTOWN GAS BILL,Utilities
 PORTASOFT,Utilities
 LMR,Utilities
+EXXON NJ CAFE,Dinner
 WHIPPANY WHIPPANY NJ,Dinner
 BARCLAY'S WHIPPANY,Dinner
 COSI,Dinner
@@ -17,6 +16,7 @@ MCDONALD,Dinner
 PANERA BREAD,Dinner
 STARBUCKS,Dinner
 SMITHS FOOD,Dinner
+YUNBANBAO,Dinner
 RUBY THAI KITCHEN,Dinner
 SUSHI,Dinner
 TOUS LES JOURS,Dinner
@@ -39,8 +39,14 @@ FROZENLANDIA,Dinner
 ROYAL QUEEN,Dinner
 HAAGEN DAZS,Dinner
 NOODLE PLUS,Dinner
+SUBWAY,Dinner
+Pick A Bagel,Dinner
+TASTE OF THAI,Dinner
+BUERGER CENTER,Dinner
+AUTOZONE,Auto Related
 EXXONMOBIL,Auto Related
 US FUEL,Auto Related
+SHELL OIL,Auto Related
 INFINITI,Auto Related
 Infiniti,Auto Related
 VALERO,Auto Related
@@ -60,11 +66,21 @@ FIRST ENERGY COR,Utilities
 FIRSTENERGY,Utilities
 sewerage,Utilities
 water bill,Utilities
+PSEG,Utilities
 PRUDENTIAL,Insurance
+prudential,Insurance
 HISCOX,Insurance
 NJM,Insurance
+LEMONADE,Insurance
 SEARS WARRANTY,Insurance
 prudentuial,Insurance
+COSTCO WHSE,Supplies
+BLOOMINGDALES,Supplies 
+WWW COSTCO COM,Supplies
+CHOWBUS,Supplies
+APPLE,Supplies
+DELL CORP,Supplies
+BEST BUY,Supplies
 TARGET,Supplies
 CLARINS,Supplies
 AMAZON,Supplies
@@ -94,9 +110,19 @@ J CREW,Supplies
 J. CREW,Supplies
 LOWES,Supplies
 MACYS,Supplies
+GAP ,Supplies
 KINGS SUPERMKT,Supplies
 aliexpress,Supplies
+ALIEXPRESS,Supplies
+WAYFAIR,Supplies
+Scholastic,Supplies
 GOLD VALLEY SUPERMARKE,Supplies
+GREAT WALL SUPERMARKET,Supplies
+J MART GROUP INC FLUSHING NY,Supplies
+GRFRESHMARKET.COM,Supplies
+GROCERY WEEE!,Supplies
+HEALT FLUSHING NY,Supplies
+WIGHTMAN FARMS,Supplies
 WHOLEFDS,Supplies
 MADEWELL,Supplies
 ROYAL FARMS,Supplies
@@ -110,17 +136,29 @@ IKEA,Supplies
 Kindle,Supplies
 AFM,Supplies
 DSW,Supplies
+SAMSCLUB,Supplies
 HANNA ANDERSSON,Supplies
 MIZUNO,Supplies
 LOTTE PLAZA,Supplies
 SCHOLASTIC BOOK,Supplies
 BOSTON COMMON,Supplies
+NEWEGG,Supplies
+WOOT,Supplies 
+STOP &amp,Supplies
+MICHAELS STORES,Supplies
+QUEENS PLACE ELMHURST NY,Supplies
+NEXT DIRECTORY,Supplies
+REGO CENTER 2,Supplies
+LOFT,Supplies
+USCONNECT,Supplies
+UBAMBOOKS,Supplies
 COMCAST,Internet & Telephone
 RCN*CABLE,Internet & Telephone
 CRICKET,Internet & Telephone
 ITALKBB,Internet & Telephone
 OPTIMUM,Internet & Telephone
 US Mobile,Internet & Telephone
+US MOBILE,Internet & Telephone
 DIGITALOCEAN,Service
 GOOGLE,Service
 AMHERST,Service
@@ -133,6 +171,9 @@ Microsoft,Service
 PAYPAL,Service
 exit realty first choice,Service
 INSTANT CERTS,Service
+Google,Service
+mcPuff Chimney,Service
+NJ ANNUAL REPORT SERVICES,Service
 HILLS HIGHLAND,Service
 PNC MORTGAGE,Service
 cps filling service,Service
@@ -142,32 +183,57 @@ COSTCO INSTALL,Service
 NJEIS,Service
 NEW YORK PRESBYTERIAN,Service
 BRIGHT HORIZONS BACKUP,Service
+TURBOTAX,Service
+WALL-ST-JOURNAL,Service
+NYTimes,Service
+Quality Title,Service
+Dean Koep,Service
+RUSSO BROS,Service
+MONTHLY SERVICE FEE,Service
+THE WRITE STUFF,Service
+MAVIS TIRE,Service
+LIFETOUCH,Service
+LYFT,Service
+Fight Wuhan Coro,Donation
+Wikimedia,Donation
 YMCA,Donation
 Wikipedia,Donation
 WPY*,Donation
 STUDENTS FOR FAIR ADM,Donation
+TRUMP,Donation
 LYONS,Travel
+IMPARK,Travel
 MILLBURN - PARKING,Travel
 NEW JERSEY E-ZPASS,Travel
 TRANS BRIDGE,Travel
+PATERSON,Travel
 METHODIST HOSP,Travel
 CITY OF EASTON PARKING,Travel
 EZ QUICK,Travel
 METROCARD,Travel
 NJT PABT,Travel
 UBER,Travel
+BELMAR,Travel
+Bear Mountain,Travel
 WESTBOROUGH INN,Travel
 MARRIOTT,Travel
 PRICELINE,Travel
 PENN STA,Travel
 EXPEDIA,Travel
 PARKING METERS,Travel
+MTA,Travel
 LYFT *RIDE,Travel
+MTA*LIRR,Travel
+EZPASS,Travel
+NJT RAIL,Travel
+Spring Lake,Travel
+SPRING LAKE,Travel
 CRAYOLA,Recreation
 NETFLIX,Recreation
 Netflix,Recreation
 HBO NOW,Recreation
 LIQUORS,Recreation
+ESSEX COUNTY ATTRACTIO,Recreation
 FROZEN YOGU,Recreation
 Little Dolphins,Recreation
 TURTLE BACK ZOO,Recreation
@@ -179,10 +245,13 @@ SPIRITS,Recreation
 USA SPORT GROUP,Recreation
 LIN AND WINNERD,Recreation
 LOLLI AND POPS,Recreation
+Prime Video,Recreation
 SHIMON AND SARA,Recreation
 RONG RONG FASHION,Recreation
 PRIMARK DWNTWN CROSSING,Recreation
 HUNTERDON FAMILY,Health & Wellness
+PRITI P PATEL,Health & Wellness
+RWJ SOMERSET HOSPITAL,Health & Wellness
 MEDICINE,Health & Wellness
 HUNTERDON PEDIATRIC,Health & Wellness
 OPHTHALMOLOGY,Health & Wellness
@@ -199,16 +268,27 @@ HUNTERDON,Health & Wellness
 UNIVERSITY CHILDRENS,Health & Wellness
 PEDIATRIC,Health & Wellness
 HORIZON PHARMACY,Health & Wellness
+Express Scripts,Health & Wellness
+PRESBYTERIAN,Health & Wellness
+NY HOSP MED,Health & Wellness
+SOMERSET VALLEY URGENT,Health & Wellness
+GOGOMEDS,Health & Wellness
 USPS,Postal
 UPS,Postal
 ERIC MARK,Legal
 peter kriner,Legal
+JD-PAY,Legal
+JUSTANSWER,Legal
 TELEFLORACOM,Gift
 ZEN GINSENG,Gift
 99 & UP FLUSHING NY,Supplies
-IRS              USATAXPYMT,Taxation
+State of NJ,Taxation
+NJGovServEW,Taxation
+IRS,Taxation
 TREASURY,Taxation
 NJWEB,Taxation
 NJ GIT,Taxation
 NEW JERSEY EFT,Taxation
+NEW JERSEY - AME,Taxation
 NJ WEB PMT,Taxation
+NYC dept of Finance,Taxation

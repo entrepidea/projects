@@ -70,25 +70,24 @@ def parse_transaction_file(trans_file):
 
         keyword = 'DEBIT'
         to_file_name = def_dest_folder() + '/CHASE_' + keyword + '.CSV'
-        with open(to_file_name,
-                  'w') as to:  # create a file including all the expense items paid via ACH and debit card. This file needs further process to extract individual items.
+        with open(to_file_name,'w') as to:  # create a file including all the expense items paid via ACH and debit card. This file needs further process to extract individual items.
             to.writelines(line.strip() + '\n' for line in contents
                           if line.split(',')[0] == keyword
-                          and 'CHASE CREDIT CRD AUTOPAYBUS' not in line.split(',')[
-                              2]  # remove chase credit, analysis will be done seperatedly
-                          and 'CITI AUTOPAY' not in line.split(',')[
-                              2]  # remove citi credit, analysis will be done seperatedly
-                          and 'GODDARD SCHO' not in line.split(',')[2]  # remove Goddard tuition
+                          and 'CHASE CREDIT CRD' not in line.split(',')[2]  # remove chase credit, analysis will be done seperatedly
+                          and 'CITI AUTOPAY' not in line.split(',')[2]  # remove citi credit, analysis will be done seperatedly
+                          #and 'GODDARD SCHO' not in line.split(',')[2]  # remove Goddard tuition
                           and 'INSUFFICIENT FUNDS FEE' not in line.split(',')[2]  # remove insuffecient funds fee
                           and 'Transfer from' not in line.split(',')[2]  # remove fund transfer
                           and 'Transfer to' not in line.split(',')[2]  # remove fund transfer
                           and 'PARK CITY' not in line.split(',')[2]
+                          and 'ESTATES AT WATER' not in line.split(',')[2]
+                          and 'JPMorgan Chase   Auth Debit' not in line.split(',')[2]
                           # and 'IRS' not in line.split(',')[2]
                           # and 'NEW JERSEY EFT' not in line.split(',')[2]
                           # and 'NJ GIT' not in line.split(',')[2]
                           # and 'NJ WEB PMT' not in line.split(',')[2]
-                          and 'VANGUARD BUY' not in line.split(',')[2]
-                          and 'ROBINHOOD        Funds' not in line.split(',')[2])
+                          and 'VANGUARD' not in line.split(',')[2]
+                          and 'ROBINHOOD' not in line.split(',')[2])
 
         return parse_debit_file(to_file_name)
 
@@ -106,7 +105,11 @@ def parse_chase_credit_card_file(credit_card_file):
         contents = f.readlines()
         creditcard_tups = [(date, desc, amt) for _, _, date, desc, _, _, amt, _ in
                            (line.split(',') for line in contents[1:]
-                            if 'THANK' not in line and 'ALBROOK' not in line)]  # children tuition excluded.
+                            if 'THANK' not in line
+                            and 'ALBROOK' not in line
+                            and 'FOREIGN TRANSACTION FEE' not in line
+                            )
+                           ]  # children tuition excluded.
 
     with open(def_dest_folder() + '/CHASE_CREDITCARD_THANK.CSV', 'w') as f:
         f.writelines(line.strip() + '\n' for line in contents if 'THANK' in line)
@@ -149,7 +152,14 @@ def parse_chase_checks_file(file_name):
     with open(file_name) as f:
         contents = f.readlines()
         tups = [(date, desc, amt) for date, _, amt, desc in
-                (line.strip().split(',') for line in contents if 'priority tax' not in line)]
+                (line.strip().split(',') for line in contents if
+                 'priority tax' not in line
+                 and 'Salary' not in line
+                 and 'Park city 3 & 4' not in line
+                 and 'Tsering Dhundup' not in line
+                 and 'Tiny Turtle' not in line  # remove Tiny Turtle tuition
+                 )
+                ]
         # print(tups)
     return tups
 
@@ -213,7 +223,7 @@ def main(argv):
     if argv is None or len(argv) == 0:
         trans_file = 'transactions/chase_biz_account_all_transactions_2020.CSV'
         chase_credit_file = 'transactions/chase_biz_credit_card_expense_2020.CSV'
-        citi_credit_file = 'transactions/citi_credit_card_expense_2019.CSV'
+        citi_credit_file = 'transactions/citi_credit_card_expense_2020.CSV'
         chase_checks_file = def_dest_folder() + '/CHASE_CHECK_enriched.CSV'
     else:
         trans_file, chase_credit_file, citi_credit_file = argv
