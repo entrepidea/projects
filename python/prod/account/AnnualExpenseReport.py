@@ -75,13 +75,13 @@ def parse_transaction_file(trans_file):
                           if line.split(',')[0] == keyword
                           and 'CHASE CREDIT CRD' not in line.split(',')[2]  # remove chase credit, analysis will be done seperatedly
                           and 'CITI AUTOPAY' not in line.split(',')[2]  # remove citi credit, analysis will be done seperatedly
-                          #and 'GODDARD SCHO' not in line.split(',')[2]  # remove Goddard tuition
                           and 'INSUFFICIENT FUNDS FEE' not in line.split(',')[2]  # remove insuffecient funds fee
                           and 'Transfer from' not in line.split(',')[2]  # remove fund transfer
                           and 'Transfer to' not in line.split(',')[2]  # remove fund transfer
-                          and 'PARK CITY' not in line.split(',')[2]
+                          and 'PARK CITY' not in line.split(',')[2] # remove PARK CITY maintenance fee
                           and 'ESTATES AT WATER' not in line.split(',')[2]
                           and 'JPMorgan Chase   Auth Debit' not in line.split(',')[2]
+                          and 'AMHERST MEWS' not in line.split(',')[2] # remove AMHERST MEWS maintenance fee
                           # and 'IRS' not in line.split(',')[2]
                           # and 'NEW JERSEY EFT' not in line.split(',')[2]
                           # and 'NJ GIT' not in line.split(',')[2]
