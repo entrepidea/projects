@@ -10,8 +10,8 @@ Please don't use any split() function from some library.
 it says no split, i used it anyway
 '''
 def reverseStrPerWord(str):
-    l = str.split();
-    l.reverse();
-    return l;
+    l = str.split()
+    l.reverse()
+    return l
 
-print(reverseStrPerWord("I like Teresa Teng songs most"));
+print(reverseStrPerWord("I like Teresa Teng songs most"))
