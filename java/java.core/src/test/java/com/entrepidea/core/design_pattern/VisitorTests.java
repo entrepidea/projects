@@ -24,7 +24,7 @@ public class VisitorTests {
     //this link: https://howtodoinjava.com/java/io/delete-directory-recursively/ shows how to use JDK API - SimpleFileVisitor to remove folder/files recursively
     @Test
     public void testDeleteDirectory(){
-        Path dir = Paths.get("c:/temp/innerDir");
+        Path dir = Paths.get("C:\\Users\\jonat\\Downloads\\innerDir");
         try
         {
             Files.walkFileTree(dir, new SimpleFileVisitor<Path>()
