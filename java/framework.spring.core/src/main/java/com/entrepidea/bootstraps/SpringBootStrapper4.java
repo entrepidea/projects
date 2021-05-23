@@ -20,9 +20,15 @@ import com.entrepidea.spring.bootstraps.supports.Client;
 public class SpringBootStrapper4 implements CommandLineRunner {
 
 	Logger log = LoggerFactory.getLogger(SpringBootStrapper4.class);
-	
-	@Autowired
+
+	//Field injection is not recommended
+	//@Autowired
 	private Client client;
+
+	//Constructor injection - the Autowired annotation can be omitted since Spring 4.x
+	public SpringBootStrapper4(Client client){
+		this.client = client;
+	}
 	
 	@Override
 	public void run(String... args) throws Exception {

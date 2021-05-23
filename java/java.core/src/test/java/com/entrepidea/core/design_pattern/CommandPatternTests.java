@@ -18,7 +18,11 @@ import org.junit.Test;
  * 2. receiver - is an instance of the method's business logic 
  * 3. client - responsible for instantiating the command object and providing conditions to trigger the invoker.
  * 
- * @note see also on wiki: http://en.wikipedia.org/wiki/Command_pattern
+ * @note
+ * see also
+ * on wiki: http://en.wikipedia.org/wiki/Command_pattern
+ * https://refactoring.guru/design-patterns/command
+ *
  */
 
 //the Invoker class: decide when to call the method 
@@ -114,4 +118,7 @@ public class CommandPatternTests {
 
 
 	}
+
+	//Test2 - see a demo app in com.entrepidea.swing.patterns.command.editor.Demo
+    //it's put there because it's a Swing app thus not suitable to be treated as a unit test.
 }
