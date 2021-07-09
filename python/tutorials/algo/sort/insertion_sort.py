@@ -46,9 +46,14 @@ def insert_sorting3(arr):
 				
 
 def main(argv):
-    data = numpy.random.randint(0,1000,10) #create an array of 10 random number
-    print(data)
+    #data = numpy.random.randint(0,1000,10) #create an array of 10 random number
+    #print(data)
     #data = insert_sorting2(data)
+
+    
+    data = [55,23,87,62,99,16,79,11]
+    print(data)
+
     data = insert_sorting3(data)
     print(data)
 
