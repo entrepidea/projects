@@ -29,11 +29,33 @@ def selection_sort(arr):
 
     return orig_arr
 
+def selection_sort2(arr):
+	for i in range(len(arr)-1):
+		for j in range(i+1, len(arr)):
+			if arr[i] > arr[j]:
+				arr[i], arr[j] = arr[j], arr[i]
+	return arr	
+
+
+def print_data(arr):
+	for i in range(len(arr)):
+		print ("%3d"%arr[i], end=' ')
+
 
 def main(argv):
+
+	"""
     arr = random.sample(range(1,100),30)
     orig_arr = selection_sort(arr)
     print(orig_arr)
+	"""
+
+	arr = [55,23,87,62,99,16,79,11]
+	print("unsorted array is: ")
+	print(arr)
+	arr = selection_sort2(arr)
+	print("sorted array is: ")
+	print_data(arr)
 
 if __name__ == '__main__':
     main(sys.argv[1:])

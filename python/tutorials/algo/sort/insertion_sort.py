@@ -28,10 +28,28 @@ def insert_sorting2(data):
                 break
     return data
 
+#redo - practice. 07/08/21
+def insert_sorting3(arr):
+	for i in range(1, len(arr)):
+		j = i-1
+		while arr[i] < arr[j] and j > 0: 
+			j = j-1
+	
+		for k in range(i-1,j,-1):
+			arr[k+1] = arr[k]
+
+		arr[j] = arr[i]
+
+		print(arr)
+	
+	return arr 			
+				
+
 def main(argv):
     data = numpy.random.randint(0,1000,10) #create an array of 10 random number
     print(data)
-    data = insert_sorting2(data)
+    #data = insert_sorting2(data)
+    data = insert_sorting3(data)
     print(data)
 
 if __name__ == '__main__':

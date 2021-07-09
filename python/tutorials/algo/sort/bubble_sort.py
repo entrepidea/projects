@@ -81,13 +81,32 @@ def bubble_sorting5(arr):
             break
     return arr
 
+#redo on 07/07/21, practice. 
+#NOTE: this is from the Chinese text book: Illustrated Algorithem - I found this version is easy to comprehend. 
+def bubble_sorting6(arr):
 
+	max_idx = len(arr)-1
+	while max_idx > 0:
+		cur = 0
+		while cur < max_idx:
+			if arr[cur]>arr[cur+1]:
+				arr[cur],arr[cur+1] = arr[cur+1],arr[cur]
+			cur = cur+1
+
+		max_idx = max_idx - 1
+
+	return arr
 
 def main(argv):
+		"""
     data = numpy.random.randint(0,100,10) #create 10 random number with low bound = 0 and high bound = 100
     print(data)
     bubble_sorting5(data)
     print(data)
+		"""
+		arr = [55,23,87,62,99,16,79,11]
+		bubble_sorting5(arr)
+		print(arr)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
