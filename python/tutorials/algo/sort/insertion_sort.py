@@ -29,33 +29,44 @@ def insert_sorting2(data):
     return data
 
 #redo - practice. 07/08/21
+#NOTE: for clear explaination, read the relevant section in the Chinese python text book: illustrated algo in Python.
 def insert_sorting3(arr):
 	for i in range(1, len(arr)):
-		j = i-1
-		while arr[i] < arr[j] and j > 0: 
-			j = j-1
-	
-		for k in range(i-1,j,-1):
-			arr[k+1] = arr[k]
+		for j in range(i):
+			if arr[j] > arr[i]:
+				temp = arr[i]
+				for k in range(i-1, j-1, -1):
+					arr[k+1] = arr[k]
+				arr[j] = temp
 
-		arr[j] = arr[i]
-
-		print(arr)
+		#print(arr)
 	
 	return arr 			
 				
 
 def main(argv):
-    #data = numpy.random.randint(0,1000,10) #create an array of 10 random number
-    #print(data)
-    #data = insert_sorting2(data)
+    
+	#data = numpy.random.randint(0,1000,10) #create an array of 10 random number
+	#print(data)
+	#data = insert_sorting2(data)
 
     
-    data = [55,23,87,62,99,16,79,11]
-    print(data)
+	data = [55,23,87,62,99,16,79,11,0,-1,108,94]
+	print("original array:")
+	print(data)
 
-    data = insert_sorting3(data)
-    print(data)
+	data = insert_sorting3(data)
+	print("sorted array:")
+	print(data)
+
+	#another test
+	print("\nAnother test:\n")
+	data = numpy.random.randint(0,1000,10) #create an array of 10 random number
+	print("original array:")
+	print(data)
+	data = insert_sorting3(data)
+	print("sorted array:")
+	print(data)
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+	main(sys.argv[1:])
