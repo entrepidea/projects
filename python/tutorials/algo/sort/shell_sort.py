@@ -1,43 +1,37 @@
-'''
-the following code is from the book algo illustrated (Chinese)
-
-TODO error occurred in running - check later
-
-08/01/21
-
-'''
-SIZE=8
-
-def showData(data):
-	for i in range(SIZE):
-		print('%3d'%data[i], end=' ')
-	print()
-
-def shell(data, size):
-	k=1
-	jmp = SIZE//2
-	while jmp!=0:
-		for i in range(jmp, size):
-			tmp = data[i]
-			j = i - tmp
-			while tmp<data[i] and j>=0: #insertion sorting
-				data[j+jmp] = data[j]
-				j = j - tmp
-			data[jmp+j] = tmp
-
-		print('#%d:' %k, end = ' ')
-		k += 1
-		showData(data)
-		print('----------------------------------------------')
-		jmp = jmp//2
+#write on 08/28/21, shell algorithm
+#idea: 
+#1. pick up elements of an array at a specific interval, and sort them using insertion sorting.
+#2. reduce the interval and repeat the above, until interval is less than 1
+def shell(data):
+	interval = len(data)//2
+	while interval > 0 : 
 		
-def main():
-	data = [16,25,39,27,12,8,45,63]
-	print('original data set:')
-	showData(data)
-	print('-----------------------------------------------')
-	shell(data,SIZE)
+		print('interval=%d\n'%interval)
+		i = 0
+		while i<interval:
+			j = i
+			while j < len(data):
+				#compare with previous data and do inserting sort.
+				temp = data[j]
+				for k in range(i,j,interval):
+					if data[k]>data[j]:
+						for n in range(j,k,-interval):
+							data[n] = data[n-interval]
+						data[k] = temp	
 
+				j+=interval
+
+			i += 1 
+
+		interval //=2
 	
+def main():
+	data = [25,1,100,105,50,33,42,10,14,6,88,88,19,27,44,98,7]
+	print('---original data array---')
+	print(data)
+	print('---sorted data array---')
+	shell(data)
+	print(data)
+
 if __name__ == '__main__':
 	main()
