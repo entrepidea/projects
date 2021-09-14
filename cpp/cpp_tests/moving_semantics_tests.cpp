@@ -39,6 +39,20 @@ public:
 		other.m_data = nullptr;		
 	}
 
+	//move assignment operator
+	String& operator=(String&& other) noexcept
+	{
+		if(this!=&other){
+			printf("Move assignment operator.\n");
+			delete[] m_data;
+			m_size = other.m_size;
+			m_data = other.m_data;
+			other.m_size = 0;
+			other.m_data = nullptr;		
+		}
+		return *this;		
+	}
+
 	~String(){
 		printf("Destroyed!\n");					
 		delete m_data;
@@ -63,7 +77,8 @@ class Entity{
 public:
 	Entity(const String& name): m_name(name){}
 
-	Entity(String&& name):m_name((String&&)name){}
+	//Entity(String&& name):m_name((String&&)name){}
+	Entity(String&& name):m_name(std::move(name)){}
 
 	void printName(){
 		m_name.print();					
@@ -76,5 +91,20 @@ private:
 int main(){
 	Entity entity(String("cherno"));				
 	entity.printName();
+
+	//testing std::move assignment operator
+	String apple = "apple";
+	String dest;
+	std::cout<<"apple: ";
+	apple.print();
+	std::cout<<"dest: ";
+	dest.print();
+
+	dest = std::move(apple);//the move assinment operator is called.
+	std::cout<<"apple: ";
+	apple.print();
+	std::cout<<"dest: ";
+	dest.print();
+
 	std::cin.get();
 }
