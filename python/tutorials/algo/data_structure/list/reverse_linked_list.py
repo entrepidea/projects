@@ -86,15 +86,26 @@ def reverse5(head):
     return new_head
 
 
+#redo again on 09/23/21, recursive version
+def reverse6(head):
+	if head.next is None:
+		return head
+	new_head = reverse6(head.next)
+	temp = new_head
+	while temp.next is not None:
+		temp = temp.next
+	temp.next = head
+	head.next = None
+	return new_head
 
 def main():
+		"""
     head = construct_consecutive_list(10)
     print("original list:")
     print_list(head)
     print("reversed list (recursive version):")
     new_head = reverse5(head)
     print_list(new_head)
-    """
     head = construct_consecutive_list(10)
     new_head = reverse3(head)
     print("reversed list (non-recursive version):")
@@ -104,6 +115,11 @@ def main():
     new_head = reverse4(head)
     print_list(new_head)
     """
+		head = construct_consecutive_list(10)
+		print_list(head)
+
+		head = reverse6(head)
+		print_list(head)
 
 if __name__ == "__main__":
     main()
