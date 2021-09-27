@@ -61,9 +61,19 @@ public class ConcurrentHashMapTests {
 
     /**
      * BNP Paribas onsite 02/18/20
-     * When a thread iterate ConcurrentHashMap, a different thread insert or delete entities in the CHM, what'll happen?
+     * When a thread iterate ConcurrentHashMap, a different thread insert or delete entities in the CHM, what will happen?
      *
      * */
-    //Insertion and deletion of CHM are structural changes. The thread iterating the CHM will throw CurrentModificationException (CME) when it detects structural change in the CHM.
+    //Answer on 09/24/21
+    //TODO: ConcurrentHashMap is NOT subject to CME - its iterator adopts fail-safe strategy
+    // (all APIs in Java.util.concurrent package are fail-safe, all APIs in Java.util are fail-fast).
+    // When a different thread inserts or deletes an entity in the CHM, it's likely
+    //?????
 
+    /**
+     * BGC phone interview, 12/02/19
+     * Difference  b/w ConcurrentHashMap  and SynchronizedMap
+     * */
+    //Both are thread-safe. CHM has better performance,'cause it doesn't lock for reading, and only lock when the same
+    //segments of the underlying array is written to by multiple threads.
 }

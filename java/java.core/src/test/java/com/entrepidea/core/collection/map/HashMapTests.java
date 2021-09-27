@@ -148,4 +148,12 @@ public class HashMapTests {
 	TODO Concurrent hashmap. What happens to two threads updating the data inside a segment of the underlying array. Thread safety was achieved through CAS
 
 	*/
+
+	/**
+	 * BGC phone interview, 12/02/19
+	 * What's LoadFactor?
+	 */
+	//LoadFactor is the factor used in HashMap to determine when the bucket numbers should be resized. Default value is 0.75.
+	//HashMap has a default or set  bucket numbers, once too many elements are loaded in, it might be a time to resize (double)
+	//the bucket number to reach  a balance. The load factor is such a factor to determine when the resize will take place.
 }
