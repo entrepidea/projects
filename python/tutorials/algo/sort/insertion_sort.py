@@ -1,5 +1,4 @@
 import sys
-import numpy
 
 """
 Insertion sorting. Here is a very good explanation for it:
@@ -43,28 +42,43 @@ def insert_sorting3(arr):
 	
 	return arr 			
 				
+#redo on 09/30/21, refer to the link below:
+#https://mp.weixin.qq.com/s?__biz=MzUyNjQxNjYyMg==&mid=2247485556&idx=1&sn=344738dd74b211e091f8f3477bdf91ee&chksm=fa0e67f5cd79eee3139d4667f3b94fa9618067efc45a797b69b41105a7f313654d0e86949607&scene=21#wechat_redirect
+def insert4(data):
+    if len(data) == 1:
+        return
+    for i in range(1,len(data)):
+        for j in range(0,i):
+            if data[i] < data[j]:
+                temp = data[i]
+                for k in range(i-1,j-1,-1):
+                    data[k+1] = data[k]
+                data[j] = temp                    
+        #print(data)
+
+#redo 10/02/21
+def insert5(data):
+    if len(data) == 1:
+        return
+    for i in range(1,len(data)):
+        for j in range(0,i):
+            if data[i] < data[j]:
+                idx = j
+                temp = data[i]
+                for k in range(i-1,j-1,-1):
+                    data[k+1] = data[k]
+                data[j] = temp
+                break
+                    
+
 
 def main(argv):
-    
-	#data = numpy.random.randint(0,1000,10) #create an array of 10 random number
-	#print(data)
-	#data = insert_sorting2(data)
-
     
 	data = [55,23,87,62,99,16,79,11,0,-1,108,94]
 	print("original array:")
 	print(data)
 
-	data = insert_sorting3(data)
-	print("sorted array:")
-	print(data)
-
-	#another test
-	print("\nAnother test:\n")
-	data = numpy.random.randint(0,1000,10) #create an array of 10 random number
-	print("original array:")
-	print(data)
-	data = insert_sorting3(data)
+	insert5(data)
 	print("sorted array:")
 	print(data)
 

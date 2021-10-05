@@ -36,6 +36,25 @@ def qs(data,start_idx, end_idx):
 	qs(data,j+1,end_idx)
 	
 
+def sort(arr, start_idx, end_idx):
+    if end_idx <= start_idx:
+        return
+    mark_idx = partition(arr,start_idx,end_idx)
+    sort(arr,start_idx,mark_idx-1)
+    sort(arr,mark_idx+1,end_idx)
+
+#TODO
+def partition(arr,start_idx,end_idx):
+    mark = start_idx
+    pivot = arr[mark]
+    for i in range(start_idx+1,end_idx):
+        if arr[i]<pivot:
+            temp = arr[i]
+            arr[i] = 
+def qs2(arr):
+    return sort(arr,0,len(arr)-1)
+
+
 if __name__ == '__main__':
 	data = [4,35,10,6,42,3,79,12,62,18,51,23]
 	print('original data:')

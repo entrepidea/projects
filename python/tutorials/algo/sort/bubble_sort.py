@@ -3,7 +3,7 @@
 
 """
 import sys
-import numpy
+#import numpy
 
 def bubble_sorting(data):
     for k in range(0,len(data)-1,1): # this line is equivilent to C++'s "for(int k=0;k<len-1;k++)"
@@ -97,16 +97,35 @@ def bubble_sorting6(arr):
 
 	return arr
 
-def main(argv):
-		"""
-    data = numpy.random.randint(0,100,10) #create 10 random number with low bound = 0 and high bound = 100
-    print(data)
-    bubble_sorting5(data)
-    print(data)
-		"""
-		arr = [55,23,87,62,99,16,79,11]
-		bubble_sorting5(arr)
-		print(arr)
+#redo on 09/29/21
+#https://mp.weixin.qq.com/s?__biz=MzUyNjQxNjYyMg==&mid=2247485556&idx=1&sn=344738dd74b211e091f8f3477bdf91ee&chksm=fa0e67f5cd79eee3139d4667f3b94fa9618067efc45a797b69b41105a7f313654d0e86949607&scene=21#wechat_redirect
+#[ 8，2，5，9，7 ]
+def bubble6(data):
+    for i in range(0,len(data)-1):
+        for j in range(i+1, len(data)):
+            print('i=%d,data[i]=%d,j=%d,data[j]=%d'%(i,data[i],j,data[j]))
+            if data[i] < data[j]:
+                temp = data[i]
+                data[i] = data[j]
+                data[j] = temp
+                #data[i],data[j] = data[j],data[i]
+
+#this one check if the array is sorted already or not. If it's, nothing needs to be done.
+#found in the same link as that in bubble6
+#09/29/21
+def bubble7(data):
+    for i in range(0,len(data)-1):
+        is_sorted = True
+        for j in range(0, len(data)-1-i):
+            if data[j] < data[j+1]:
+                temp = data[j]
+                data[j] = data[j+1]
+                data[j+1] = temp
+                is_sorted = False
+        if is_sorted:
+            return
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    data = [8,2,5,9,11,7,1]
+    bubble7(data)
+    print(data)
