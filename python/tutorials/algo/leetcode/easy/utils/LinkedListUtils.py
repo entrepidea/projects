@@ -14,13 +14,17 @@ class ListNode:
     """
 
 def construct_linked_list(arr) -> ListNode:
-    head = ListNode(arr[0])
-    node = head
+	if len(arr) == 0:
+		return None
 
-    for i in range(1, len(arr)):
-        node.next = ListNode(arr[i])
-        node = node.next
-    return head
+	head = ListNode(arr[0])
+	node = head
+
+	for i in range(1, len(arr)):
+		node.next = ListNode(arr[i])
+		node = node.next
+	
+	return head
 
 def print_list(head : Optional[ListNode]):
     p = head
