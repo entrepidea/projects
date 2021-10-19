@@ -26,6 +26,18 @@ def construct_linked_list(arr) -> ListNode:
 	
 	return head
 
+def list_size(head : Optional[ListNode]) -> int:
+	p = head
+	if p is None: 
+		return 0
+	
+	count = 0
+	while p is not None:
+		p = p.next
+		count += 1
+
+	return count
+
 def print_list(head : Optional[ListNode]):
     p = head
     while p is not None:
