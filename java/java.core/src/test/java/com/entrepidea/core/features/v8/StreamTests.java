@@ -129,7 +129,7 @@ public class StreamTests {
 
     /**
      * @Desc: Wells Fargo onsite interview question, in Nov/2019.
-     * This is to convert a list of Persons into a map<String, List<Person> > with keys groupped by the companies they employed with.
+     * This is to convert a list of Persons into a map<String, List<Person> > with keys grouped by the companies they employed with.
      * @Note: Stream#Collectors' toMap has groupBy function.
      * @Date: 12/09/19
      * */
@@ -144,8 +144,8 @@ public class StreamTests {
             return employer;
         }
 
-        private String name;
-        private String employer;
+        final private String name;
+        final private String employer;
         public Person(String n, String e){name = n; employer = e;}
 
         @Override
@@ -201,6 +201,17 @@ public class StreamTests {
                 }).collect(Collectors.toMap(data -> data[0], data -> data[1], (u,v) -> {throw new IllegalStateException(String.format("Duplicated key %s",u));}, LinkedHashMap::new));
 
         m.forEach((u,v) -> System.out.println(String.format("%s:%s",u,v)));
+    }
+
+    //find out strings started with 'a' and single out the one with longest length.
+    //source: https://zhuanlan.zhihu.com/p/425608079
+    //阿里二面：java8的stream api是迭代一次还是迭代多次
+    @Test
+    public void testStringFiltering(){
+        String[] str = new String[] {"abb","abcd","fegc", "efe", "adfes"};
+        Stream<String> stringStream = Stream.of(str);
+        int rlt = stringStream.filter(s->s.startsWith("a")).mapToInt(String::length).max().orElse(-1);
+        Assert.assertEquals(rlt,5);
     }
 
 }
