@@ -65,3 +65,21 @@ def post_order(node : Optional[TreeNode], rlt):
     post_order(node.right,rlt)
     rlt.append(node.data)
 
+#breadth first search
+def bfs(root : TreeNode):
+    rlt = []
+    q = []
+    q.append(root)
+    while len(q) > 0:
+        level = []
+        for i in range(len(q)):
+            node = q.pop(0)
+            if node:
+                level.append(node.data)
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+        rlt.append(level)
+    return rlt
+
