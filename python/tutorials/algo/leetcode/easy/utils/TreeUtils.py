@@ -29,7 +29,7 @@ def insert_level_order(arr, root, i, n):
                                       2 * i + 2, n)
     return root        
 
-def inorder_traverse(node : Optional[TreeNode]):
+def inorder_traverse(node : Optional[TreeNode])->[]:
     rlt = []
     in_order(node, rlt)
     return rlt
@@ -41,7 +41,7 @@ def in_order(node : Optional[TreeNode], rlt):
     rlt.append(node.data)
     in_order(node.right,rlt)
 
-def preorder_traverse(node : Optional[TreeNode]):
+def preorder_traverse(node : Optional[TreeNode])->[]:
     rlt = []
     pre_order(node, rlt)
     return rlt
@@ -53,7 +53,7 @@ def pre_order(node : Optional[TreeNode], rlt):
     pre_order(node.left,rlt)
     pre_order(node.right,rlt)
 
-def postorder_traverse(node : Optional[TreeNode]):
+def postorder_traverse(node : Optional[TreeNode])->[]:
     rlt = []
     post_order(node, rlt)
     return rlt
@@ -65,8 +65,12 @@ def post_order(node : Optional[TreeNode], rlt):
     post_order(node.right,rlt)
     rlt.append(node.data)
 
+#https://stackoverflow.com/questions/952914/how-to-make-a-flat-list-out-of-a-list-of-lists
+def flatten(t):
+    return [item for sublist in t for item in sublist]
+
 #breadth first search
-def bfs(root : TreeNode):
+def bfs(root : TreeNode)->[]:
     rlt = []
     q = []
     q.append(root)
@@ -81,5 +85,5 @@ def bfs(root : TreeNode):
                 if node.right:
                     q.append(node.right)
         rlt.append(level)
-    return rlt
+    return flatten(rlt)
 
