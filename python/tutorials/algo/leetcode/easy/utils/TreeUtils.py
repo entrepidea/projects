@@ -9,7 +9,7 @@ from typing import Optional
 
 class TreeNode:
     def __init__(self, data):
-        self.data = data
+        self.data = '' if data is None else data 
         self.left = self.right = None
 
 # Function to convert an array to a binanry tree
