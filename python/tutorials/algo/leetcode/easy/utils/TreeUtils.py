@@ -12,6 +12,39 @@ class TreeNode:
         self.data = '' if data is None else data 
         self.left = self.right = None
 
+
+def in_order(node : Optional[TreeNode], rlt):
+    if node is None:
+        return
+    in_order(node.left,rlt)
+    rlt.append(node.data)
+    in_order(node.right,rlt)
+
+def pre_order(node : Optional[TreeNode], rlt):
+    if node is None:
+        return
+    rlt.append(node.data)
+    pre_order(node.left,rlt)
+    pre_order(node.right,rlt)
+
+
+def post_order(node : Optional[TreeNode], rlt):
+    if node is None:
+        return
+    post_order(node.left,rlt)
+    post_order(node.right,rlt)
+    rlt.append(node.data)
+
+
+
+
+
+
+
+
+
+#public APIs
+
 # Function to convert an array to a binanry tree
 def insert_level_order(arr, root, i, n):
      
@@ -29,41 +62,25 @@ def insert_level_order(arr, root, i, n):
                                       2 * i + 2, n)
     return root        
 
+
+
 def inorder_traverse(node : Optional[TreeNode])->[]:
     rlt = []
     in_order(node, rlt)
     return rlt
 
-def in_order(node : Optional[TreeNode], rlt):
-    if node is None:
-        return
-    in_order(node.left,rlt)
-    rlt.append(node.data)
-    in_order(node.right,rlt)
 
 def preorder_traverse(node : Optional[TreeNode])->[]:
     rlt = []
     pre_order(node, rlt)
     return rlt
 
-def pre_order(node : Optional[TreeNode], rlt):
-    if node is None:
-        return
-    rlt.append(node.data)
-    pre_order(node.left,rlt)
-    pre_order(node.right,rlt)
 
 def postorder_traverse(node : Optional[TreeNode])->[]:
     rlt = []
     post_order(node, rlt)
     return rlt
 
-def post_order(node : Optional[TreeNode], rlt):
-    if node is None:
-        return
-    post_order(node.left,rlt)
-    post_order(node.right,rlt)
-    rlt.append(node.data)
 
 #https://stackoverflow.com/questions/952914/how-to-make-a-flat-list-out-of-a-list-of-lists
 def flatten(t):

@@ -3,6 +3,7 @@ Given an integer array nums of 2n integers, group these integers into n pairs (a
 https://leetcode.com/problems/array-partition-i/
 
 NOTE: look at this solution, easy and make sense: https://leetcode.com/problems/array-partition-i/discuss/1563380/Python-simple-solution
+NOTE: INTERESTING
 
 Date: 11/07/21
 
