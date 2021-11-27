@@ -8,9 +8,10 @@ date: 10/09/21
 from typing import Optional
 
 class TreeNode:
-    def __init__(self, data):
+    def __init__(self, data, left = None, right = None):
         self.data = '' if data is None else data 
-        self.left = self.right = None
+        self.left = left
+        self.right = right
 
 
 def in_order(node : Optional[TreeNode], rlt):
