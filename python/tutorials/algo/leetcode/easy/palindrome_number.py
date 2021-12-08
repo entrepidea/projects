@@ -18,6 +18,19 @@ def palindrom(num):
             return False
     return True
 
+
+#A little shorter. Same idea. 12/04/21
+def palindrom2(num)->bool:
+    arr = list(num)
+    left = 0
+    right = len(arr)-1
+    while left < right:
+        if arr[left]!= arr[right]:
+            return False
+        left += 1
+        right -= 1
+    return True  
+
 if __name__ == '__main__':
     num = 12321
     if palindrom(num):
@@ -25,3 +38,5 @@ if __name__ == '__main__':
     else:
         print('%d is NOT a palindrom.'%num)
 
+    num = '12321'
+    print(f'{num} is palindrome? {palindrom2(num)}')
