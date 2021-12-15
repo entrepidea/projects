@@ -35,4 +35,22 @@ int main(int argc, char** argv){
 	show_int(ival);				
 	show_float(fval);				
 	show_pointer(pval);
+
+
+	/*
+	 	additionally, on p48, below show another example 
+		Date: 12/10/21
+	*/
+	printf("example#2:\n");
+	int val = 0x87654321;
+	byte_pointer p = (byte_pointer)&val;
+	show_bytes(p,1);
+	show_bytes(p,2);
+	show_bytes(p,3);
+
+	printf("example#3:\n");
+	int val2 = 3510593;
+	show_int(val2);
+	float fval2 = 3510593.0;
+	show_float(fval2);
 }

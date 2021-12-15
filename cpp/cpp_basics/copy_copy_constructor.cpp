@@ -1,13 +1,11 @@
 /*
  *
- * 
- if you want to have a deep copy (as opposed to copying only the reference, a.k.a shallow copy
+ If you want to have a deep copy (as opposed to copying only the reference, a.k.a shallow copy
  best way is to implement a copy constructor
+ https://www.youtube.com/watch?v=BvR1Pgzzr38&list=WL&index=3&t=630s
 
- source: https://www.youtube.com/watch?v=BvR1Pgzzr38&list=WL&index=3&t=630s
-
-	date: 10/07/21
-
+ Date: 10/07/21
+	
  * */
 #include <string>
 #include <cstring>
