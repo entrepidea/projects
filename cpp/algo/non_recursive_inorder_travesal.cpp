@@ -2,9 +2,11 @@
  * no-recusive inorder traversal - use stack.
  * http://www.cppblog.com/guogangj/archive/2009/10/16/98772.html
  *
- * NOTE: I tried to use standard library's stack for this execise. TODO still compilation error.
+ * NOTE: I tried to use standard library's stack for this execise. 
+ * The implementation code actually borrowed from: https://mp.weixin.qq.com/s?__biz=MzUyNjQxNjYyMg==&mid=2247486365&idx=3&sn=0c9dd00f69159cfe2ad07899eaadb16f&chksm=fa0e641ccd79ed0a7b327fe338ff589499c0115048af185cc5d327ab6f4f8d85aec26f2de331&scene=21#wechat_redirect
+ * which is easier to understand.
  *
- * Date: 01/04/22
+ * Date: 01/09/22
  *
  * */
 #include <iostream>
@@ -56,34 +58,42 @@ int main(int argc, char** argv){
     nI.m_pLeft = &nK;
     nI.m_pRight = &nL;
 
+		/*
+		 *   How does the tree looks like after construction
+    //      A
+    //    /   \
+    //   /     \
+    //  B       C
+    //   \     / \
+    //    D   E   F
+    //     \       \
+    //      G       H
+    //             / \
+    //            I   J
+    //           / \
+    //          K   L
+		 *
+		 * */
+
 		stack<TreeNode*> st;
 
 		//Inorder traversal
-    TreeNode *pVal = &nA;
+    TreeNode *pCur = &nA;
     int iPopped = 0;
-    while(pVal!=0)
-    {
-        if(pVal->m_pLeft!=0 && iPopped==0)
-        {
-            st.push(pVal);
-            pVal = pVal->m_pLeft;
-            iPopped = 0;
-        }
-        else if(pVal->m_pRight!=0)
-        {
-            cout<<pVal->m_cVal<<" "<<endl;
-            pVal = pVal->m_pRight;
-            iPopped = 0;
-        }
-        else
-        {
-            cout<<pVal->m_cVal<<" "<<endl;
-            if(0==st.pop(pVal))
-                break;
-            iPopped = 1;
-        }
+    while(pCur!=0||!st.empty())
+		{
+			while(pCur!=0){
+				st.push(pCur);
+				pCur = pCur->m_pLeft;	
+			}				
+			pCur = st.top();
+			st.pop();
+			cout<<pCur->m_cVal<<", ";		
+			pCur = pCur->m_pRight;									
     }
-
+		//the answer:
+		//B, D, G, A, E, C, F, K, I, L, H, J,
+		cout<<endl;
     return 0;
 
 }

@@ -1,7 +1,10 @@
 """
 A closure is a function with extended scope that encompass nonglobal variables referenced in the body of the function but not defined there.
-
 A closure can be implemented in one of the two approaches as shown below.
+
+From the book chapter 7 "Function decorators and closures", P.199
+
+Date: 01/17/22
 
 """
 class Averager():

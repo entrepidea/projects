@@ -13,19 +13,56 @@ NOTE: Be noted that this tree is not a binary tree. TODO
 
 
 """
-import sys
-sys.path.append('utils')
-from TreeUtils import TreeNode
-from TreeUtils import insert_level_order
-from TreeUtils import inorder_traverse
-from typing import Optional
+#import sys
+#sys.path.append('utils')
+#from TreeUtils import TreeNode
+#from TreeUtils import insert_level_order
+#from TreeUtils import inorder_traverse
+#from typing import Optional
 
-def depth(root : Optional[TreeNode]) -> int:
-    pass
+class Node:
+    def __init__(self, val):
+        self.data = val
+        self.arr = []
+        pass
+
+    def __repr__(self):
+        return f'{self.data}'
+
+    def __str__(self):
+        return f'{self.data}'
+
+    def add(self, node):
+        self.arr.append(node)
+
+def construct_tree_from_array()->Node:
+    root = Node(1)
+    n = Node(3)
+    n1 = n
+    root.add(n)
+    n = Node(2)
+    root.add(n)
+    n = Node(4)
+    root.add(n)
+    n = Node(5)
+    n1.add(n)
+    n = Node(6)
+    n1.add(n)
+    return root
+
+def traverse(node, tmp):
+    if len(node.arr) == 0:         
+        print(node)
+        return
+    tmp[0] = tmp[0] + 1
+    print(node)
+    for n in node.arr:
+        traverse(n,tmp)
+
 
 if __name__ == '__main__':
-    arr = [1,None,3,2,4,None,5,6]
-    root = None
-    root = insert_level_order(arr,root,0,len(arr))
-    print(inorder_traverse(root))
-    #print(depth(root))
+    root = construct_tree_from_array()
+    tmp = [1]
+    traverse(root,tmp)
+    print(f'count={tmp[0]}')
+    
