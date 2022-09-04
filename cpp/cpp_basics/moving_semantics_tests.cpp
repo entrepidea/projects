@@ -77,7 +77,7 @@ class Entity{
 public:
 	Entity(const String& name): m_name(name){}
 
-	//Entity(String&& name):m_name((String&&)name){}
+	//Entity(String&& name):m_name((String&&)name){} //this line will do too, but less elegant than invoking the standard api "move" as shown below.
 	Entity(String&& name):m_name(std::move(name)){}
 
 	void printName(){
@@ -89,6 +89,8 @@ private:
 };
 
 int main(){
+	//the "cherno" is temporary object, it's created in main function and no need to be created again (moved only)
+	//when the constructor of entity is called, thanks to C++'s move semantics. 
 	Entity entity(String("cherno"));				
 	entity.printName();
 
