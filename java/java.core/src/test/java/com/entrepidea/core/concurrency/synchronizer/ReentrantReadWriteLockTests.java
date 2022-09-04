@@ -2,8 +2,6 @@ package com.entrepidea.core.concurrency.synchronizer;
 
 import org.junit.Test;
 
-import java.io.IOException;
-
 /**
  * ReentrantReadWriteLock allows threads share a reading lock, but when writing starts, only one thread can acquire the
  * write lock. In another word, Reading lock is shared, while write lock is exclusive.

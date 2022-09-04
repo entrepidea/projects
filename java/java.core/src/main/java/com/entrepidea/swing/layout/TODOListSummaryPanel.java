@@ -1,4 +1,4 @@
-package com.entrepidea.swing.layout;
+package com.entrepidea.jersey.swing.layout;
 
 /*
  * TableRenderDemo.java requires no other files.

@@ -1,4 +1,4 @@
-package com.entrepidea.java.algo.tests.string;
+package com.entrepidea.algo.data_structure.string;
 
 public class Palindrome2 {
 	public boolean isPalindrome(String s) {

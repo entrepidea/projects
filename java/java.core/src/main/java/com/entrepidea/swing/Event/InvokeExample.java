@@ -1,4 +1,4 @@
-package com.entrepidea.swing.Event;
+package com.entrepidea.jersey.swing.Event;
 
 /*
 Java Swing, 2nd Edition

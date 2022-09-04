@@ -1,4 +1,4 @@
-package com.entrepidea.jvm;
+package com.entrepidea.jersey.jvm;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.entrepidea.swing.Event;
+package com.entrepidea.jersey.swing.Event;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

@@ -1,4 +1,4 @@
-package com.entrepidea.swing.components.table;
+package com.entrepidea.jersey.swing.components.table;
 
 import java.awt.Color;
 import java.awt.Dimension;

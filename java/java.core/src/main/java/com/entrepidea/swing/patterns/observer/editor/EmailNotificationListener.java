@@ -1,4 +1,4 @@
-package com.entrepidea.swing.patterns.observer.editor;
+package com.entrepidea.jersey.swing.patterns.observer.editor;
 
 import java.io.File;
 

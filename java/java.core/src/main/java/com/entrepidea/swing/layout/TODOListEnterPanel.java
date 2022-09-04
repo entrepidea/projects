@@ -1,4 +1,4 @@
-package com.entrepidea.swing.layout;
+package com.entrepidea.jersey.swing.layout;
 
 import java.awt.BorderLayout;
 import javax.swing.JComboBox;

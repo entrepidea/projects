@@ -1,4 +1,4 @@
-package com.entrepidea.swing.components.tree;
+package com.entrepidea.jersey.swing.components.tree;
 
 import java.awt.Component;
 import java.awt.event.MouseEvent;

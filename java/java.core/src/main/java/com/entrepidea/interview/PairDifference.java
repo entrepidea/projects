@@ -1,6 +1,5 @@
-package com.entrepidea.interview;
+package com.entrepidea.jersey.interview;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 
 /**

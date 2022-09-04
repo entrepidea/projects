@@ -1,6 +1,5 @@
 package com.entrepidea.core.collection.map;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Collections;

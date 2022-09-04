@@ -1,6 +1,5 @@
 package com.entrepidea.core.io;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.nio.channels.FileChannel;
 import java.nio.ByteBuffer;

@@ -1,4 +1,4 @@
-package com.entrepidea.core.algo.tests.array;////source: https://leetcode.com/problems/integer-to-english-words/
+package com.entrepidea.algo.data_structure.array;////source: https://leetcode.com/problems/integer-to-english-words/
 //
 //Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than 231 - 1.
 //

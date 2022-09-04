@@ -8,7 +8,6 @@ package com.entrepidea.core.collection.tests;
  *
  */
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.*;

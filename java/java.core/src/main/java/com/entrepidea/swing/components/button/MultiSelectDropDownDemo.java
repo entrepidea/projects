@@ -1,4 +1,4 @@
-package com.entrepidea.swing.components.button;
+package com.entrepidea.jersey.swing.components.button;
 
 import java.awt.Color;
 import java.awt.Container;

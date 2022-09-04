@@ -1,9 +1,7 @@
 package com.entrepidea.core.collection.list;
 
-import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;

@@ -1,4 +1,4 @@
-package com.entrepidea.jvm;
+package com.entrepidea.jersey.jvm;
 
 /**
  * @Desc:

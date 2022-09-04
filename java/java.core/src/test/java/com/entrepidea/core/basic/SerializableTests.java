@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.*;
-import java.math.BigInteger;
 
 /**
  * Test cases for serialization/de-serialization

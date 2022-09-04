@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.entrepidea</groupId>
+        <artifactId>java_systems</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.entrepidea</groupId>
+    <artifactId>spring.boot.stand_alone</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+		<properties>
+        <main.class>com.entrepidea.jersey.network.example1.v3.ServerMain</main.class>
+		</properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+
+        <!-- to support ExtendWith annotation-->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.4.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!--
+
+						The plugin below enables us to run "mvn exec:java" from command line,
+            but why must we specify the mainClass here? 
+						Or
+            I tried to remove the configuration tag from below and run
+            mvn exec:java -Dexec.mainClass="com.entrepidea.core.aop.example1.Main"
+            but it failed with message "mainClass not found". 
+
+            Also, does Spring boot have a starter that includes this plugin?
+
+						Answer: 
+
+						seems that Spring boot doesn't come with a starter with this plugin. Need more invesigation.
+						As to the first part of the question, the way to handle is to create a property specifying the main class, and refer the property as below.
+
+						after that, if you want to run another main class from command, you can do it as below - 
+						be noted that the variable "main.class" specified is consistent with the property name
+
+						mvn exec:java -Dmain.class="com.entrepidea.network.example1.v2.ClientMain"
+
+						see also: https://stackoverflow.com/questions/65401642/overriding-exec-maven-plugin-with-exec-mainclass
+
+						-->
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+								<executions>
+				         <execution>
+        			    <goals>
+              			 <goal>java</goal>
+			            </goals>
+      				   </execution>
+					      </executions>
+                <configuration>
+                    <mainClass>${main.class}</mainClass>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

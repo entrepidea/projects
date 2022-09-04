@@ -1,4 +1,4 @@
-package com.entrepidea.swing.patterns.command.editor;
+package com.entrepidea.jersey.swing.patterns.command.editor;
 
 import java.util.Stack;
 

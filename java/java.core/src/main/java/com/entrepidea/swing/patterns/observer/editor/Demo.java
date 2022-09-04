@@ -1,4 +1,4 @@
-package com.entrepidea.swing.patterns.observer.editor;
+package com.entrepidea.jersey.swing.patterns.observer.editor;
 
 /**
  * This demonstrates Observer pattern. The sample code is from: https://refactoring.guru/design-patterns/observer/java/example

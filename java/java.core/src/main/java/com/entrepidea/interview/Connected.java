@@ -1,4 +1,4 @@
-package com.entrepidea.interview;
+package com.entrepidea.jersey.interview;
 
 
 /**

@@ -5,7 +5,6 @@ import org.junit.Test;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
-import java.nio.MappedByteBuffer;
 
 /**
  * @Desc:

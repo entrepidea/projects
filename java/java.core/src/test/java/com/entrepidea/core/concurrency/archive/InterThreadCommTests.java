@@ -2,7 +2,6 @@ package com.entrepidea.core.concurrency.archive;
 
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.Random;
 
 /**

@@ -1,4 +1,4 @@
-package com.entrepidea.swing.components.table;
+package com.entrepidea.jersey.swing.components.table;
 
 public class MiscTests {
     //Instinet corp, phone interview, 06/16/14, Sanjiv, Hiring manager

@@ -1,4 +1,4 @@
-package com.entrepidea.swing.components.tree;
+package com.entrepidea.jersey.swing.components.tree;
 
 /*
  * This code is based on an example provided by Richard Stanford, 

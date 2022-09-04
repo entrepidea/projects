@@ -1,7 +1,5 @@
 package com.entrepidea.core.concurrency;
 
-import org.junit.Test;
-
 /*
 * This class includes all tests that don't seem fit in any categories, but still related to Concurrency
 * */

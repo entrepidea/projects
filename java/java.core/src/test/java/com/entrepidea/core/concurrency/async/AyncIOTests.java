@@ -8,8 +8,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 /**
  * TODO: let's discuss asynchonous features in both Java and C#.

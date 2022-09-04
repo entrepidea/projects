@@ -1,4 +1,4 @@
-package com.entrepidea.swing.layout;
+package com.entrepidea.jersey.swing.layout;
 
 /**
  * Need to find out where this source is from.

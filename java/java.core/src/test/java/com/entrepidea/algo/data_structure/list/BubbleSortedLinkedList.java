@@ -1,4 +1,4 @@
-package com.entrepidea.algo.data_structure.list;
+package com.entrepidea.data_structure.list;
 
 import com.entrepidea.algo.data_structure.list.support.LinkedListUtils;
 import com.entrepidea.algo.data_structure.list.support.ListNode;

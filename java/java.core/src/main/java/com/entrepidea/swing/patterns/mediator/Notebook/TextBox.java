@@ -1,4 +1,4 @@
-package com.entrepidea.swing.patterns.mediator.Notebook;
+package com.entrepidea.jersey.swing.patterns.mediator.Notebook;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;

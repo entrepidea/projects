@@ -7,7 +7,7 @@ import com.google.common.eventbus.Subscribe;
  */
 public class CashPurchaseEventSubscriber {
     @Subscribe
-    public void handlePurchaseEvent(com.entrepidea.core.basic.support.PurchaseEvent event) {
+    public void handlePurchaseEvent(PurchaseEvent event) {
        //.....
     }
 }

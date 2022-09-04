@@ -1,15 +1,12 @@
 package com.entrepidea.core.io;
 
 import java.io.StreamTokenizer;
-import java.io.File;
 import java.io.IOException;
-import java.io.Reader;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 public class WordCounter {

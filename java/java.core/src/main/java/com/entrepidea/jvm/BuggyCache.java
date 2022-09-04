@@ -1,4 +1,4 @@
-package com.entrepidea.jvm;
+package com.entrepidea.jersey.jvm;
 
 import java.io.IOException;
 import java.util.Collections;

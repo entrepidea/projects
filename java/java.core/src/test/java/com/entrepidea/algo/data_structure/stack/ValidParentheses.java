@@ -1,4 +1,4 @@
-package com.entrepidea.java.algo.tests.stack;//Given a string containing just the characters '(', ')', '{', '}', '[' and ']',
+package com.entrepidea.algo.data_structure.stack;//Given a string containing just the characters '(', ')', '{', '}', '[' and ']',
 //determine if the input string is valid.
 
 //The brackets must close in the correct order, "()" and "()[]{}" are all valid

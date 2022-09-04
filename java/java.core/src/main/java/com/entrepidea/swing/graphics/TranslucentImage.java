@@ -1,4 +1,4 @@
-package com.entrepidea.swing.graphics;
+package com.entrepidea.jersey.swing.graphics;
 
 
 import java.awt.AlphaComposite;
