@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.components.table;
+package com.entrepidea.swing.components.table;
 
 /*
  * TableSorterDemo.java requires this file:

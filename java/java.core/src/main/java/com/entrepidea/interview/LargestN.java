@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.interview;
+package com.entrepidea.interview;
 
 import org.junit.jupiter.api.Test;
 

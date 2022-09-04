@@ -1,5 +1,12 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.5.RELEASE</version>
+    </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.entrepidea</groupId>
     <artifactId>java_systems</artifactId>
@@ -8,19 +15,20 @@
 
     <modules>
         <module>java.core</module>
-        <module>framework.spring.core</module>
+        <module>framework.spring.boot</module>
         <module>middleware.kafka</module>
-        <module>webservice.ReSTFul.Jersey</module>
-        <module>bigdata.Hadoop</module>
+        <module>webservice.ReSTFul</module>
     </modules>
 
     <repositories>
+
         <repository>
             <id>my-repo1</id>
             <name>another maven repo</name>
             <url>http://central.maven.org/maven2/</url>
         </repository>
 
+        <!-- Could not find artifact io.confluent:kafka-avro-serializer:pom:5.4.1 in central -->
         <repository>
             <id>confluent.io-repo</id>
             <name>confluent io maven repo</name>
@@ -28,7 +36,7 @@
         </repository>
 
 
-        <repository>
+<!--        <repository>
             <id>twitter4j.org</id>
             <name>twitter4j.org Repository</name>
             <url>http://twitter4j.org/maven2</url>
@@ -38,7 +46,7 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-        </repository>
+        </repository>-->
 
     </repositories>
 
@@ -47,10 +55,21 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.2</version>
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <version>2.6.1</version>
+        </dependency>
 
     </dependencies>
 
@@ -67,7 +86,7 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
+<!--			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 
@@ -80,10 +99,10 @@
 					</archive>
 				</configuration>
 
-			</plugin>
+			</plugin>-->
 
 
-            <plugin>
+<!--            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.7.9</version>
@@ -101,7 +120,9 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
+
+
         </plugins>
     </build>
 

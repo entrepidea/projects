@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.Event;
+package com.entrepidea.swing.Event;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;

@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.swingworker;
+package com.entrepidea.swing.swingworker;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;

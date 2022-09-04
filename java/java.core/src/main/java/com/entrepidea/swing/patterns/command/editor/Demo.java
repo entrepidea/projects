@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.patterns.command.editor;
+package com.entrepidea.swing.patterns.command.editor;
 /**
  * This is a demo app to show off Command pattern. Source code is from: https://refactoring.guru/design-patterns/command/java/example
  * 05/13/21

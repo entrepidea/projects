@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.jvm;
+package com.entrepidea.jvm;
 /**
  * @Desc:
  *-verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:PretenureSizeThreshold=3145728

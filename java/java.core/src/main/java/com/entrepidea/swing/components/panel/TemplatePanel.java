@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.components.panel;
+package com.entrepidea.swing.components.panel;
 
 import java.awt.Dimension;
 

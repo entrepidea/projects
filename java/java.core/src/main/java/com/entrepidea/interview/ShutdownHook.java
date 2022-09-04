@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.interview;
+package com.entrepidea.interview;
 
 /**
  * BNP Paribas onsite 02/18/20

@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.components.checkbox;
+package com.entrepidea.swing.components.checkbox;
 
 import java.awt.BorderLayout;
 import java.awt.Component;

@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.components.button;
+package com.entrepidea.swing.components.button;
 
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;

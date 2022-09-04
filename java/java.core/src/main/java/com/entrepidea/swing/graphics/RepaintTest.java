@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.graphics;
+package com.entrepidea.swing.graphics;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

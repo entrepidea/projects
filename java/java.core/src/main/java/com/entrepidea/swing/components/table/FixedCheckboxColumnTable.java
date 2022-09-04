@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.components.table;
+package com.entrepidea.swing.components.table;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -24,7 +24,7 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
-import com.entrepidea.jersey.swing.components.checkbox.TristateCheckbox;
+import com.entrepidea.swing.components.checkbox.TristateCheckbox;
 
 class CheckBoxRenderer extends TristateCheckbox implements TableCellRenderer, MouseListener, ItemListener {
 

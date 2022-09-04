@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.layout;
+package com.entrepidea.swing.layout;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;

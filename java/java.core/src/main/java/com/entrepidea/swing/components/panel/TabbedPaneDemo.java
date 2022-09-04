@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.components.panel;
+package com.entrepidea.swing.components.panel;
 
 /*
  * TabbedPaneDemo.java requires one additional file:

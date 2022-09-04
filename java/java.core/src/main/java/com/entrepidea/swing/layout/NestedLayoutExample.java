@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.layout;
+package com.entrepidea.swing.layout;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.layout;
+package com.entrepidea.swing.layout;
 
 /**
  * @description: this is to demo the usage of GridBagLayout, a complex layout manager 

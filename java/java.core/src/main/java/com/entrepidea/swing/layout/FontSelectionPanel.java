@@ -1,4 +1,4 @@
-package com.entrepidea.jersey.swing.layout;
+package com.entrepidea.swing.layout;
 
 //Copyright (C) 2000 Greg Merrill (greghmerrill@yahoo.com)
 //Distributed under the terms of the GNU General Public License (version 2)
