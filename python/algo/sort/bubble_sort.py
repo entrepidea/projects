@@ -125,7 +125,30 @@ def bubble7(data):
         if is_sorted:
             return
 
+#redo a test.
+#https://mp.weixin.qq.com/s?__biz=MzUyNjQxNjYyMg==&mid=2247485556&idx=1&sn=344738dd74b211e091f8f3477bdf91ee&chksm=fa0e67f5cd79eee3139d4667f3b94fa9618067efc45a797b69b41105a7f313654d0e86949607&scene=21#wechat_redirect
+#09/10/22
+def bubble8(arr):
+	for i in range(len(arr)-1):
+		for j in range(len(arr)-1-i):
+			if arr[j]>arr[j+1]:
+				arr[j],arr[j+1] = arr[j+1],arr[j]
+
+def bubble8_optimized(arr):
+	for i in range(len(arr)-1):
+		is_sorted = True
+		for j in range(len(arr)-1-i):
+			if arr[j]>arr[j+1]:
+				arr[j],arr[j+1] = arr[j+1],arr[j]
+				is_sorted = False
+
+		if is_sorted:
+			break
+
 if __name__ == "__main__":
     data = [8,2,5,9,11,7,1]
-    bubble7(data)
+    bubble8(data)
+    print(data)
+
+    bubble8_optimized(data)
     print(data)
