@@ -1,4 +1,4 @@
-package com.entrepidea.core.database;
+package com.entrepidea.database;
 
 public class HibernateTests {
     //TODO What's N+1 in Hibernate? (Blackrock, phone interview with Kenny Ma, 08/18/14)

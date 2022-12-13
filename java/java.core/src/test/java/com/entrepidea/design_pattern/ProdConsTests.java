@@ -1,4 +1,4 @@
-package com.entrepidea.core.design_pattern;
+package com.entrepidea.design_pattern;
 
 import java.util.ArrayList;
 import java.util.List;

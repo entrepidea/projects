@@ -1,4 +1,4 @@
-package com.entrepidea.core.database;
+package com.entrepidea.database;
 
     /*
     *   TODO 10/01/14, 5:30PM, BofA phone interview with Wilson

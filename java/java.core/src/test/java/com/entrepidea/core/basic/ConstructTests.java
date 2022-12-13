@@ -12,7 +12,6 @@ import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * @Desc:
  * Construct in Java means allowable elements on the language level. Examples of constructs include but not limited to:
  * Keywords such as final, static, abstract; members in a class as well as static block within; inner classes;
  * selection/looping/sequence execution statements; member scopes such as private, public, protected and packaged
@@ -57,7 +56,7 @@ public class ConstructTests {
 
     @Test
     public void test(){
-        System.out.println("The ultramate i is: "+getInt());
+        System.out.println("The ultimate i is: "+getInt());
     }
 
     /**

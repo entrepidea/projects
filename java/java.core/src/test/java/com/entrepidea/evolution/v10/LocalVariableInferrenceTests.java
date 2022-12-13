@@ -1,4 +1,4 @@
-package com.entrepidea.core.features.v10;
+package com.entrepidea.evolution.v10;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.entrepidea.core.database.supports;
+package com.entrepidea.database.supports;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
