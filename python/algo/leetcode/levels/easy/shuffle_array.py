@@ -15,7 +15,7 @@ def shuffle(arr : List[int], n : int) ->List[int]:
 	def gen(A):
 		for i in range(n):
 			yield from (A[i],A[i+n])
-	return list(gen(nums))	
+	return list(gen(arr))	
 
 if __name__ == '__main__':
 	nums = [2,5,1,3,4,7] 
