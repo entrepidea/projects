@@ -15,7 +15,7 @@ public class SpringBootStrapper1 {
         //use prefix "file:" if you want to use absolution path to the config xml file.
         //multiple config files can be loaded using wildcard * too.
         FileSystemXmlApplicationContext ac = new FileSystemXmlApplicationContext
-        		("boot/src/main/resources/config/META-INF/spring/spring-bootstrap.xml");
+        		("core/src/main/resources/config/META-INF/spring/spring-bootstrap.xml");
         ac.registerShutdownHook();
         ac.refresh();
         SimpleDriverDataSource ds = (SimpleDriverDataSource)ac.getBean("dataSource");

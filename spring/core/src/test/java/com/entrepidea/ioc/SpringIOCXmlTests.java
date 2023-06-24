@@ -6,7 +6,10 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
 
-import com.entrepidea.ioc.supports.xml.*;
+import com.entrepidea.ioc.support.ClientService;
+import com.entrepidea.ioc.support.Foo;
+import com.entrepidea.ioc.support.Student;
+import com.entrepidea.ioc.xml.*;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,6 +23,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * The tests under this package uses Spring XML style configuration
  * Be noted that this kind of configuration is no longer recommended by Spring
@@ -27,7 +32,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
 		"/config/META-INF/spring/core-config-context.xml",
-		"/config/META-INF/spring/jdbc-config-context.xml"
+		//"/config/META-INF/spring/jdbc-config-context.xml"
 })
 /**
  * or
@@ -56,9 +61,10 @@ public class SpringIOCXmlTests {
 	//Spring is capable of register a bean via its static factory method, as shown below.
 	//check the core-config-context.xml to see how ClientService is defined.
 	@Test
-	public void testStaticMethodInstantilization(){
-		ClientService clientService = ac.getBean(ClientService.class);
-		LOGGER.info("Testing Spring to instantialize a bean through static factory method - {} ",clientService.getServiceType());
+	public void testStaticMethodInstantiation(){
+		ClientService clientService = (ClientService)ac.getBean("clientService");
+		LOGGER.info("Testing Spring to instantiate a bean through static factory method - {} ",clientService.getServiceType());
+		assertEquals("Client",clientService.getServiceType());
 	}
 
 
@@ -69,7 +75,7 @@ public class SpringIOCXmlTests {
 	@Test
 	public void testFoo(){
 		Foo foo = (Foo)ac.getBean("foo");
-		Assert.assertEquals("i=1,str=hello world",foo.print());
+		assertEquals("i=1,str=hello world",foo.print());
 
 	}
 
@@ -94,23 +100,23 @@ public class SpringIOCXmlTests {
     @Test
     public void testP_namespace(){
 	    ClientService c = (ClientService)ac.getBean("p_namespace");
-	    Assert.assertEquals("support@FakeCompany.com",c.getEmail());
+	    assertEquals("support@FakeCompany.com",c.getEmail());
     }
 
     //test  c-namespace. c namespace is just a shortcut for constructor-arg in the xml config
     @Test
     public void testC_namespace(){
 	    Foo foo = (Foo)ac.getBean("c_namespace");
-	    Assert.assertEquals("BAR",foo.getBar());
-        Assert.assertEquals("BAZ",foo.getBaz());
+	    assertEquals("BAR",foo.getBar());
+        assertEquals("BAZ",foo.getBaz());
     }
 
     //test bean's dependent-on attribute. This attribute forces a mandatory initialization of the designated referenced beans
     @Test
     public void testDependentOnAttr(){
 	    Foo foo = (Foo)ac.getBean("foo_dependents");
-        Assert.assertEquals("BAR",foo.getBar());
-        Assert.assertEquals("BAZ",foo.getBaz());
+        assertEquals("BAR",foo.getBar());
+        assertEquals("BAZ",foo.getBaz());
     }
 
     //Test method injection. Method injection is used in a scenario that a singleton bean having a dependency of a prototype bean.
@@ -158,7 +164,7 @@ public class SpringIOCXmlTests {
 	@Test
 	public void testAutowiredOnProp(){
 		Student s = (Student) ac.getBean("student");
-		Assert.assertEquals("John", s.getName());
+		assertEquals("John", s.getName());
 	}
 
 
@@ -167,7 +173,7 @@ public class SpringIOCXmlTests {
 	public void testPropertyPlaceHolderConfigurer(){
 
 		BasicDataSource db = (BasicDataSource) ac.getBean("basicDataSource");
-		Assert.assertEquals("org.hsqldb.jdbcDriver",db.getDriverClassName());
+		assertEquals("org.hsqldb.jdbcDriver",db.getDriverClassName());
 	}
 
 	//10/08/14 phone interview with BNP Paribas, GWT UI developer position, Jersey City

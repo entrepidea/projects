@@ -8,9 +8,9 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * This example shows the usage of @Pointcut. Pointcut is the predicate matching a join point, often used as parameter of
- * an advice (see the Aspect class Logging). Code is based on: https://www.tutorialspoint.com/springaop/springaop_around_aspect1.htm
+ * an advice (see the Aspect class Logging). Code is based on: <a href="https://www.tutorialspoint.com/springaop/springaop_around_aspect1.htm">...</a>
  *
- * NOTE: this article show more about @Pointcut: https://www.baeldung.com/spring-aop-pointcut-tutorial (TODO: read it!)
+ * NOTE: this article show more about @Pointcut: <a href="https://www.baeldung.com/spring-aop-pointcut-tutorial">...</a> (TODO: read it!)
  *
  * Date: 12/02/21
  * */

@@ -4,6 +4,8 @@ package com.entrepidea.ioc.xml;
  * supporting class
  * 
  * */
+import com.entrepidea.ioc.support.PlaceOfBirth;
+
 import java.util.Date;
 import java.util.GregorianCalendar;
 

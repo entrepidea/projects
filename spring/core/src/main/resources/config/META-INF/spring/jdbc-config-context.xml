@@ -49,7 +49,7 @@
     <!-- Init DB instance -->
     <jdbc:initialize-database data-source="dataSource" ignore-failures="DROPS">
         <!--  build the schema -->
-        <jdbc:script location="classpath:src/test/resources/database/create_schema.sql" execution="INIT" separator=";"/>
+        <jdbc:script location="classpath:database/create_schema.sql" execution="INIT" separator=";"/>
 <!--    <jdbc:script location="classpath:database/drop_schema.sql" execution="DESTROY" separator=";"/>  -->
     </jdbc:initialize-database>
     

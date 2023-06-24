@@ -29,7 +29,6 @@ public class RootObjectParser {
 		Expression exp = (Expression) parser.parseExpression("name");
 
 		EvaluationContext context = new StandardEvaluationContext(tesla);
-		String name =  (String)exp.getValue(context);
-		return name;
+		return (String)exp.getValue(context);
 	}
 }

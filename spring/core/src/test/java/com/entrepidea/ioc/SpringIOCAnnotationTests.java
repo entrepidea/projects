@@ -1,8 +1,8 @@
 package com.entrepidea.ioc;
 
-import com.entrepidea.ioc.supports.annotation.DummyUtilities;
-import com.entrepidea.ioc.supports.annotation.SpringConfig;
-import com.entrepidea.ioc.supports.annotation.SingletonBean;
+import com.entrepidea.ioc.annotation.DummyUtilities;
+import com.entrepidea.ioc.annotation.SpringConfig;
+import com.entrepidea.ioc.annotation.SingletonBean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
-
+import com.entrepidea.ioc.support.StudentRecord;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= SpringConfig.class, loader=AnnotationConfigContextLoader.class)
 public class SpringIOCAnnotationTests {
@@ -23,7 +23,7 @@ public class SpringIOCAnnotationTests {
 	@Test
 	public void testQualifier(){
 		ApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
-		SpringConfig.StudentRecord sr = ac.getBean(SpringConfig.StudentRecord.class);
+		StudentRecord sr = ac.getBean(StudentRecord.class);
 		sr.printName();
 	}
 
@@ -36,7 +36,7 @@ public class SpringIOCAnnotationTests {
 	@Test
 	public void testApplicationContextAware(){
 		ApplicationContext ctx = dummyUtilities.getApplicationContext();
-		SpringConfig.StudentRecord sr = ctx.getBean(SpringConfig.StudentRecord.class);
+		StudentRecord sr = ctx.getBean(StudentRecord.class);
 		sr.printName();
 	}
 

@@ -2,9 +2,8 @@ package com.entrepidea.ioc.annotation;
 
 import com.entrepidea.ioc.InitialDisposeService;
 import com.entrepidea.ioc.InjectionService;
-import com.entrepidea.ioc.xml.Student;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.entrepidea.ioc.support.Student;
+import com.entrepidea.ioc.support.StudentRecord;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -27,28 +26,16 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:/config/application.properties")
 public class SpringConfig {
 
-    public static class StudentRecord{
-        @Autowired
-        @Qualifier("John")
-        Student student;
-
-        public StudentRecord(){}
-
-        public void printName(){
-            System.out.println(student);
-        }
-    }
-
     @Bean
-    StudentRecord getStudentRecord(){ return new StudentRecord();}
+    StudentRecord studentRecord(){ return new StudentRecord();}
 
-    /*
+
     @Bean(name="John")
     Student createJohn(){return new Student("John");}
 
     @Bean(name="Mary")
     Student createMary(){return new Student("Mary");}
-    */
+
 
     /**
      *

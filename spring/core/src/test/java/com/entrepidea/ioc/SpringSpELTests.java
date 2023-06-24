@@ -1,8 +1,8 @@
 package com.entrepidea.ioc;
 
-import com.entrepidea.ioc.supports.xml.HelloWorldParser;
-import com.entrepidea.ioc.supports.xml.RootObjectParser;
-import com.entrepidea.ioc.supports.xml.TypeConversion;
+import com.entrepidea.ioc.xml.HelloWorldParser;
+import com.entrepidea.ioc.xml.RootObjectParser;
+import com.entrepidea.ioc.xml.TypeConversion;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -18,7 +18,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/config/META-INF/spring/core-config-context.xml" })
+@ContextConfiguration(locations = {"/config/META-INF/spring/core-config-context.xml"})
 public class SpringSpELTests {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(SpringSpELTests.class);

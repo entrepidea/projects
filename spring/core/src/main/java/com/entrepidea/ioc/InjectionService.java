@@ -1,6 +1,6 @@
 package com.entrepidea.ioc;
 
-import com.entrepidea.ioc.xml.Student;
+import com.entrepidea.ioc.support.Student;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -14,7 +14,7 @@ import org.springframework.context.ApplicationContextAware;
  */
 public class InjectionService implements InitializingBean, ApplicationContextAware {
 
-    private Logger log = LoggerFactory.getLogger(InjectionService.class);
+    private Logger LOGGER = LoggerFactory.getLogger(InjectionService.class);
     private ApplicationContext ctx;
     private Student student;
     @Override
@@ -30,6 +30,6 @@ public class InjectionService implements InitializingBean, ApplicationContextAwa
 
 
     public void printStudentName(){
-        log.info("{}",student);
+        LOGGER.info("{}",student);
     }
 }

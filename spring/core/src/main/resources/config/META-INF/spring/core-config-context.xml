@@ -8,18 +8,14 @@
   	http://www.springframework.org/schema/beans
   	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context-2.5.xsd
-	http://www.springframework.org/schema/p
-	http://www.springframework.org/schema/p/spring-context-2.5.xsd
-	http://www.springframework.org/schema/c
-	http://www.springframework.org/schema/c/spring-context-2.5.xsd">
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 	<description>basic spring application context file</description>
 	
 	<context:annotation-config />  
 
 	
-	<bean id="parent" abstract="true" class="com.entrepidea.ioc.supports.xml.ComplexObject">
+	<bean id="parent" abstract="true" class="com.entrepidea.ioc.xml.ComplexObject">
         <property name="adminEmails">
             <props>
                 <prop key="administrator">administrator@example.com</prop>
@@ -37,32 +33,32 @@
         </property>
     </bean>
 
-    <bean id="clientService" class="com.entrepidea.spring.core.ioc.supports.xml.ClientService" init-method="createInstance"/>
-    <bean id="clientService2" class="com.entrepidea.spring.core.ioc.supports.xml.ClientService" init-method="createInstance"/>
+    <bean id="clientService" class="com.entrepidea.ioc.support.ClientService" init-method="createInstance"/>
+    <bean id="clientService2" class="com.entrepidea.ioc.support.ClientService" init-method="createInstance"/>
 
-    <bean id="p_namespace" class="com.entrepidea.spring.core.ioc.supports.xml.ClientService" init-method="createInstance" p:email="support@FakeCompany.com"/>
+    <bean id="p_namespace" class="com.entrepidea.ioc.support.ClientService" init-method="createInstance" p:email="support@FakeCompany.com"/>
 
-    <bean id="foo" class="com.entrepidea.spring.core.ioc.supports.xml.Foo">
+    <bean id="foo" class="com.entrepidea.ioc.support.Foo">
         <constructor-arg type="int" value="1"/>
         <constructor-arg type="java.lang.String" value="hello world"/>
     </bean>
 
-    <bean id="bar" class="com.entrepidea.spring.core.ioc.supports.xml.Bar"/>
-    <bean id="baz" class="com.entrepidea.spring.core.ioc.supports.xml.Baz"/>
-    <bean id="c_namespace" class="com.entrepidea.spring.core.ioc.supports.xml.Foo" c:bar-ref="bar" c:baz-ref="baz" />
+    <bean id="bar" class="com.entrepidea.ioc.support.Bar"/>
+    <bean id="baz" class="com.entrepidea.ioc.support.Baz"/>
+    <bean id="c_namespace" class="com.entrepidea.ioc.support.Foo" c:bar-ref="bar" c:baz-ref="baz" />
 
-    <bean id="foo_dependents" class="com.entrepidea.spring.core.ioc.supports.xml.Foo" depends-on="bar,baz" p:bar-ref="bar" p:baz-ref="baz"/>
+    <bean id="foo_dependents" class="com.entrepidea.ioc.support.Foo" depends-on="bar,baz" p:bar-ref="bar" p:baz-ref="baz"/>
 
     <!--  test how to use depend-on property -->
-    <bean id="manager" class="com.entrepidea.spring.core.ioc.supports.xml.ManagerBean" />
+    <bean id="manager" class="com.entrepidea.ioc.xml.ManagerBean" />
     
 
     
     <!-- example of method injection -->
-    <bean id="commandManager" class="com.entrepidea.spring.core.ioc.supports.xml.CommandManager">
+    <bean id="commandManager" class="com.entrepidea.ioc.xml.CommandManager">
     	<lookup-method name="createCommand" bean="myCommand"/>
     </bean>
-    <bean id="myCommand" class="com.entrepidea.ioc.supports.xml.AsyncCommand" scope="prototype" />
+    <bean id="myCommand" class="com.entrepidea.ioc.xml.AsyncCommand" scope="prototype" />
     
 
     <!--  example of bean inheritance, be noted that the parent doesnt need to have a corresponding class if it's defined as abstract="true" -->
@@ -71,16 +67,16 @@
     	<property name="age" value="56" />
     </bean>
     
-    <bean id="deriveBean" class="com.entrepidea.ioc.supports.xml.DeriveBean" parent="parentWithoutClass">
+    <bean id="deriveBean" class="com.entrepidea.ioc.xml.DeriveBean" parent="parentWithoutClass">
     	<property name="name" value="son"/>
     </bean>
     
     <!-- bean lifecycle tests -->
     <!-- this is to test the InitializingBean and disposableBean interface -->
-    <bean id="lifecycleBean1" class="com.entrepidea.spring.core.ioc.supports.xml.LifecycleBean1"/>
-    <bean id="lifecycleBean2" class="com.entrepidea.spring.core.ioc.supports.xml.LifecycleBean2"/>
+    <bean id="lifecycleBean1" class="com.entrepidea.ioc.xml.LifecycleBean1"/>
+    <bean id="lifecycleBean2" class="com.entrepidea.ioc.xml.LifecycleBean2"/>
 
-    <bean id="student" class="com.entrepidea.spring.core.ioc.supports.xml.Student"/>
+    <bean id="student" class="com.entrepidea.ioc.support.Student"/>
     <bean id="name" class="java.lang.String">
         <constructor-arg value="John"/>
     </bean>
@@ -90,7 +86,7 @@
     <!-- Test PropertyPlaceHolderConfigurer -->
     <!-- see official doc: 1.8.2 Customizing configuration metadata with a BeanFactoryPostProcessor -->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations" value="classpath:src/test/resources/database/jdbc.properties"/>
+        <property name="locations" value="classpath:database/jdbc.properties"/>
     </bean>
 
     <bean id="basicDataSource" destroy-method="close"
@@ -102,6 +98,6 @@
     </bean>
 
     <!-- SpEL testing beans  -->
-    <bean id="spelParser" class="com.entrepidea.ioc.supports.xml.HelloWorldParser"/>
+    <bean id="spelParser" class="com.entrepidea.ioc.xml.HelloWorldParser"/>
 
  </beans>

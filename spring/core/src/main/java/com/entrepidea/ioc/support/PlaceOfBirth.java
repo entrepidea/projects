@@ -1,4 +1,4 @@
-package com.entrepidea.ioc.xml;
+package com.entrepidea.ioc.support;
 
 /**
  * supporting class
