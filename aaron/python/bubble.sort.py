@@ -1,4 +1,9 @@
+"""
+source code is from : https://www.youtube.com/watch?v=g_xesqdQqvA
 
+08/13/23
+
+"""
 def bubble(list_a):
 	indexing_length = len(list_a) - 1
 	sorted = False
