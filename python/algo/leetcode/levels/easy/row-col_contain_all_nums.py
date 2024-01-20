@@ -10,11 +10,15 @@ ref: https://leetcode.com/problems/check-if-every-row-and-column-contains-all-nu
 12/31/23
 
 """
+from typing import List
+
 def chk_valid(matrix:List[List[int]]):
     set_ = set(range(1,len(matrix)+1))
     return all(set_ == set(x) for x in matrix+list(zip(*matrix)))
 
 
-if __name == '__main__':
+if __name__ == '__main__':
     mat = [[1,2,3],[3,1,2],[2,3,1]]
+    print(chk_valid(mat))
+    mat = [[1,1,1],[1,2,3],[1,2,3]]
     print(chk_valid(mat))
