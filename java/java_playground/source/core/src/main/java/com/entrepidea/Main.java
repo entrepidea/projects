@@ -15,16 +15,7 @@ public class Main implements CommandLineRunner
 
     @Override
     public void run(String... args) throws Exception {
-        fooBarNew(null);
-        fooBarNew("Foo");
-        fooBarNew("Other");
     }
 
-    private void fooBarNew(String s) {
-        switch (s) {
-            case null         -> System.out.println("Oops");
-            case "Foo", "Bar" -> System.out.println("Great");
-            default           -> System.out.println("Ok");
-        }
-    }
+
 }
