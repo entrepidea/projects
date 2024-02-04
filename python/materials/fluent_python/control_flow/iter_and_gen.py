@@ -70,6 +70,15 @@ class Sentence4:
         for match in RE_WORD.finditer(self.text):
             yield match.group()
             
+#the difference b/w this one and #4 version is that in __iter__, the () suggests it's a generator and it's returned.
+class Sentence5:
+    def __init__(self, text):
+        self.text = text
+    def __repr__(self):
+        return 'Sentence(%s)'%reprlib.repr(self.text)
+    def __iter__(self):
+        return (match.group() for match in RE_WORD.finditer(self.text))
+    
 
 
 
