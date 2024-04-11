@@ -3,7 +3,9 @@ package com.entrepidea.java.kafka.samples.sample2;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.entrepidea.java.kafka.samples.sample2.domain.Bar1;
 import com.entrepidea.java.kafka.samples.sample2.domain.Bar2;
+import com.entrepidea.java.kafka.samples.sample2.domain.Foo1;
 import com.entrepidea.java.kafka.samples.sample2.domain.Foo2;
 import org.apache.kafka.clients.admin.NewTopic;
 
@@ -26,11 +28,22 @@ import org.springframework.kafka.listener.DefaultErrorHandler;
 import org.springframework.kafka.support.converter.JsonMessageConverter;
 import org.springframework.kafka.support.converter.RecordMessageConverter;
 import org.springframework.kafka.support.mapping.DefaultJackson2JavaTypeMapper;
+import org.springframework.kafka.support.mapping.Jackson2JavaTypeMapper;
 import org.springframework.kafka.support.mapping.Jackson2JavaTypeMapper.TypePrecedence;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.util.backoff.FixedBackOff;
-
+/*
+* code from https://github.com/spring-projects/spring-kafka/tree/main/samples/sample-02
+*
+*   TODO when running the two below, the receiving message all go to the method MultiMethods@unknown
+*    which might be wrong. need fix.
+*   $ curl -X POST http://localhost:8080/send/foo/bar
+    $ curl -X POST http://localhost:8080/send/bar/baz
+    *
+    * 04/10/24
+    *
+* */
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {

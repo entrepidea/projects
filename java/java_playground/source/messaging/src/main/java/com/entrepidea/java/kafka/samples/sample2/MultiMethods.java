@@ -1,6 +1,8 @@
 package com.entrepidea.java.kafka.samples.sample2;
 
+import com.entrepidea.java.kafka.samples.sample2.domain.Bar1;
 import com.entrepidea.java.kafka.samples.sample2.domain.Bar2;
+import com.entrepidea.java.kafka.samples.sample2.domain.Foo1;
 import com.entrepidea.java.kafka.samples.sample2.domain.Foo2;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
@@ -15,13 +17,13 @@ public class MultiMethods {
     private final TaskExecutor exec = new SimpleAsyncTaskExecutor();
 
     @KafkaHandler
-    public void foo(Foo2 foo) {
+    public void foo(Foo1 foo) {
         System.out.println("Received: " + foo);
         terminateMessage();
     }
 
     @KafkaHandler
-    public void bar(Bar2 bar) {
+    public void bar(Bar1 bar) {
         System.out.println("Received: " + bar);
         terminateMessage();
     }

@@ -1,6 +1,8 @@
 package com.entrepidea.java.kafka.samples.sample2;
 
+import com.entrepidea.java.kafka.samples.sample2.domain.Bar1;
 import com.entrepidea.java.kafka.samples.sample2.domain.Bar2;
+import com.entrepidea.java.kafka.samples.sample2.domain.Foo1;
 import com.entrepidea.java.kafka.samples.sample2.domain.Foo2;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -50,10 +52,10 @@ public class KafkaConfig {
         JsonMessageConverter converter = new JsonMessageConverter();
         DefaultJackson2JavaTypeMapper typeMapper = new DefaultJackson2JavaTypeMapper();
         typeMapper.setTypePrecedence(Jackson2JavaTypeMapper.TypePrecedence.TYPE_ID);
-        typeMapper.addTrustedPackages("com.entrepidea.java.kafka.sample2.domain");
+        typeMapper.addTrustedPackages("*");
         Map<String, Class<?>> mappings = new HashMap<>();
-        mappings.put("foo", Foo2.class);
-        mappings.put("bar", Bar2.class);
+        mappings.put("foo", Foo1.class);
+        mappings.put("bar", Bar1.class);
         typeMapper.setIdClassMapping(mappings);
         converter.setTypeMapper(typeMapper);
         return converter;
@@ -88,6 +90,7 @@ public class KafkaConfig {
         prodProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         prodProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         prodProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        prodProps.put("spring.json.type.mapping", "foo:com.entrepidea.java.kafka.samples.sample2.domain.Foo1,bar:com.entrepidea.java.kafka.samples.sample2.domain.Bar1");
 
         return new DefaultKafkaProducerFactory<>(prodProps);
     }
