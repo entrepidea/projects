@@ -1,5 +1,6 @@
-package com.entrepidea.batch;
+package com.entrepidea.batch.domain;
 
+import com.entrepidea.batch.domain.Employee;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

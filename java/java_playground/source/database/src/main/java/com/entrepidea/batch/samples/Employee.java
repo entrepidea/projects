@@ -1,4 +1,4 @@
-package batchprocessing;
+package com.entrepidea.batch.samples;
 
 import java.util.Date;
 

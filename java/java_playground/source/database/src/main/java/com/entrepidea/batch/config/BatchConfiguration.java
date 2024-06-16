@@ -1,5 +1,8 @@
-package com.entrepidea.batch;
+package com.entrepidea.batch.config;
 
+import com.entrepidea.batch.domain.Employee;
+import com.entrepidea.batch.domain.EmployeeRowMapper;
+import com.entrepidea.batch.main.JobCompletionNotificationListener;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.Logger;
@@ -8,18 +11,14 @@ import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.job.builder.JobBuilder;
-import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
-import org.springframework.batch.support.transaction.ResourcelessTransactionManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 

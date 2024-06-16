@@ -1,4 +1,4 @@
-package batchprocessing;
+package com.entrepidea.batch.samples;
 
 import org.springframework.jdbc.core.RowMapper;
 

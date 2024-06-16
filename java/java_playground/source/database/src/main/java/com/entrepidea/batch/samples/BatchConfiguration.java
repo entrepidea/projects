@@ -1,4 +1,4 @@
-package batchprocessing;
+package com.entrepidea.batch.samples;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -106,7 +106,7 @@ public class BatchConfiguration {
 
 	@Bean
 	public Step step1(JobRepository jobRepository, DataSourceTransactionManager transactionManager,
-					  JdbcCursorItemReader<Employee> reader, ItemProcessor<Employee, Employee> processor, ItemWriter<Employee> writer) {
+                      JdbcCursorItemReader<Employee> reader, ItemProcessor<Employee, Employee> processor, ItemWriter<Employee> writer) {
 		return new StepBuilder("step1", jobRepository)
 			.<Employee, Employee> chunk(10, transactionManager)
 			.reader(reader)

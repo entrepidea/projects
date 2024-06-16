@@ -1,4 +1,4 @@
-package com.entrepidea.batch;
+package com.entrepidea.batch.domain;
 
 import java.util.Date;
 

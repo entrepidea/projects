@@ -1,7 +1,7 @@
-package batchprocessing;
+package com.entrepidea.batch.samples;
 /*
 * This is sample code from Spring batch official site.
-* This app worked, but the one com.entrepidea.com.batch.BatchApplication didn't,
+* This app worked, but the one com.entrepidea.com.batch.main.BatchApplication didn't,
 * even though the code are almost identical, don't know why.
 *
 * 06/09/24
