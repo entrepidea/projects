@@ -1,16 +1,11 @@
 package com.entrepidea.java.kafka.samples.sample2;
 
 import com.entrepidea.java.kafka.samples.sample2.domain.Bar1;
-import com.entrepidea.java.kafka.samples.sample2.domain.Bar2;
 import com.entrepidea.java.kafka.samples.sample2.domain.Foo1;
-import com.entrepidea.java.kafka.samples.sample2.domain.Foo2;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.common.header.Headers;
 import org.apache.kafka.common.serialization.ByteArrayDeserializer;
-import org.apache.kafka.common.serialization.Deserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,7 +26,6 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.util.backoff.FixedBackOff;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,6 +41,7 @@ public class KafkaConfig {
                 new DeadLetterPublishingRecoverer(template), new FixedBackOff(1000L, 2));
     }
 
+    //TODO not sure how this bean is used.
     @Bean
     public RecordMessageConverter converter() {
         JsonMessageConverter converter = new JsonMessageConverter();
@@ -80,8 +75,6 @@ public class KafkaConfig {
         };
     }
 
-
-
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
     @Bean
@@ -90,9 +83,10 @@ public class KafkaConfig {
         prodProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         prodProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         prodProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        prodProps.put("spring.json.type.mapping", "foo:com.entrepidea.java.kafka.samples.sample2.domain.Foo1,bar:com.entrepidea.java.kafka.samples.sample2.domain.Bar1");
+        //prodProps.put("spring.json.type.mapping", "foo:com.entrepidea.java.kafka.samples.sample2.domain.Foo1,bar:com.entrepidea.java.kafka.samples.sample2.domain.Bar1");
 
-        return new DefaultKafkaProducerFactory<>(prodProps);
+        return   new DefaultKafkaProducerFactory<>(prodProps);
+
     }
 
     @Bean
@@ -108,15 +102,6 @@ public class KafkaConfig {
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ByteArrayDeserializer.class);
         props.put(JsonDeserializer.TRUSTED_PACKAGES, "*"); // Allow deserialization of any package
 
-/*        JsonDeserializer<Object> jsonDeserializer = new JsonDeserializer<>();
-        jsonDeserializer.addTrustedPackages("*"); // or specific packages
-
-        ObjectMapper<String, Class<?>> typeMappings = new HashMap<>();
-        typeMappings.put("foo", com.entrepidea.java.kafka.samples.sample2.domain.Foo1.class);
-        typeMappings.put("bar", com.entrepidea.java.kafka.samples.sample2.domain.Bar1.class);
-
-        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(),
-                new JsonDeserializer<>(typeMappings));*/
         return new DefaultKafkaConsumerFactory<>(props);
     }
 
@@ -127,5 +112,4 @@ public class KafkaConfig {
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }
-
 }

@@ -84,10 +84,10 @@ public class Application {
                 new DeadLetterPublishingRecoverer(template), new FixedBackOff(1000L, 2));
     }
 
-    @Bean
-    public RecordMessageConverter converter() {
-        return new JsonMessageConverter();
-    }
+    //@Bean
+    //public RecordMessageConverter converter() {
+    //    return new JsonMessageConverter();
+    //}
 
     @KafkaListener(id = "fooGroup", topics = "topic1")
     public void listen(Foo foo) {

@@ -36,13 +36,18 @@ import org.springframework.util.backoff.FixedBackOff;
 /*
 * code from https://github.com/spring-projects/spring-kafka/tree/main/samples/sample-02
 *
-*   TODO when running the two below, the receiving message all go to the method MultiMethods@unknown
-*    which might be wrong. need fix.
+* once one of the below two curl commands is run, the Controller (annotated with @RestController, acting as a Restful service)
+* receives the message and resend it to one Kafka topic, depending on the nature of the message.
 *   $ curl -X POST http://localhost:8080/send/foo/bar
+*       this will go to the topic "foos", the Object type is Foo1 or Foo2
     $ curl -X POST http://localhost:8080/send/bar/baz
-    *
-    * 04/10/24
-    *
+    *   this will go to the topic "bars", the Object type is Bar1 or Bar2
+*
+* Class MultiMethods is configured to be a Kafka listener - see the comments in that class to understand how message is being
+* navigated and managed.
+*
+*
+* 04/10/24, 04/13/24
 * */
 @SpringBootApplication
 public class Application {
