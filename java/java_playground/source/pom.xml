@@ -92,5 +92,6 @@
     <module>core</module>
     <module>spring</module>
     <module>messaging</module>
+    <module>database</module>
   </modules>
 </project>
