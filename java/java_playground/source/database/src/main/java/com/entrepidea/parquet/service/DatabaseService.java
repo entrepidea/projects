@@ -7,7 +7,12 @@ import org.apache.avro.generic.GenericRecord;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.parquet.avro.AvroParquetWriter;
+import org.apache.parquet.column.ParquetProperties;
+import org.apache.parquet.example.data.Group;
+import org.apache.parquet.hadoop.ParquetFileWriter;
 import org.apache.parquet.hadoop.ParquetWriter;
+import org.apache.parquet.hadoop.example.ExampleParquetWriter;
+import org.apache.parquet.hadoop.metadata.CompressionCodecName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
@@ -18,6 +23,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Types;
+
+import static com.entrepidea.parquet.common.Utils.convert2HadoopPath;
 
 @Service
 public class DatabaseService {
@@ -37,9 +44,9 @@ public class DatabaseService {
         public void processRow(ResultSet rs) throws SQLException {
             Schema schema = buildSchemaFromResultSet(rs);
 
-
-
-            try (ParquetWriter<GenericRecord> writer = AvroParquetWriter.<GenericRecord>builder(new Path("file:///C:\\Users\\Jon\\projects\\github\\java\\java_playground\\data\\parquet\\output.parquet"))
+            String filePath = "../data/parquet/employees.parquet";
+            Path path = convert2HadoopPath(filePath);
+            try (ParquetWriter<GenericRecord> writer = AvroParquetWriter.<GenericRecord>builder(path)
                     .withSchema(schema) // Define schema based on data
                     .withConf(new Configuration())
                     .build()) {
