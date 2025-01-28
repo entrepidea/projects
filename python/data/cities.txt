@@ -1,0 +1,4 @@
+New York, 9457398, 203 sq mi
+Tokyo, 34000450, 180 sq mi
+London, 5000450, 200 sq mi
+Beijing, 9000000, 400 sq mi

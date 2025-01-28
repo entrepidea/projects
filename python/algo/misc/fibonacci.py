@@ -5,9 +5,10 @@ author: Aaron Yee
 Date: 01/16/25
 
 """
+import sys
 
 result=[]
-for i in range(1,21):
+for i in range(1,1001):
 
      if i==1 or i==2:
          result.append(i)
@@ -22,5 +23,5 @@ for i in range(1,21):
 l = len(result)
 last_ele = result[l-1]
 sec_last_ele = result[l-2]
-print(f'Find last two elements [{last_ele},{sec_last_ele}] of the sequence and calculate its ratio:')
+print(f'Find last two elements [{last_ele},  {sec_last_ele}] of the sequence and calculate its ratio:')
 print(last_ele/sec_last_ele)
