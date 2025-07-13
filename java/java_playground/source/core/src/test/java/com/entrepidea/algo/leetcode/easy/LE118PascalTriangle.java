@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 /**
  * @Description: Given a non-negative integer numRows, generate the first numRows of Pascal's triangle.
- * @Source: https://leetcode.com/problems/pascals-triangle/
+ * @Source: <a href="https://leetcode.com/problems/pascals-triangle/">...</a>
  * @Date: 08/24/19
  * */
 public class LE118PascalTriangle {
