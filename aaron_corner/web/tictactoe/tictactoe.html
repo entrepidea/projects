@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="tictactoe.css">
+    <script src="tictactoe.js"></script>
+</head>
+<body onload="init('xWon', 'oWon')">
+<h1>Tic Tac Toe</h1>
+<h3>Get 3 in a row to win!</h3>
+<table>
+    <tr>
+        <td>
+            <button id="1" onclick="togglexo('1')"></button>
+        </td>
+        <td>
+            <button id="2" onclick="togglexo('2')"></button>
+        </td>
+        <td>
+            <button id="3" onclick="togglexo('3')"></button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="4" onclick="togglexo('4')"></button>
+        </td>
+        <td>
+            <button id="5" onclick="togglexo('5')"></button>
+        </td>
+        <td>
+            <button id="6" onclick="togglexo('6')"></button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="7" onclick="togglexo('7')"></button>
+        </td>
+        <td>
+            <button id="8" onclick="togglexo('8')"></button>
+        </td>
+        <td>
+            <button id="9" onclick="togglexo('9')"></button>
+        </td>
+    </tr>
+</table>
+<p id="xWon">Player 1 Won!</p>
+<p id="oWon">Player 2 Won!</p>
+<button id="rematch" onclick="location.reload()">Rematch?</button>
+</body>
+</html>
