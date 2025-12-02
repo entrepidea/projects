@@ -1,7 +1,7 @@
-package com.javapython.app;
+package com.javapython.algo;
 import java.util.Scanner;
 
-public class Testing {
+public class FactorialTests {
     public static void main(String[] args){
 //        Testing t = new Testing();
         int n = 5;

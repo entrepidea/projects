@@ -1,4 +1,4 @@
-package com.javapython.app;
+package com.javapython.misc;
 
 import java.io.File;
 import java.io.FileWriter;

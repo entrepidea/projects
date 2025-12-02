@@ -1,4 +1,4 @@
-package com.javapython.app;
+package com.javapython.algo;
 
 import java.util.ArrayList;
 import java.util.List;

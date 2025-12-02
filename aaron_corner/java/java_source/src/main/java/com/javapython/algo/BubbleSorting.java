@@ -1,4 +1,4 @@
-package com.javapython.app;
+package com.javapython.algo;
 
 public class BubbleSorting {
     static int[] generateRandomNumbers(int size){

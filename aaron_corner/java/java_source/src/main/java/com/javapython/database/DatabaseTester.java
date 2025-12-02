@@ -1,4 +1,4 @@
-package com.javapython.app;
+package com.javapython.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
